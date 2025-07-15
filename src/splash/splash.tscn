@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqwn6t8cp6gid"]
+
+[ext_resource type="Texture2D" uid="uid://di58x1a73lr2j" path="res://sprites/GWJ-Full-Logo-tag-Orange2.svg" id="1_ww06j"]
+[ext_resource type="Texture2D" uid="uid://du8vwh4h4ts4i" path="res://sprites/83-Consume.png" id="2_xgbyh"]
+[ext_resource type="Texture2D" uid="uid://dbfc7b8n4jxdt" path="res://sprites/stardust.png" id="3_qfg8g"]
+[ext_resource type="Texture2D" uid="uid://piobg6lxlx2j" path="res://sprites/trust-me-bro.png" id="4_m2kin"]
+[ext_resource type="Texture2D" uid="uid://bquna4j5px8ep" path="res://sprites/pen2paper.png" id="5_1lxnv"]
+
+[sub_resource type="Environment" id="Environment_uqphl"]
+background_mode = 1
+background_color = Color(0.0784314, 0.133333, 0.25098, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.0784314, 0.133333, 0.25098, 1)
+
+[node name="Splash" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uqphl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="gwj" type="Sprite2D" parent="."]
+position = Vector2(951, 208)
+scale = Vector2(0.376, 0.376)
+texture = ExtResource("1_ww06j")
+
+[node name="consume" type="Sprite2D" parent="."]
+position = Vector2(363, 271)
+scale = Vector2(0.130857, 0.130857)
+texture = ExtResource("2_xgbyh")
+
+[node name="stardust" type="Sprite2D" parent="."]
+position = Vector2(171, 484)
+scale = Vector2(0.204963, 0.204963)
+texture = ExtResource("3_qfg8g")
+
+[node name="trust" type="Sprite2D" parent="."]
+position = Vector2(408.366, 487.312)
+scale = Vector2(0.194498, 0.194498)
+texture = ExtResource("4_m2kin")
+
+[node name="penpaper" type="Sprite2D" parent="."]
+position = Vector2(647.366, 488.712)
+scale = Vector2(0.196824, 0.196824)
+texture = ExtResource("5_1lxnv")
