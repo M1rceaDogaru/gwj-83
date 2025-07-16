@@ -23,7 +23,9 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		var player_score = body.get_meta("Score")
+		var player := body as Player
+		var player_score = player.get_meta("Score")
 		if player_score >= required_score_to_eat:
-			body.set_meta("Score", player_score+score)
+			player.set_meta("Score", player_score+score)
+			player.try_grow()
 			queue_free()

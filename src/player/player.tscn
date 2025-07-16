@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://10in5msak4tb"]
 
-[ext_resource type="Script" uid="uid://cjysx0ksm8bf3" path="res://player/segment.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://cjysx0ksm8bf3" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cmgb3mh3v3nyw" path="res://sprites/Leviathan/BodySegment.png" id="2_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://dgjlqpd5r0ep4" path="res://sprites/Leviathan/leviathanHead.png" id="2_rkbax"]
 
@@ -20,5 +20,3 @@ texture = ExtResource("2_rkbax")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_g1dw6")
-
-[node name="MobTimer" type="Timer" parent="."]

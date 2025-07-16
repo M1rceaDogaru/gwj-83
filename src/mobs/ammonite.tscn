@@ -12,7 +12,7 @@ metadata/IsFacingRight = true
 metadata/Score = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.55, 0.55)
 texture = ExtResource("2_fvhut")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
