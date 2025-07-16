@@ -25,7 +25,6 @@ zoom = Vector2(0.5, 0.5)
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4hjbm")
