@@ -12,7 +12,8 @@ func _ready() -> void:
 	velocity = velocity if is_facing_right else velocity * -1
 	$Sprite2D.flip_h = !is_facing_right
 
-func _process(delta: float) -> void:
+# Use physics process for movement as it's frame-independent
+func _physics_process(delta: float) -> void:
 	transform.origin += velocity
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
