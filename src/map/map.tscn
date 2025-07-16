@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=7 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
 [ext_resource type="PackedScene" uid="uid://bdadbajuxcg81" path="res://mobs/test_mob_1.tscn" id="2_4hjbm"]
 
 [sub_resource type="Environment" id="Environment_beun2"]
+
+[sub_resource type="Curve2D" id="Curve2D_lgq1i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1152, 648, 0, 0, 0, 0, -1152, -648)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_4hjbm"]
 _data = {
@@ -26,10 +32,17 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="MobTimer" type="Timer" parent="."]
 
-[node name="MobPath" type="Path2D" parent="."]
+[node name="MobSpawnPathLeft" type="Path2D" parent="."]
+curve = SubResource("Curve2D_lgq1i")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPathLeft"]
+position = Vector2(-1152, 648)
+rotation = -1.5708
+
+[node name="MobSpawnPathRight" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4hjbm")
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPathRight"]
 position = Vector2(1152, -648)
 rotation = 1.5708
 
