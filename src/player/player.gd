@@ -71,7 +71,7 @@ func get_input():
 	$Sprite2D.flip_v = delta.x < 0
 	
 	# Move only if mouse is sufficiently far
-	if delta.length() > 10:
+	if delta.length() > 50:
 		velocity = transform.x * speed
 	else:
 		velocity = Vector2.ZERO
