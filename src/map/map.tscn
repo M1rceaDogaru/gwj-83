@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0680mc4c6jv2"]
+
+[ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
+
+[sub_resource type="Environment" id="Environment_beun2"]
+
+[node name="Map" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_beun2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Player" parent="." instance=ExtResource("1_hgrid")]
