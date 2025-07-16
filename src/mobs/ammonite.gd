@@ -1,5 +1,8 @@
 extends Area2D
 
+@export var score: int = 5
+@export var required_score_to_eat: int = 5
+
 var velocity
 
 func _ready() -> void:
@@ -19,4 +22,8 @@ func _on_area_entered(area: Area2D) -> void:
 	print(area.name)
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body.name)
+	if body.name == "Player":
+		var player_score = body.get_meta("Score")
+		if player_score >= required_score_to_eat:
+			body.set_meta("Score", player_score+score)
+			queue_free()

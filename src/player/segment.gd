@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @export var speed = 500                  # Movement speed
-@export var spawn_interval = 0.1         # Trail spawn interval (seconds)
+@export var spawn_interval = 0.025       # Trail spawn interval (seconds)
 @export var trail_length = 20            # Fixed number of trail segments
+@export var trail_scale: float = 0.25
 @export var trail_texture: Texture2D     # Trail texture
 @export var tail_texture: Texture2D      # Texture for tail segment
 @export var middle_texture: Texture2D    # Texture for 10th segment
-@export var trail_scale: float = 1.0
 
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle

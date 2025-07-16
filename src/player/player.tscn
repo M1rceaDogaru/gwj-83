@@ -10,9 +10,8 @@ height = 180.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
-spawn_interval = 0.025
 trail_texture = ExtResource("2_g1dw6")
-trail_scale = 0.25
+metadata/Score = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)

@@ -9,6 +9,7 @@
 script = ExtResource("1_fvhut")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true
+metadata/Score = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
