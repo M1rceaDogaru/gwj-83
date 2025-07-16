@@ -24,6 +24,10 @@ window/stretch/mode="viewport"
 
 import/blender/enabled=false
 
+[global_group]
+
+OceanFloor=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

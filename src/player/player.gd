@@ -40,7 +40,7 @@ func _create_trail_sprite(pos: Vector2, rot: float) -> Sprite2D:
 	new_sprite.rotation = rot
 	new_sprite.scale = Vector2.ONE * trail_scale
 	new_sprite.z_index = -1
-	get_parent().add_child(new_sprite)
+	get_parent().add_child.call_deferred(new_sprite)
 	return new_sprite
 
 func _ready():
@@ -151,3 +151,7 @@ func try_grow() -> void:
 		$CollisionShape2D.shape.height = level2_collider_height
 		trail_scale = level2_trail_scale
 		trail_spawn_interval = level2_trail_spawn_interval
+		
+func take_damage() -> void:
+	# TODO: handle taking damage
+	print("OUCH!")
