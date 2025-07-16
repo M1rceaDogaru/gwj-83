@@ -14,11 +14,15 @@ config/name="Godot Wild Jam 83"
 run/main_scene="uid://c0680mc4c6jv2"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.0784314, 0.133333, 0.25098, 1)
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
 
 [display]
 
 window/stretch/mode="viewport"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [rendering]
 
