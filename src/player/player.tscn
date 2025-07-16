@@ -4,18 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://cmgb3mh3v3nyw" path="res://sprites/Leviathan/BodySegment.png" id="2_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://dgjlqpd5r0ep4" path="res://sprites/Leviathan/leviathanHead.png" id="2_rkbax"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
-radius = 63.0714
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
+radius = 40.0
+height = 180.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
+spawn_interval = 0.025
 trail_texture = ExtResource("2_g1dw6")
-BodyTrail_Scale = Vector2(0.6, 0.6)
+trail_scale = 0.25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_rkbax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_rkbax")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_g1dw6")
 
 [node name="MobTimer" type="Timer" parent="."]

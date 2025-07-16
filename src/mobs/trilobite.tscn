@@ -11,7 +11,7 @@ metadata/_edit_group_ = true
 metadata/IsFacingRight = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.23, 0.23)
 texture = ExtResource("2_2fp7f")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

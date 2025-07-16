@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 @export var speed = 500                  # Movement speed
 @export var spawn_interval = 0.1         # Trail spawn interval (seconds)
+@export var trail_length = 20            # Fixed number of trail segments
 @export var trail_texture: Texture2D     # Trail texture
-@export var fixed_length = 20            # Fixed number of trail segments
 @export var tail_texture: Texture2D      # Texture for tail segment
 @export var middle_texture: Texture2D    # Texture for 10th segment
-@export var BodyTrail_Scale: Vector2 = Vector2.ONE;
+@export var trail_scale: float = 1.0
 
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
@@ -20,7 +20,7 @@ func _create_trail_sprite(pos: Vector2, rot: float) -> Sprite2D:
 	new_sprite.texture = trail_texture
 	new_sprite.position = pos
 	new_sprite.rotation = rot
-	new_sprite.scale = BodyTrail_Scale
+	new_sprite.scale = Vector2.ONE * trail_scale
 	new_sprite.z_index = -1
 	get_parent().add_child(new_sprite)
 	return new_sprite
@@ -37,7 +37,7 @@ func _ready():
 	last_position = position
 	
 	# Create initial fixed-length trail at starting position
-	for i in range(fixed_length):
+	for i in range(trail_length):
 		var new_sprite = _create_trail_sprite(position, rotation)
 		trail_sprites.append(new_sprite)
 	
@@ -85,7 +85,7 @@ func _on_timer_timeout():
 	var new_sprite = _create_trail_sprite(position, last_rotation)
 	
 	# Remove oldest sprite if we have enough segments
-	if trail_sprites.size() >= fixed_length:
+	if trail_sprites.size() >= trail_length:
 		# Before removing, reset any special texture to default
 		reset_old_special_textures()
 		if is_instance_valid(trail_sprites[0]):
