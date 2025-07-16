@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdadbajuxcg81"]
+
+[ext_resource type="Texture2D" uid="uid://chp3iyhgynfpt" path="res://icon.svg" id="1_61j6l"]
+[ext_resource type="Script" uid="uid://2n3hm0u2xsmq" path="res://mobs/test_mob_1.gd" id="1_fvhut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvhut"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_fvhut")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_61j6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_fvhut")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
