@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=9 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
-[ext_resource type="PackedScene" uid="uid://bdadbajuxcg81" path="res://mobs/test_mob_1.tscn" id="2_4hjbm"]
+[ext_resource type="PackedScene" uid="uid://bdadbajuxcg81" path="res://mobs/ammonite.tscn" id="2_4hjbm"]
+[ext_resource type="PackedScene" uid="uid://b3rx4xd54ocg8" path="res://mobs/trilobite.tscn" id="2_kffv2"]
+[ext_resource type="Texture2D" uid="uid://daw7fyyhiwsol" path="res://sprites/Background/Notebook.webp" id="4_lgq1i"]
 
 [sub_resource type="Environment" id="Environment_beun2"]
 
@@ -20,13 +22,19 @@ point_count = 2
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_a0dt8")
-mob_scene = ExtResource("2_4hjbm")
+trilobite_mob_scene = ExtResource("2_kffv2")
+ammonite_mob_scene = ExtResource("2_4hjbm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_beun2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+scale = Vector2(3, 3)
+texture = ExtResource("4_lgq1i")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
 

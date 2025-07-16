@@ -1,13 +1,15 @@
 extends Node2D
 
-@export var mob_scene: PackedScene
+@export var trilobite_mob_scene: PackedScene
+@export var ammonite_mob_scene: PackedScene
 
 func _ready():
 	$MobTimer.start()
 
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
-	var mob = mob_scene.instantiate()
+	var mob_type = randi() % 2 == 0
+	var mob = trilobite_mob_scene.instantiate() if mob_type else ammonite_mob_scene.instantiate()
 
 	var spawn_from_left = randi() % 2 == 0
 	var mob_spawn_location
