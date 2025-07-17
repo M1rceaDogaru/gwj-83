@@ -18,7 +18,7 @@ scale = Vector2(0.55, 0.55)
 texture = ExtResource("2_fvhut")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-80, -80, 160, 160)
+rect = Rect2(-100, -100, 200, 200)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fvhut")
