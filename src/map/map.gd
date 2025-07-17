@@ -2,6 +2,7 @@ extends Node2D
 
 @export var level1_mobs: Array[MobSpawnConfig]
 @export var level2_mobs: Array[MobSpawnConfig]
+@export var level3_mobs: Array[MobSpawnConfig]
 
 @export var level1_camera_zoom = 0.5
 @export var level2_camera_scale = 1.5
@@ -9,11 +10,12 @@ extends Node2D
 @export var camera_zoom_time = 20.0 # Larger value means slower zoom
 
 @export var score_to_level2 = 20
+@export var score_to_level3 = 40
 
 var level = 1
 
-var level1_mob_spawn_path_left_point_positions = [Vector2(-1152.0,648.0),Vector2(-1152.0,-648.0)]
-var level1_mob_spawn_path_right_point_positions = [Vector2(1152.0,-648.0),Vector2(1152.0,648.0)]
+var level1_mob_spawn_path_left_point_positions
+var level1_mob_spawn_path_right_point_positions
 
 var level2_camera_zoom
 var level2_zoom_delta
@@ -22,6 +24,14 @@ func _ready():
 	$MobTimer.start()
 	level2_camera_zoom = level1_camera_zoom/level2_camera_scale
 	level2_zoom_delta = (level1_camera_zoom - level2_camera_zoom) / camera_zoom_time
+	level1_mob_spawn_path_left_point_positions = [
+		$MobSpawnPathLeft.curve.get_point_position(0),
+		$MobSpawnPathLeft.curve.get_point_position(1)
+	]
+	level1_mob_spawn_path_right_point_positions = [
+		$MobSpawnPathRight.curve.get_point_position(0),
+		$MobSpawnPathRight.curve.get_point_position(1)
+	]
 	
 func _physics_process(delta):
 	if level == 2:
@@ -55,8 +65,10 @@ func get_weighted_mob_to_spawn() -> MobSpawnConfig:
 	var mobs
 	if level == 1:
 		mobs = level1_mobs
-	elif level ==2:
+	elif level == 2:
 		mobs = level2_mobs
+	elif level == 3:
+		mobs = level3_mobs
 	
 	var total_weight = 0.0
 	for config in mobs:
@@ -79,8 +91,9 @@ func get_weighted_mob_to_spawn() -> MobSpawnConfig:
 func _on_player_player_eat(score_after_eating: int) -> void:
 	if level == 1 and score_after_eating >= score_to_level2:
 		level = 2
-		
 		$MobSpawnPathLeft.curve.set_point_position(0, level1_mob_spawn_path_left_point_positions[0] * level2_camera_scale)
 		$MobSpawnPathLeft.curve.set_point_position(1, level1_mob_spawn_path_left_point_positions[1] * level2_camera_scale)
 		$MobSpawnPathRight.curve.set_point_position(0, level1_mob_spawn_path_right_point_positions[0] * level2_camera_scale)
 		$MobSpawnPathRight.curve.set_point_position(1, level1_mob_spawn_path_right_point_positions[1] * level2_camera_scale)
+	if level == 2 and score_after_eating >= score_to_level3:
+		level = 3

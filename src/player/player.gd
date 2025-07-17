@@ -12,6 +12,10 @@ class_name Player
 
 @export var score_to_level2 = 5
 @export var level2_player_scale = 1.5
+@export var score_to_level3 = 60
+@export var level3_player_scale = 2.5
+@export var score_to_level4 = 120
+@export var level4_player_scale = 3.5
 
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
@@ -148,13 +152,22 @@ func try_grow() -> void:
 	var player_score = get_meta("Score")
 	if level == 1 and player_score >= score_to_level2:
 		level = 2
-		speed = level2_player_scale * level1_speed
-		$Sprite2D.scale = Vector2.ONE * level2_player_scale * level1_head_scale
-		$CollisionShape2D.shape.radius = level2_player_scale * level1_collider_radius
-		$CollisionShape2D.shape.height = level2_player_scale * level1_collider_height
-		trail_scale = level2_player_scale * level1_trail_scale
-		trail_spawn_interval = level2_player_scale * level1_trail_spawn_interval
-		
+		grow_to_scale(level2_player_scale)
+	if level == 2 and player_score >= score_to_level3:
+		level = 3
+		grow_to_scale(level3_player_scale)
+	if level == 3 and player_score >= score_to_level4:
+		level = 4
+		grow_to_scale(level4_player_scale)
+
+func grow_to_scale(level_scale) -> void:
+	speed = level_scale * level1_speed
+	$Sprite2D.scale = Vector2.ONE * level_scale * level1_head_scale
+	$CollisionShape2D.shape.radius = level_scale * level1_collider_radius
+	$CollisionShape2D.shape.height = level_scale * level1_collider_height
+	trail_scale = level_scale * level1_trail_scale
+	trail_spawn_interval = level_scale * level1_trail_spawn_interval
+
 func take_damage() -> void:
 	# TODO: handle taking damage
 	print("OUCH!")

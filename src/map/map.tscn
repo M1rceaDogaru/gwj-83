@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=21 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://64mv2walulaj" path="res://mobs/mob_spawn_config.gd" id="2_5jdw0"]
 [ext_resource type="PackedScene" uid="uid://b3rx4xd54ocg8" path="res://mobs/trilobite.tscn" id="2_kffv2"]
 [ext_resource type="Texture2D" uid="uid://daw7fyyhiwsol" path="res://sprites/Background/Notebook.webp" id="4_lgq1i"]
+[ext_resource type="PackedScene" uid="uid://fftwkxb531xu" path="res://mobs/anomalocaris.tscn" id="5_5jdw0"]
 [ext_resource type="PackedScene" uid="uid://co7c04tfk311a" path="res://mobs/hallucigenia.tscn" id="5_kxmgb"]
 
 [sub_resource type="Resource" id="Resource_kffv2"]
@@ -35,6 +36,30 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 [sub_resource type="Resource" id="Resource_e8e5r"]
 script = ExtResource("2_5jdw0")
 weight = 1.0
+creature = ExtResource("5_5jdw0")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_112ik"]
+script = ExtResource("2_5jdw0")
+weight = 0.5
+creature = ExtResource("2_kffv2")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_i5grx"]
+script = ExtResource("2_5jdw0")
+weight = 1.0
+creature = ExtResource("2_4hjbm")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_lct0g"]
+script = ExtResource("2_5jdw0")
+weight = 1.0
+creature = ExtResource("5_5jdw0")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_k8tny"]
+script = ExtResource("2_5jdw0")
+weight = 0.5
 creature = ExtResource("5_kxmgb")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
@@ -42,13 +67,13 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Curve2D" id="Curve2D_lgq1i"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1152, 648, 0, 0, 0, 0, -1152, -648)
+"points": PackedVector2Array(0, 0, 0, 0, -1152, 348, 0, 0, 0, 0, -1152, -548)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_4hjbm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1152, -648, 0, 0, 0, 0, 1152, 648)
+"points": PackedVector2Array(0, 0, 0, 0, 1152, -548, 0, 0, 0, 0, 1152, 348)
 }
 point_count = 2
 
@@ -56,6 +81,7 @@ point_count = 2
 script = ExtResource("1_a0dt8")
 level1_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_kffv2"), SubResource("Resource_7lyie")])
 level2_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_5jdw0"), SubResource("Resource_kxmgb"), SubResource("Resource_e8e5r")])
+level3_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_112ik"), SubResource("Resource_i5grx"), SubResource("Resource_lct0g"), SubResource("Resource_k8tny")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_beun2")
@@ -76,14 +102,14 @@ texture = ExtResource("4_lgq1i")
 curve = SubResource("Curve2D_lgq1i")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPathLeft"]
-position = Vector2(-1152, 648)
+position = Vector2(-1152, 348)
 rotation = -1.5708
 
 [node name="MobSpawnPathRight" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4hjbm")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPathRight"]
-position = Vector2(1152, -648)
+position = Vector2(1152, -548)
 rotation = 1.5708
 
 [node name="OceanFloor" type="Node2D" parent="." groups=["OceanFloor"]]

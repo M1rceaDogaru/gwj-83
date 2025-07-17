@@ -10,6 +10,8 @@ radius = 40.0
 script = ExtResource("1_2fp7f")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true
+metadata/Score = 1
+metadata/IsCarnivorous = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.23, 0.23)

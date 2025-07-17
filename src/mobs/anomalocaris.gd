@@ -1,8 +1,8 @@
 extends Area2D
 
-@export var required_score_to_eat = 120
-@export var speed_min = 1.0
-@export var speed_max = 2.0
+@export var required_score_to_eat = 60
+@export var speed_min = 6.0
+@export var speed_max = 8.0
 
 var score
 var velocity
@@ -10,8 +10,6 @@ var velocity
 func _ready() -> void:
 	score = get_meta("Score")
 	velocity = Vector2(randf_range(speed_min, speed_max), 0.0)
-	var ocean_floor = get_tree().get_first_node_in_group("OceanFloor")
-	global_position.y = ocean_floor.global_position.y
 	
 	var is_facing_right = get_meta("IsFacingRight")
 	velocity = velocity if is_facing_right else velocity * -1

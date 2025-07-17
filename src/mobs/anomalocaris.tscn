@@ -1,27 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://duwiq20sakjq7"]
+[gd_scene load_steps=4 format=3 uid="uid://fftwkxb531xu"]
 
-[ext_resource type="Script" uid="uid://b8ih5hi0obp3d" path="res://mobs/cameroceras.gd" id="1_co4km"]
-[ext_resource type="Texture2D" uid="uid://b4vlcxpdh1n2u" path="res://sprites/TestSprites/icon.png" id="2_co4km"]
+[ext_resource type="Script" uid="uid://cwo3uiy71f32y" path="res://mobs/anomalocaris.gd" id="1_ap6be"]
+[ext_resource type="Texture2D" uid="uid://csvci56xth67m" path="res://sprites/mobs/anomalocaris.png" id="2_ap6be"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fvhut"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap6be"]
+size = Vector2(320, 140)
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_co4km")
+script = ExtResource("1_ap6be")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true
-metadata/Score = 50
+metadata/Score = 10
 metadata/IsCarnivorous = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.23, 0.23)
-texture = ExtResource("2_co4km")
+scale = Vector2(2, 2)
+texture = ExtResource("2_ap6be")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-30, -30, 60, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(5, 5)
-shape = SubResource("CircleShape2D_fvhut")
+position = Vector2(80, 30)
+shape = SubResource("RectangleShape2D_ap6be")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,6 +1,5 @@
 extends Area2D
 
-@export var score: int = 10
 @export var required_score_to_eat: int = 60
 
 @export var move_speed: float = 800.0
@@ -8,12 +7,15 @@ extends Area2D
 @export var pause_time: float = 2.0
 @export var slow_speed: float = 15.0
 
+var score
 var is_moving: bool = false
 var distance_moved: float = 0.0
 var timer: float = 0.0
 var move_direction: int = 1
 
 func _ready() -> void:
+	score = get_meta("Score")
+	
 	var is_facing_right = get_meta("IsFacingRight")
 	move_direction = 1 if is_facing_right else -1
 	$Sprite2D.flip_h = !is_facing_right

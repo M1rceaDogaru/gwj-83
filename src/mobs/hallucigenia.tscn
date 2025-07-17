@@ -1,25 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://co7c04tfk311a"]
 
 [ext_resource type="Script" uid="uid://dvx1xaeb8txx0" path="res://mobs/hallucigenia.gd" id="1_qhpln"]
-[ext_resource type="Texture2D" uid="uid://bxy3y8tcuylst" path="res://sprites/TestSprites/icon1.png" id="2_qhpln"]
+[ext_resource type="Texture2D" uid="uid://c6u03akk0to3e" path="res://sprites/mobs/hallucigenia.png" id="2_qhpln"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fvhut"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bkff"]
+size = Vector2(500, 250)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_qhpln")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true
+metadata/Score = 10
+metadata/IsCarnivorous = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.23, 0.23)
 texture = ExtResource("2_qhpln")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-30, -30, 60, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(5, 5)
-shape = SubResource("CircleShape2D_fvhut")
+shape = SubResource("RectangleShape2D_0bkff")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

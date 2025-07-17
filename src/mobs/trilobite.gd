@@ -1,12 +1,15 @@
 extends Area2D
 
-@export var score: int = 1
-@export var required_score_to_eat: int = 0
+@export var required_score_to_eat = 0
+@export var speed_min = 2.0
+@export var speed_max = 4.0
 
+var score
 var velocity
 
 func _ready() -> void:
-	velocity = Vector2(randf_range(2.0, 4.0), 0.0)
+	score = get_meta("Score")
+	velocity = Vector2(randf_range(speed_min, speed_max), 0.0)
 	
 	var is_facing_right = get_meta("IsFacingRight")
 	velocity = velocity if is_facing_right else velocity * -1
@@ -20,7 +23,10 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
-	print(area.name)
+	var other_score = area.get_meta("Score")
+	var other_is_carnivorous = area.get_meta("Score")
+	if other_score >= 10 and other_is_carnivorous:
+			queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
