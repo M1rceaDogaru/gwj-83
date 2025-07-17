@@ -11,6 +11,7 @@ class_name Player
 @export var middle_texture: Texture2D    # Texture for 10th segment
 
 @export var score_to_level2 = 5
+@export var level2_player_scale = 1.5
 
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
@@ -26,13 +27,6 @@ var level1_collider_radius = 40
 var level1_collider_height = 180
 var level1_trail_scale = 0.25
 var level1_trail_spawn_interval = 0.025
-
-var level2_speed = 750
-var level2_head_scale = 0.6
-var level2_collider_radius = 60
-var level2_collider_height = 270
-var level2_trail_scale = 0.375
-var level2_trail_spawn_interval = 0.0375
 
 signal player_eat(score_after_eating: int)
 
@@ -154,12 +148,12 @@ func try_grow() -> void:
 	var player_score = get_meta("Score")
 	if level == 1 and player_score >= score_to_level2:
 		level = 2
-		speed = level2_speed
-		$Sprite2D.scale = Vector2.ONE * level2_head_scale
-		$CollisionShape2D.shape.radius = level2_collider_radius
-		$CollisionShape2D.shape.height = level2_collider_height
-		trail_scale = level2_trail_scale
-		trail_spawn_interval = level2_trail_spawn_interval
+		speed = level2_player_scale * level1_speed
+		$Sprite2D.scale = Vector2.ONE * level2_player_scale * level1_head_scale
+		$CollisionShape2D.shape.radius = level2_player_scale * level1_collider_radius
+		$CollisionShape2D.shape.height = level2_player_scale * level1_collider_height
+		trail_scale = level2_player_scale * level1_trail_scale
+		trail_spawn_interval = level2_player_scale * level1_trail_spawn_interval
 		
 func take_damage() -> void:
 	# TODO: handle taking damage
