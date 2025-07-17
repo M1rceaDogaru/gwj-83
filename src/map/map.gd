@@ -12,7 +12,7 @@ extends Node2D
 @export var level5_camera_scale = 3.5
 
 @export var level2_spawn_offset = 160
-@export var level5_spawn_offset = 2000
+@export var level5_spawn_offset = 1400
 
 @export var camera_zoom_time = 20.0 # Larger value means slower zoom
 
