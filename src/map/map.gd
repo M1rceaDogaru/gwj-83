@@ -18,8 +18,8 @@ extends Node2D
 
 @export var score_to_level2 = 20
 @export var score_to_level3 = 40
-@export var score_to_level4 = 120
-@export var score_to_level5 = 160
+@export var score_to_level4 = 90
+@export var score_to_level5 = 180
 
 @export var level2_spawn_wait_time = 0.75
 @export var level3_spawn_wait_time = 0.65
