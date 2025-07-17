@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=43 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://duwiq20sakjq7" path="res://mobs/cameroceras.tscn" id="8_112ik"]
 [ext_resource type="PackedScene" uid="uid://bggnh3ybbrdpv" path="res://mobs/sacabambaspis.tscn" id="9_i5grx"]
 [ext_resource type="PackedScene" uid="uid://do04foheh3c1q" path="res://mobs/dunkleosteus.tscn" id="10_lct0g"]
+[ext_resource type="PackedScene" uid="uid://bgrs148km24uc" path="res://mobs/ammonite_larger.tscn" id="11_wnugf"]
+[ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/coelacanth.tscn" id="12_58xwf"]
+[ext_resource type="PackedScene" uid="uid://djwaju6opujsl" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
 
 [sub_resource type="Resource" id="Resource_kffv2"]
 script = ExtResource("2_5jdw0")
@@ -129,7 +132,7 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Resource" id="Resource_gw5x3"]
 script = ExtResource("2_5jdw0")
-weight = 0.3
+weight = 0.25
 creature = ExtResource("8_112ik")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
@@ -137,6 +140,24 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 script = ExtResource("2_5jdw0")
 weight = 0.3
 creature = ExtResource("10_lct0g")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_8lto5"]
+script = ExtResource("2_5jdw0")
+weight = 1.0
+creature = ExtResource("11_wnugf")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_ofiht"]
+script = ExtResource("2_5jdw0")
+weight = 0.7
+creature = ExtResource("12_58xwf")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_05mli"]
+script = ExtResource("2_5jdw0")
+weight = 0.2
+creature = ExtResource("13_w1ifk")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Environment" id="Environment_beun2"]
@@ -161,6 +182,7 @@ level3_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_112ik"), SubR
 level4_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_ap8vc"), SubResource("Resource_58xwf"), SubResource("Resource_w1ifk"), SubResource("Resource_wnugf")])
 level5_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_sjjp3"), SubResource("Resource_g0u07"), SubResource("Resource_21p51"), SubResource("Resource_xar17")])
 level6_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_iqbtl"), SubResource("Resource_81obp"), SubResource("Resource_gw5x3"), SubResource("Resource_wwcqt")])
+level7_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_8lto5"), SubResource("Resource_ofiht"), SubResource("Resource_05mli")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_beun2")

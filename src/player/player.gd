@@ -18,10 +18,12 @@ class_name Player
 @export var level4_player_scale = 3.5
 @export var score_to_level5 = 250
 @export var level5_player_scale = 5.0
-@export var score_to_level6 = 700
+@export var score_to_level6 = 800
 @export var level6_player_scale = 7.5
-@export var score_to_level7 = 1300
+@export var score_to_level7 = 2000
 @export var level7_player_scale = 10.0
+@export var score_to_level8 = 4500
+@export var level8_player_scale = 15.0
 
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
@@ -60,6 +62,9 @@ func try_grow() -> void:
 	elif level <= 6 and player_score >= score_to_level7:
 		level = 7
 		grow_to_scale(level7_player_scale)
+	elif level <= 7 and player_score >= score_to_level8:
+		level = 8
+		grow_to_scale(level8_player_scale)
 
 func grow_to_scale(level_scale) -> void:
 	speed = level_scale * level1_speed

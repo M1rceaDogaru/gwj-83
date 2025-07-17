@@ -10,7 +10,7 @@ size = Vector2(800, 600)
 script = ExtResource("1_pve3i")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true
-metadata/Score = 100
+metadata/Score = 180
 metadata/IsCarnivorous = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
