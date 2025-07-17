@@ -32,7 +32,7 @@ func _on_area_entered(area: Area2D) -> void:
 	var other_score = area.get_meta("Score")
 	var other_is_carnivorous = area.get_meta("Score")
 	if other_score >= npc_required_score_to_eat and other_is_carnivorous:
-			queue_free()
+		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

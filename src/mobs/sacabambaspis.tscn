@@ -10,7 +10,7 @@ size = Vector2(650, 250)
 script = ExtResource("1_jgsxo")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true
-metadata/Score = 20
+metadata/Score = 25
 metadata/IsCarnivorous = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
