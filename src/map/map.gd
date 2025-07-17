@@ -19,6 +19,10 @@ extends Node2D
 @export var score_to_level3 = 40
 @export var score_to_level4 = 180
 
+@export var level2_spawn_wait_time = 0.75
+@export var level3_spawn_wait_time = 0.65
+@export var level4_spawn_wait_time = 0.75
+
 var level = 1
 
 var level1_mob_spawn_path_left_point_positions
@@ -120,13 +124,16 @@ func _on_player_player_eat(score_after_eating: int) -> void:
 	if level == 1 and score_after_eating >= score_to_level2:
 		level = 2
 		_update_spawn(level2_camera_scale, level2_spawn_offset)
+		$MobTimer.wait_time = level2_spawn_wait_time
 		first_spawn_in_level = true
 	if level == 2 and score_after_eating >= score_to_level3:
 		level = 3
+		$MobTimer.wait_time = level3_spawn_wait_time
 		first_spawn_in_level = true
 	if level == 3 and score_after_eating >= score_to_level4:
 		level = 4
 		_update_spawn(level4_camera_scale, level4_spawn_offset)
+		$MobTimer.wait_time = level4_spawn_wait_time
 		first_spawn_in_level = true
 
 func _update_spawn(level_scale, level_offset):
