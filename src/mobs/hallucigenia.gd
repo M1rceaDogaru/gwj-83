@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var score: int = 10
-@export var required_score_to_eat: int = 20
+@export var required_score_to_eat: int = 40
 
 var velocity
 
