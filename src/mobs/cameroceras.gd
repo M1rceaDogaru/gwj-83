@@ -2,8 +2,8 @@ extends Area2D
 
 @export var required_score_to_eat: int = 60
 
-@export var move_speed: float = 800.0
-@export var move_distance: float = 400.0
+@export var move_speed: float = 2000.0
+@export var move_distance: float = 1000.0
 @export var pause_time: float = 2.0
 @export var slow_speed: float = 15.0
 
