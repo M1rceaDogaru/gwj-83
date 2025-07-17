@@ -65,7 +65,7 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 texture = ExtResource("4_lgq1i")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
@@ -87,7 +87,7 @@ position = Vector2(1152, -648)
 rotation = 1.5708
 
 [node name="OceanFloor" type="Node2D" parent="." groups=["OceanFloor"]]
-position = Vector2(0, 556)
+position = Vector2(0, 834)
 
 [connection signal="player_eat" from="Player" to="." method="_on_player_player_eat"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
