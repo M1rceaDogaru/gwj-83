@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdakwmp726wto"
-path="res://.godot/imported/PlesioSaurus.png-b7d67c2bc3452dccfd8dcce0254eefed.ctex"
+uid="uid://cwvf5sg2txspo"
+path="res://.godot/imported/dunkleosteus.png-1df4de606d5db89c8f826bbb79368ee0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mobs/PlesioSaurus.png"
-dest_files=["res://.godot/imported/PlesioSaurus.png-b7d67c2bc3452dccfd8dcce0254eefed.ctex"]
+source_file="res://sprites/mobs/dunkleosteus.png"
+dest_files=["res://.godot/imported/dunkleosteus.png-1df4de606d5db89c8f826bbb79368ee0.ctex"]
 
 [params]
 
