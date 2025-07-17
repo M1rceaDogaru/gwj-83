@@ -19,6 +19,9 @@ func _ready() -> void:
 	var is_facing_right = get_meta("IsFacingRight")
 	move_direction = 1 if is_facing_right else -1
 	$Sprite2D.flip_h = !is_facing_right
+	if !is_facing_right:
+		$VisibleOnScreenNotifier2D.position.x = -$VisibleOnScreenNotifier2D.position.x
+		$CollisionShape2D.position.x = -$CollisionShape2D.position.x
 
 # Use physics process for movement as it's frame-independent
 func _physics_process(delta: float) -> void:

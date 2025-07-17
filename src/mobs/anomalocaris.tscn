@@ -18,7 +18,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_ap6be")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-30, -30, 60, 60)
+rect = Rect2(-200, -80, 450, 200)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(80, 30)

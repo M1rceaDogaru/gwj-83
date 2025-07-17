@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://duwiq20sakjq7"]
 
 [ext_resource type="Script" uid="uid://b8ih5hi0obp3d" path="res://mobs/cameroceras.gd" id="1_co4km"]
-[ext_resource type="Texture2D" uid="uid://b4vlcxpdh1n2u" path="res://sprites/TestSprites/icon.png" id="2_co4km"]
+[ext_resource type="Texture2D" uid="uid://c7bwuik2snq0p" path="res://sprites/mobs/cameroceras.png" id="2_co4km"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fvhut"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnqqa"]
+size = Vector2(800, 350)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_co4km")
@@ -13,15 +14,15 @@ metadata/Score = 50
 metadata/IsCarnivorous = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.23, 0.23)
+scale = Vector2(4, 4)
 texture = ExtResource("2_co4km")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-30, -30, 60, 60)
+rect = Rect2(-2100, -150, 4200, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(5, 5)
-shape = SubResource("CircleShape2D_fvhut")
+position = Vector2(1000, 100)
+shape = SubResource("RectangleShape2D_qnqqa")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

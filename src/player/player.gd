@@ -12,7 +12,7 @@ class_name Player
 
 @export var score_to_level2 = 5
 @export var level2_player_scale = 1.5
-@export var score_to_level3 = 60
+@export var score_to_level3 = 70
 @export var level3_player_scale = 2.5
 @export var score_to_level4 = 120
 @export var level4_player_scale = 3.5

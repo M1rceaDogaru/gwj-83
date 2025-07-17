@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var required_score_to_eat = 60
+@export var required_score_to_eat = 70
 @export var speed_min = 6.0
 @export var speed_max = 8.0
 
@@ -14,6 +14,9 @@ func _ready() -> void:
 	var is_facing_right = get_meta("IsFacingRight")
 	velocity = velocity if is_facing_right else velocity * -1
 	$Sprite2D.flip_h = !is_facing_right
+	if !is_facing_right:
+		$VisibleOnScreenNotifier2D.position.x = -$VisibleOnScreenNotifier2D.position.x
+		$CollisionShape2D.position.x = -$CollisionShape2D.position.x
 
 # Use physics process for movement as it's frame-independent
 func _physics_process(delta: float) -> void:

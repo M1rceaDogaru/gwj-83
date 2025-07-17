@@ -17,7 +17,7 @@ metadata/IsCarnivorous = false
 texture = ExtResource("2_qhpln")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-30, -30, 60, 60)
+rect = Rect2(-250, -125, 500, 250)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0bkff")
