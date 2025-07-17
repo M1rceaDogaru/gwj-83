@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=37 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://co7c04tfk311a" path="res://mobs/hallucigenia.tscn" id="5_kxmgb"]
 [ext_resource type="PackedScene" uid="uid://jkek3yfmviai" path="res://mobs/ammonite_large.tscn" id="7_e8e5r"]
 [ext_resource type="PackedScene" uid="uid://duwiq20sakjq7" path="res://mobs/cameroceras.tscn" id="8_112ik"]
+[ext_resource type="PackedScene" uid="uid://bggnh3ybbrdpv" path="res://mobs/sacabambaspis.tscn" id="9_i5grx"]
+[ext_resource type="PackedScene" uid="uid://do04foheh3c1q" path="res://mobs/dunkleosteus.tscn" id="10_lct0g"]
 
 [sub_resource type="Resource" id="Resource_kffv2"]
 script = ExtResource("2_5jdw0")
@@ -101,15 +103,9 @@ weight = 0.8
 creature = ExtResource("5_5jdw0")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
-[sub_resource type="Resource" id="Resource_8lto5"]
-script = ExtResource("2_5jdw0")
-weight = 0.5
-creature = ExtResource("5_kxmgb")
-metadata/_custom_type_script = "uid://64mv2walulaj"
-
 [sub_resource type="Resource" id="Resource_21p51"]
 script = ExtResource("2_5jdw0")
-weight = 1.3
+weight = 1.2
 creature = ExtResource("7_e8e5r")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
@@ -119,17 +115,41 @@ weight = 0.2
 creature = ExtResource("8_112ik")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
+[sub_resource type="Resource" id="Resource_iqbtl"]
+script = ExtResource("2_5jdw0")
+weight = 0.8
+creature = ExtResource("7_e8e5r")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_81obp"]
+script = ExtResource("2_5jdw0")
+weight = 1.2
+creature = ExtResource("9_i5grx")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_gw5x3"]
+script = ExtResource("2_5jdw0")
+weight = 0.3
+creature = ExtResource("8_112ik")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_wwcqt"]
+script = ExtResource("2_5jdw0")
+weight = 0.3
+creature = ExtResource("10_lct0g")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
 [sub_resource type="Environment" id="Environment_beun2"]
 
 [sub_resource type="Curve2D" id="Curve2D_lgq1i"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1152, 348, 0, 0, 0, 0, -1152, -548)
+"points": PackedVector2Array(0, 0, 0, 0, -1152, 448, 0, 0, 0, 0, -1152, -548)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_4hjbm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1152, -548, 0, 0, 0, 0, 1152, 348)
+"points": PackedVector2Array(0, 0, 0, 0, 1152, -548, 0, 0, 0, 0, 1152, 448)
 }
 point_count = 2
 
@@ -139,7 +159,8 @@ level1_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_kffv2"), SubR
 level2_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_5jdw0"), SubResource("Resource_kxmgb"), SubResource("Resource_e8e5r")])
 level3_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_112ik"), SubResource("Resource_i5grx"), SubResource("Resource_lct0g"), SubResource("Resource_k8tny")])
 level4_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_ap8vc"), SubResource("Resource_58xwf"), SubResource("Resource_w1ifk"), SubResource("Resource_wnugf")])
-level5_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_sjjp3"), SubResource("Resource_g0u07"), SubResource("Resource_8lto5"), SubResource("Resource_21p51"), SubResource("Resource_xar17")])
+level5_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_sjjp3"), SubResource("Resource_g0u07"), SubResource("Resource_21p51"), SubResource("Resource_xar17")])
+level6_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_iqbtl"), SubResource("Resource_81obp"), SubResource("Resource_gw5x3"), SubResource("Resource_wwcqt")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_beun2")
@@ -149,7 +170,7 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
-scale = Vector2(10, 10)
+scale = Vector2(20, 20)
 texture = ExtResource("4_lgq1i")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
@@ -160,7 +181,7 @@ texture = ExtResource("4_lgq1i")
 curve = SubResource("Curve2D_lgq1i")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPathLeft"]
-position = Vector2(-1152, 348)
+position = Vector2(-1152, 448)
 rotation = -1.5708
 
 [node name="MobSpawnPathRight" type="Path2D" parent="."]

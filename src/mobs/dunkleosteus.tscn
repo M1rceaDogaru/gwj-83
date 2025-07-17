@@ -1,28 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://duwiq20sakjq7"]
+[gd_scene load_steps=4 format=3 uid="uid://do04foheh3c1q"]
 
-[ext_resource type="Script" uid="uid://b8ih5hi0obp3d" path="res://mobs/cameroceras.gd" id="1_co4km"]
-[ext_resource type="Texture2D" uid="uid://c7bwuik2snq0p" path="res://sprites/mobs/cameroceras.png" id="2_co4km"]
+[ext_resource type="Script" uid="uid://3p70eq8i1r52" path="res://mobs/dunkleosteus.gd" id="1_pve3i"]
+[ext_resource type="Texture2D" uid="uid://cwvf5sg2txspo" path="res://sprites/mobs/dunkleosteus.png" id="2_pve3i"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnqqa"]
-size = Vector2(900, 320)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap6be"]
+size = Vector2(800, 600)
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_co4km")
+script = ExtResource("1_pve3i")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true
-metadata/Score = 75
+metadata/Score = 100
 metadata/IsCarnivorous = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(7, 7)
-texture = ExtResource("2_co4km")
+scale = Vector2(6, 6)
+texture = ExtResource("2_pve3i")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-1500, -150, 3000, 400)
+rect = Rect2(-1500, -500, 3000, 1000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(900, 50)
-shape = SubResource("RectangleShape2D_qnqqa")
+position = Vector2(1000, 80)
+shape = SubResource("RectangleShape2D_ap6be")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

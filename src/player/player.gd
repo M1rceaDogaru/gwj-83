@@ -18,6 +18,10 @@ class_name Player
 @export var level4_player_scale = 3.5
 @export var score_to_level5 = 250
 @export var level5_player_scale = 5.0
+@export var score_to_level6 = 700
+@export var level6_player_scale = 7.5
+@export var score_to_level7 = 1300
+@export var level7_player_scale = 10.0
 
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
@@ -35,6 +39,45 @@ var level1_trail_scale = 0.25
 var level1_trail_spawn_interval = 0.025
 
 signal player_eat(score_after_eating: int)
+
+func try_grow() -> void:
+	var player_score = get_meta("Score")
+	if level <= 1 and player_score >= score_to_level2:
+		level = 2
+		grow_to_scale(level2_player_scale)
+	elif level <= 2 and player_score >= score_to_level3:
+		level = 3
+		grow_to_scale(level3_player_scale)
+	elif level <= 3 and player_score >= score_to_level4:
+		level = 4
+		grow_to_scale(level4_player_scale)
+	elif level <= 4 and player_score >= score_to_level5:
+		level = 5
+		grow_to_scale(level5_player_scale)
+	elif level <= 5 and player_score >= score_to_level6:
+		level = 6
+		grow_to_scale(level6_player_scale)
+	elif level <= 6 and player_score >= score_to_level7:
+		level = 7
+		grow_to_scale(level7_player_scale)
+
+func grow_to_scale(level_scale) -> void:
+	speed = level_scale * level1_speed
+	$Sprite2D.scale = Vector2.ONE * level_scale * level1_head_scale
+	$CollisionShape2D.shape.radius = level_scale * level1_collider_radius
+	$CollisionShape2D.shape.height = level_scale * level1_collider_height
+	trail_scale = level_scale * level1_trail_scale
+	trail_spawn_interval = level_scale * level1_trail_spawn_interval
+
+func eat(score:int) -> void:
+	var player_score = get_meta("Score")
+	set_meta("Score", player_score+score)
+	try_grow()
+	player_eat.emit(player_score)
+
+func take_damage() -> void:
+	# TODO: handle taking damage
+	print("OUCH!")
 
 # Helper function to create trail sprites
 func _create_trail_sprite(pos: Vector2, rot: float) -> Sprite2D:
@@ -143,36 +186,3 @@ func set_segment_textures(new_tail_texture: Texture2D, new_middle_texture: Textu
 	tail_texture = new_tail_texture
 	middle_texture = new_middle_texture
 	update_only_special_segments()
-
-func eat(score:int) -> void:
-	var player_score = get_meta("Score")
-	set_meta("Score", player_score+score)
-	try_grow()
-	player_eat.emit(player_score)
-
-func try_grow() -> void:
-	var player_score = get_meta("Score")
-	if level <= 1 and player_score >= score_to_level2:
-		level = 2
-		grow_to_scale(level2_player_scale)
-	elif level <= 2 and player_score >= score_to_level3:
-		level = 3
-		grow_to_scale(level3_player_scale)
-	elif level <= 3 and player_score >= score_to_level4:
-		level = 4
-		grow_to_scale(level4_player_scale)
-	elif level <= 4 and player_score >= score_to_level5:
-		level = 5
-		grow_to_scale(level5_player_scale)
-
-func grow_to_scale(level_scale) -> void:
-	speed = level_scale * level1_speed
-	$Sprite2D.scale = Vector2.ONE * level_scale * level1_head_scale
-	$CollisionShape2D.shape.radius = level_scale * level1_collider_radius
-	$CollisionShape2D.shape.height = level_scale * level1_collider_height
-	trail_scale = level_scale * level1_trail_scale
-	trail_spawn_interval = level_scale * level1_trail_spawn_interval
-
-func take_damage() -> void:
-	# TODO: handle taking damage
-	print("OUCH!")
