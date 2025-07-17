@@ -10,6 +10,8 @@ class_name Player
 @export var tail_texture: Texture2D      # Texture for tail segment
 @export var middle_texture: Texture2D    # Texture for 10th segment
 
+@export var score_to_level2 = 5
+
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
 var last_position = Vector2.ZERO         # Track previous position
@@ -31,6 +33,8 @@ var level2_collider_radius = 60
 var level2_collider_height = 270
 var level2_trail_scale = 0.375
 var level2_trail_spawn_interval = 0.0375
+
+signal player_eat(score_after_eating: int)
 
 # Helper function to create trail sprites
 func _create_trail_sprite(pos: Vector2, rot: float) -> Sprite2D:
@@ -140,10 +144,15 @@ func set_segment_textures(new_tail_texture: Texture2D, new_middle_texture: Textu
 	middle_texture = new_middle_texture
 	update_only_special_segments()
 
+func eat(score:int) -> void:
+	var player_score = get_meta("Score")
+	set_meta("Score", player_score+score)
+	try_grow()
+	player_eat.emit(player_score)
 
 func try_grow() -> void:
 	var player_score = get_meta("Score")
-	if level == 1 and player_score >= 5:
+	if level == 1 and player_score >= score_to_level2:
 		level = 2
 		speed = level2_speed
 		$Sprite2D.scale = Vector2.ONE * level2_head_scale

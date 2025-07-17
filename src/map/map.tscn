@@ -7,30 +7,35 @@
 [ext_resource type="PackedScene" uid="uid://b3rx4xd54ocg8" path="res://mobs/trilobite.tscn" id="2_kffv2"]
 [ext_resource type="Texture2D" uid="uid://daw7fyyhiwsol" path="res://sprites/Background/Notebook.webp" id="4_lgq1i"]
 [ext_resource type="PackedScene" uid="uid://co7c04tfk311a" path="res://mobs/hallucigenia.tscn" id="5_kxmgb"]
-[ext_resource type="PackedScene" uid="uid://duwiq20sakjq7" path="res://mobs/cameroceras.tscn" id="6_kxmgb"]
 
-[sub_resource type="Resource" id="Resource_e8e5r"]
+[sub_resource type="Resource" id="Resource_kffv2"]
 script = ExtResource("2_5jdw0")
-weight = 0.8
+weight = 2.0
+creature = ExtResource("2_kffv2")
+metadata/_custom_type_script = "uid://64mv2walulaj"
+
+[sub_resource type="Resource" id="Resource_7lyie"]
+script = ExtResource("2_5jdw0")
+weight = 1.0
 creature = ExtResource("2_4hjbm")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
-[sub_resource type="Resource" id="Resource_112ik"]
+[sub_resource type="Resource" id="Resource_5jdw0"]
 script = ExtResource("2_5jdw0")
 weight = 1.0
 creature = ExtResource("2_kffv2")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
-[sub_resource type="Resource" id="Resource_i5grx"]
+[sub_resource type="Resource" id="Resource_kxmgb"]
 script = ExtResource("2_5jdw0")
-weight = 0.3
-creature = ExtResource("5_kxmgb")
+weight = 1.0
+creature = ExtResource("2_4hjbm")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
-[sub_resource type="Resource" id="Resource_lct0g"]
+[sub_resource type="Resource" id="Resource_e8e5r"]
 script = ExtResource("2_5jdw0")
-weight = 0.2
-creature = ExtResource("6_kxmgb")
+weight = 1.0
+creature = ExtResource("5_kxmgb")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Environment" id="Environment_beun2"]
@@ -49,7 +54,8 @@ point_count = 2
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_a0dt8")
-mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_e8e5r"), SubResource("Resource_112ik"), SubResource("Resource_i5grx"), SubResource("Resource_lct0g")])
+level1_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_kffv2"), SubResource("Resource_7lyie")])
+level2_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_5jdw0"), SubResource("Resource_kxmgb"), SubResource("Resource_e8e5r")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_beun2")
@@ -83,4 +89,5 @@ rotation = 1.5708
 [node name="OceanFloor" type="Node2D" parent="." groups=["OceanFloor"]]
 position = Vector2(0, 556)
 
+[connection signal="player_eat" from="Player" to="." method="_on_player_player_eat"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

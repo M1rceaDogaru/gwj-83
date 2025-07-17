@@ -29,8 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 		var player := body as Player
 		var player_score = player.get_meta("Score")
 		if player_score >= required_score_to_eat:
-			player.set_meta("Score", player_score+score)
-			player.try_grow()
+			player.eat(score)
 			queue_free()
 		else:
 			player.take_damage()

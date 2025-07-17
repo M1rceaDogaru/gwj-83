@@ -1,6 +1,10 @@
 extends Node2D
 
-@export var mobs: Array[MobSpawnConfig]
+@export var level1_mobs: Array[MobSpawnConfig]
+@export var level2_mobs: Array[MobSpawnConfig]
+
+@export var score_to_level2 = 20
+var level = 1
 
 func _ready():
 	$MobTimer.start()
@@ -29,6 +33,12 @@ func _on_mob_timer_timeout():
 	add_child(mob)
 
 func get_weighted_mob_to_spawn() -> MobSpawnConfig:
+	var mobs
+	if level == 1:
+		mobs = level1_mobs
+	elif level ==2:
+		mobs = level2_mobs
+	
 	var total_weight = 0.0
 	for config in mobs:
 		total_weight += config.weight
@@ -45,3 +55,8 @@ func get_weighted_mob_to_spawn() -> MobSpawnConfig:
 			return config
 
 	return mobs.back()  # Fallback
+
+
+func _on_player_player_eat(score_after_eating: int) -> void:
+	if level == 1 and score_after_eating >= score_to_level2:
+		level = 2
