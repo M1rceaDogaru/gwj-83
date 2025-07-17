@@ -4,24 +4,27 @@ extends Node2D
 @export var level2_mobs: Array[MobSpawnConfig]
 @export var level3_mobs: Array[MobSpawnConfig]
 @export var level4_mobs: Array[MobSpawnConfig]
+@export var level5_mobs: Array[MobSpawnConfig]
 
 @export var level1_camera_zoom = 0.5
 
 @export var level2_camera_scale = 1.5
-@export var level4_camera_scale = 3.5
+@export var level5_camera_scale = 3.5
 
 @export var level2_spawn_offset = 160
-@export var level4_spawn_offset = 2000
+@export var level5_spawn_offset = 2000
 
 @export var camera_zoom_time = 20.0 # Larger value means slower zoom
 
 @export var score_to_level2 = 20
 @export var score_to_level3 = 40
-@export var score_to_level4 = 180
+@export var score_to_level4 = 120
+@export var score_to_level5 = 160
 
 @export var level2_spawn_wait_time = 0.75
 @export var level3_spawn_wait_time = 0.65
 @export var level4_spawn_wait_time = 0.75
+@export var level5_spawn_wait_time = 0.75
 
 var level = 1
 
@@ -30,8 +33,8 @@ var level1_mob_spawn_path_right_point_positions
 
 var level2_camera_zoom
 var level2_zoom_delta
-var level4_camera_zoom
-var level4_zoom_delta
+var level5_camera_zoom
+var level5_zoom_delta
 
 var first_spawn_in_level = true
 
@@ -40,8 +43,8 @@ func _ready():
 	
 	level2_camera_zoom = level1_camera_zoom / level2_camera_scale
 	level2_zoom_delta = (level1_camera_zoom - level2_camera_zoom) / camera_zoom_time
-	level4_camera_zoom = level1_camera_zoom / level4_camera_scale
-	level4_zoom_delta = (level1_camera_zoom - level4_camera_zoom) / camera_zoom_time
+	level5_camera_zoom = level1_camera_zoom / level5_camera_scale
+	level5_zoom_delta = (level1_camera_zoom - level5_camera_zoom) / camera_zoom_time
 	
 	level1_mob_spawn_path_left_point_positions = [
 		$MobSpawnPathLeft.curve.get_point_position(0),
@@ -56,8 +59,8 @@ func _physics_process(delta):
 	if level == 2:
 		var zoom_result = max($Camera2D.zoom.x - level2_zoom_delta, level2_camera_zoom)
 		$Camera2D.zoom = Vector2.ONE * zoom_result
-	elif level == 4:
-		var zoom_result = max($Camera2D.zoom.x - level4_zoom_delta, level4_camera_zoom)
+	elif level == 5:
+		var zoom_result = max($Camera2D.zoom.x - level5_zoom_delta, level5_camera_zoom)
 		$Camera2D.zoom = Vector2.ONE * zoom_result
 
 func _on_mob_timer_timeout():
@@ -98,6 +101,8 @@ func get_mobs() -> Array[MobSpawnConfig]:
 		mobs = level3_mobs
 	elif level == 4:
 		mobs = level4_mobs
+	elif level == 5:
+		mobs = level5_mobs
 	return mobs
 
 func get_weighted_mob_to_spawn() -> MobSpawnConfig:
@@ -121,19 +126,23 @@ func get_weighted_mob_to_spawn() -> MobSpawnConfig:
 	return mobs.back()  # Fallback
 
 func _on_player_player_eat(score_after_eating: int) -> void:
-	if level == 1 and score_after_eating >= score_to_level2:
+	if level <= 1 and score_after_eating >= score_to_level2:
 		level = 2
 		_update_spawn(level2_camera_scale, level2_spawn_offset)
 		$MobTimer.wait_time = level2_spawn_wait_time
 		first_spawn_in_level = true
-	if level == 2 and score_after_eating >= score_to_level3:
+	if level <= 2 and score_after_eating >= score_to_level3:
 		level = 3
 		$MobTimer.wait_time = level3_spawn_wait_time
 		first_spawn_in_level = true
-	if level == 3 and score_after_eating >= score_to_level4:
+	if level <= 3 and score_after_eating >= score_to_level4:
 		level = 4
-		_update_spawn(level4_camera_scale, level4_spawn_offset)
 		$MobTimer.wait_time = level4_spawn_wait_time
+		first_spawn_in_level = true
+	if level <= 4 and score_after_eating >= score_to_level5:
+		level = 5
+		_update_spawn(level5_camera_scale, level5_spawn_offset)
+		$MobTimer.wait_time = level5_spawn_wait_time
 		first_spawn_in_level = true
 
 func _update_spawn(level_scale, level_offset):

@@ -150,13 +150,13 @@ func eat(score:int) -> void:
 
 func try_grow() -> void:
 	var player_score = get_meta("Score")
-	if level == 1 and player_score >= score_to_level2:
+	if level <= 1 and player_score >= score_to_level2:
 		level = 2
 		grow_to_scale(level2_player_scale)
-	if level == 2 and player_score >= score_to_level3:
+	elif level <= 2 and player_score >= score_to_level3:
 		level = 3
 		grow_to_scale(level3_player_scale)
-	if level == 3 and player_score >= score_to_level4:
+	elif level <= 3 and player_score >= score_to_level4:
 		level = 4
 		grow_to_scale(level4_player_scale)
 
