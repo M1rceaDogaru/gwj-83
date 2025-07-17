@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://duwiq20sakjq7" path="res://mobs/cameroceras.tscn" id="8_112ik"]
 [ext_resource type="PackedScene" uid="uid://bggnh3ybbrdpv" path="res://mobs/sacabambaspis.tscn" id="9_i5grx"]
 [ext_resource type="PackedScene" uid="uid://do04foheh3c1q" path="res://mobs/dunkleosteus.tscn" id="10_lct0g"]
-[ext_resource type="PackedScene" uid="uid://bgrs148km24uc" path="res://mobs/ammonite_larger.tscn" id="11_wnugf"]
-[ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/coelacanth.tscn" id="12_58xwf"]
-[ext_resource type="PackedScene" uid="uid://djwaju6opujsl" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
+[ext_resource type="PackedScene" path="res://mobs/ammonite_larger.tscn" id="11_wnugf"]
+[ext_resource type="PackedScene" path="res://mobs/coelacanth.tscn" id="12_58xwf"]
+[ext_resource type="PackedScene" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
 
 [sub_resource type="Resource" id="Resource_kffv2"]
 script = ExtResource("2_5jdw0")
