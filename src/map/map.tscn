@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=52 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bdcwdybnqvdxt" path="res://ui/hud.tscn" id="17_w1ifk"]
 [ext_resource type="AudioStream" uid="uid://bl4g76317iygt" path="res://sfx/stageIntro.wav" id="18_sjjp3"]
 [ext_resource type="AudioStream" uid="uid://dotfeevqqc1v4" path="res://sfx/gameOver.wav" id="19_g0u07"]
+[ext_resource type="AudioStream" uid="uid://dd2bqd27i38fg" path="res://sfx/Canon_(2004)_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3" id="20_8lto5"]
 
 [sub_resource type="Resource" id="Resource_kffv2"]
 script = ExtResource("2_5jdw0")
@@ -252,6 +253,11 @@ stream = ExtResource("18_sjjp3")
 
 [node name="GameOverAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_g0u07")
+
+[node name="BGMAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_8lto5")
+volume_db = -1.0
+autoplay = true
 
 [connection signal="quit" from="HUD" to="." method="_on_hud_quit"]
 [connection signal="restart" from="HUD" to="." method="_on_hud_restart"]
