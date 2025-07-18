@@ -72,6 +72,7 @@ func _ready() -> void:
 	level8_zoom_delta = (level7_camera_zoom - level8_camera_zoom) / camera_zoom_time
 
 func start_game():
+	$StartAudioStreamPlayer.play()
 	$MobTimer.start()
 	$MobSpawnPathLeft.curve.set_point_position(0, level1_mob_spawn_path_left_point_positions[0])
 	$MobSpawnPathLeft.curve.set_point_position(1, level1_mob_spawn_path_left_point_positions[1])
