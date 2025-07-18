@@ -28,6 +28,11 @@ class_name Player
 @export var score_to_level10 = 17000
 @export var level10_player_scale = 35.0
 
+@export var bite_sound1 : Resource
+@export var bite_sound2 : Resource
+@export var bite_sound3 : Resource
+@export var bite_sound4 : Resource
+
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
 var last_position = Vector2.ZERO         # Track previous position
@@ -97,6 +102,15 @@ func grow_to_scale(level_scale) -> void:
 	trail_spawn_interval = level_scale * level1_trail_spawn_interval
 
 func eat(score:int) -> void:
+	if score >= 500:
+		$AudioStreamPlayer.stream = bite_sound4
+	elif score >= 120:
+		$AudioStreamPlayer.stream = bite_sound3
+	elif score >= 10:
+		$AudioStreamPlayer.stream = bite_sound2
+	else:
+		$AudioStreamPlayer.stream = bite_sound1
+	$AudioStreamPlayer.play()
 	var player_score = get_meta("Score")
 	set_meta("Score", player_score+score)
 	try_grow()
