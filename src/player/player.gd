@@ -119,7 +119,7 @@ func eat(score:int) -> void:
 
 func take_damage() -> void:
 	if not is_invincible:
-		print("OUCH!")
+		$HurtAudioStreamPlayer.play()
 		cur_health -= 1
 		is_invincible = true
 		$InvincibilityTimer.start(invincible_time)
