@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap6be"]
 size = Vector2(800, 600)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pve3i"]
-radius = 3666.28
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pve3i"]
+radius = 1200.0
+height = 3600.0
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_pve3i")
@@ -17,7 +18,6 @@ metadata/Score = 180
 metadata/IsCarnivorous = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1001, 0)
 scale = Vector2(6, 6)
 texture = ExtResource("2_pve3i")
 
@@ -25,13 +25,15 @@ texture = ExtResource("2_pve3i")
 rect = Rect2(-1500, -500, 3000, 1000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 80)
+position = Vector2(1000, 80)
 shape = SubResource("RectangleShape2D_ap6be")
 
 [node name="DetectionZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
-shape = SubResource("CircleShape2D_pve3i")
+position = Vector2(1200, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pve3i")
 
 [node name="ChaseTimer" type="Timer" parent="."]
 wait_time = 2.0

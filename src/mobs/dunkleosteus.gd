@@ -4,8 +4,8 @@ extends Area2D
 @export var npc_required_score_to_eat = 500
 @export var speed_min = 17.0
 @export var speed_max = 20.0
-@export var chase_time = 1.0
-@export var chase_speed = 30.0
+@export var chase_time = 1.2
+@export var chase_speed = 32.0
 @export var cooldown_time = 99.0
 
 var score
@@ -27,6 +27,10 @@ func _ready() -> void:
 
 func set_facing(is_facing_right):
 	$Sprite2D.flip_h = !is_facing_right
+	if !is_facing_right:
+		$VisibleOnScreenNotifier2D.position.x = -$VisibleOnScreenNotifier2D.position.x
+		$CollisionShape2D.position.x = -$CollisionShape2D.position.x
+		$DetectionZone/CollisionShape2D.position.x = -$CollisionShape2D.position.x
 
 # Use physics process for movement as it's frame-independent
 func _physics_process(delta: float) -> void:
@@ -57,7 +61,8 @@ func _on_body_entered(body: Node2D) -> void:
 			player.take_damage()
 			
 func _on_detection_zone_entered(body: Node2D) -> void:
-	if not is_chasing and can_chase:
+	var player_score = body.get_meta("Score")
+	if not is_chasing and can_chase and player_score < required_score_to_eat:
 		start_chase(body)
 		
 func start_chase(body: Node2D) -> void:
