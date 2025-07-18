@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 class_name Player
 
-@export var speed = 500                  # Movement speed
 @export var trail_length = 20            # Fixed number of trail segments
 @export var trail_scale = 0.25           # Trail scale
 @export var trail_spawn_interval = 0.025 # Trail spawn interval (seconds)
@@ -24,6 +23,10 @@ class_name Player
 @export var level7_player_scale = 10.0
 @export var score_to_level8 = 4500
 @export var level8_player_scale = 15.0
+@export var score_to_level9 = 9000
+@export var level9_player_scale = 25.0
+@export var score_to_level10 = 17000
+@export var level10_player_scale = 35.0
 
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
@@ -33,12 +36,16 @@ var can_spawn = true                     # Control if spawning is allowed
 
 var level = 1
 
+var level1_mouse_lead = 50
 var level1_speed = 500
 var level1_head_scale = 0.4
 var level1_collider_radius = 40
 var level1_collider_height = 180
 var level1_trail_scale = 0.25
 var level1_trail_spawn_interval = 0.025
+
+var mouse_lead = level1_mouse_lead
+var speed = level1_speed
 
 signal player_eat(score_after_eating: int)
 
@@ -65,8 +72,15 @@ func try_grow() -> void:
 	elif level <= 7 and player_score >= score_to_level8:
 		level = 8
 		grow_to_scale(level8_player_scale)
+	elif level <= 8 and player_score >= score_to_level9:
+		level = 9
+		grow_to_scale(level9_player_scale)
+	elif level <= 9 and player_score >= score_to_level10:
+		level = 10
+		grow_to_scale(level10_player_scale)
 
 func grow_to_scale(level_scale) -> void:
+	mouse_lead = level_scale * level1_mouse_lead
 	speed = level_scale * level1_speed
 	$Sprite2D.scale = Vector2.ONE * level_scale * level1_head_scale
 	$CollisionShape2D.shape.radius = level_scale * level1_collider_radius
@@ -123,7 +137,7 @@ func get_input():
 	$Sprite2D.flip_v = delta.x < 0
 	
 	# Move only if mouse is sufficiently far
-	if delta.length() > 50:
+	if delta.length() > mouse_lead:
 		velocity = transform.x * speed
 	else:
 		velocity = Vector2.ZERO
