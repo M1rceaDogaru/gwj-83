@@ -41,6 +41,10 @@ extends Node2D
 
 @export var camera_zoom_time = 20.0 # Larger value means slower zoom
 
+@export var blood_particles: PackedScene
+@export var level1_blood_particles_size = 30.0
+@export var level1_blood_particles_speed = 100.0
+
 var level = 1
 
 var level1_mob_spawn_path_left_point_positions = [Vector2(-1152.0, 448.0), Vector2(-1152.0, -548.0)]
@@ -56,6 +60,8 @@ var level7_camera_zoom
 var level7_zoom_delta
 var level8_camera_zoom
 var level8_zoom_delta
+
+var current_zoom = 1.0
 
 var first_spawn_in_level = true
 
@@ -82,14 +88,19 @@ func start_game():
 func _physics_process(delta):
 	if level == 2:
 		zoom_camera(level2_zoom_delta, level2_camera_zoom)
+		current_zoom = level2_camera_scale
 	elif level == 5:
 		zoom_camera(level5_zoom_delta, level5_camera_zoom)
+		current_zoom = level5_camera_scale
 	elif level == 6:
 		zoom_camera(level6_zoom_delta, level6_camera_zoom)
+		current_zoom = level6_camera_scale
 	elif level == 7:
 		zoom_camera(level7_zoom_delta, level7_camera_zoom)
+		current_zoom = level7_camera_scale
 	elif level == 8:
 		zoom_camera(level8_zoom_delta, level8_camera_zoom)
+		current_zoom = level8_camera_scale
 
 func zoom_camera(delta, final):
 	var zoom_result = max($Camera2D.zoom.x - delta, final)
@@ -104,6 +115,7 @@ func _on_mob_timer_timeout():
 	else:
 		mob_to_spawn = get_weighted_mob_to_spawn()
 	var mob = mob_to_spawn.creature.instantiate()
+	mob.creature_die.connect(_on_creature_die)
 
 	var spawn_from_left = randi() % 2 == 0
 	var mob_spawn_location
@@ -122,6 +134,16 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+
+func _on_creature_die(position):
+	var blood = blood_particles.instantiate() as GPUParticles2D
+	blood.position = position
+	blood.process_material.scale_min = level1_blood_particles_size * current_zoom
+	blood.process_material.scale_max = level1_blood_particles_size * current_zoom
+	blood.process_material.initial_velocity_min = level1_blood_particles_speed * current_zoom
+	blood.process_material.initial_velocity_max = level1_blood_particles_speed * current_zoom
+
+	add_child(blood)
 
 func get_mobs() -> Array[MobSpawnConfig]:
 	var mobs

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dytyjss83ii4e"]
+
+[ext_resource type="Script" uid="uid://cstfwseypf6kv" path="res://particles/blood_particles.gd" id="1_1n87j"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tirit"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 50, 0)
+scale_min = 30.0
+scale_max = 30.0
+color = Color(1, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_tirit")
+script = ExtResource("1_1n87j")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=54 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -16,10 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/coelacanth.tscn" id="12_58xwf"]
 [ext_resource type="PackedScene" uid="uid://djwaju6opujsl" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
 [ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="14_58xwf"]
+[ext_resource type="Texture2D" uid="uid://fmjl01u44702" path="res://sprites/Background/background_1.png" id="16_21p51"]
 [ext_resource type="PackedScene" uid="uid://bdcwdybnqvdxt" path="res://ui/hud.tscn" id="17_w1ifk"]
 [ext_resource type="AudioStream" uid="uid://bl4g76317iygt" path="res://sfx/stageIntro.wav" id="18_sjjp3"]
 [ext_resource type="AudioStream" uid="uid://dotfeevqqc1v4" path="res://sfx/gameOver.wav" id="19_g0u07"]
 [ext_resource type="AudioStream" uid="uid://dd2bqd27i38fg" path="res://sfx/Canon_(2004)_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3" id="20_8lto5"]
+[ext_resource type="PackedScene" uid="uid://dytyjss83ii4e" path="res://particles/blood_particles.tscn" id="21_21p51"]
 
 [sub_resource type="Resource" id="Resource_kffv2"]
 script = ExtResource("2_5jdw0")
@@ -213,6 +215,7 @@ level5_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_sjjp3"), SubR
 level6_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_iqbtl"), SubResource("Resource_81obp"), SubResource("Resource_gw5x3"), SubResource("Resource_wwcqt")])
 level7_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_8lto5"), SubResource("Resource_ofiht"), SubResource("Resource_05mli")])
 level8_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_de6fw"), SubResource("Resource_kb5w5"), SubResource("Resource_rqrn2"), SubResource("Resource_7ho10")])
+blood_particles = ExtResource("21_21p51")
 
 [node name="HUD" parent="." instance=ExtResource("17_w1ifk")]
 
@@ -222,10 +225,15 @@ environment = SubResource("Environment_beun2")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background2" type="Sprite2D" parent="."]
 z_index = -100
 scale = Vector2(45, 45)
 texture = ExtResource("4_lgq1i")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+scale = Vector2(45, 45)
+texture = ExtResource("16_21p51")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
 

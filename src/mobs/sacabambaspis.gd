@@ -8,6 +8,8 @@ extends Area2D
 var score
 var velocity
 
+signal creature_die(position: Vector2)
+
 func _ready() -> void:
 	score = get_meta("Score")
 	velocity = Vector2(randf_range(speed_min, speed_max), 0.0)
@@ -30,6 +32,7 @@ func _on_area_entered(area: Area2D) -> void:
 	var other_score = area.get_meta("Score")
 	var other_is_carnivorous = area.get_meta("IsCarnivorous")
 	if other_is_carnivorous and other_score >= npc_required_score_to_eat:
+		creature_die.emit(position)
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
@@ -38,4 +41,5 @@ func _on_body_entered(body: Node2D) -> void:
 		var player_score = player.get_meta("Score")
 		if player_score >= required_score_to_eat:
 			player.eat(score)
+			creature_die.emit(position)
 			queue_free()
