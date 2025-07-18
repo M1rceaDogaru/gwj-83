@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8b0l36xaaewl" path="res://sprites/mobs/helicoprion.png" id="2_wipdp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap6be"]
-size = Vector2(2400, 1500)
+size = Vector2(3000, 2000)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_wipdp")
@@ -14,14 +14,14 @@ metadata/Score = 500
 metadata/IsCarnivorous = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(10, 10)
+scale = Vector2(15, 15)
 texture = ExtResource("2_wipdp")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-3700, -1500, 7600, 3000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2500, 80)
+position = Vector2(2000, 80)
 shape = SubResource("RectangleShape2D_ap6be")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

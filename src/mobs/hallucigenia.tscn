@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6u03akk0to3e" path="res://sprites/mobs/hallucigenia.png" id="2_qhpln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bkff"]
-size = Vector2(500, 250)
+size = Vector2(700, 400)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_qhpln")
@@ -14,10 +14,11 @@ metadata/Score = 10
 metadata/IsCarnivorous = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_qhpln")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-250, -125, 500, 250)
+rect = Rect2(-350, -200, 700, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0bkff")
