@@ -212,6 +212,7 @@ func _on_player_player_hurt(cur_health: int) -> void:
 		$HUD/HeartContainer/Heart1.visible = false
 		$HUD/HeartContainer/Heart2.visible = false
 		$HUD/HeartContainer/Heart3.visible = false
+		get_tree().reload_current_scene()
 	elif cur_health == 1:
 		$HUD/HeartContainer/Heart1.visible = true
 		$HUD/HeartContainer/Heart2.visible = false

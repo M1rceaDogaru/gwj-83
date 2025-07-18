@@ -49,6 +49,8 @@ var speed = level1_speed
 
 var max_health = 3
 var cur_health = 3
+var invincible_time = 1.0
+var is_invincible = false
 
 signal player_eat(score_after_eating: int)
 signal player_hurt(cur_health: int)
@@ -99,10 +101,12 @@ func eat(score:int) -> void:
 	player_eat.emit(player_score)
 
 func take_damage() -> void:
-	print("OUCH!")
-	cur_health -= 1
-	player_hurt.emit(cur_health)
-	
+	if not is_invincible:
+		print("OUCH!")
+		cur_health -= 1
+		is_invincible = true
+		$InvincibilityTimer.start(invincible_time)
+		player_hurt.emit(cur_health)
 
 # Helper function to create trail sprites
 func _create_trail_sprite(pos: Vector2, rot: float) -> Sprite2D:
@@ -165,6 +169,12 @@ func _physics_process(delta):
 	else:
 		# Position unchanged, disable spawning
 		can_spawn = false
+	
+	# Flicker when damaged
+	if is_invincible:
+		$Sprite2D.set_visible(randi_range(0,1))
+	else:
+		$Sprite2D.set_visible(true)
 
 func _on_timer_timeout():
 	# Only spawn if we're moving
@@ -211,3 +221,6 @@ func set_segment_textures(new_tail_texture: Texture2D, new_middle_texture: Textu
 	tail_texture = new_tail_texture
 	middle_texture = new_middle_texture
 	update_only_special_segments()
+
+func _on_invincibility_timer_timeout() -> void:
+	is_invincible = false
