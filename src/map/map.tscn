@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=52 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bgrs148km24uc" path="res://mobs/ammonite_large.tscn" id="11_wnugf"]
 [ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/coelacanth.tscn" id="12_58xwf"]
 [ext_resource type="PackedScene" uid="uid://djwaju6opujsl" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
-[ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="14_58xwf"]
 [ext_resource type="Texture2D" uid="uid://fmjl01u44702" path="res://sprites/Background/background_1.png" id="16_21p51"]
 [ext_resource type="PackedScene" uid="uid://bdcwdybnqvdxt" path="res://ui/hud.tscn" id="17_w1ifk"]
 [ext_resource type="AudioStream" uid="uid://bl4g76317iygt" path="res://sfx/stageIntro.wav" id="18_sjjp3"]
@@ -185,12 +184,6 @@ weight = 0.18
 creature = ExtResource("13_w1ifk")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
-[sub_resource type="Resource" id="Resource_7ho10"]
-script = ExtResource("2_5jdw0")
-weight = 0.18
-creature = ExtResource("14_58xwf")
-metadata/_custom_type_script = "uid://64mv2walulaj"
-
 [sub_resource type="Environment" id="Environment_beun2"]
 
 [sub_resource type="Curve2D" id="Curve2D_lgq1i"]
@@ -214,7 +207,7 @@ level4_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_ap8vc"), SubR
 level5_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_sjjp3"), SubResource("Resource_g0u07"), SubResource("Resource_21p51"), SubResource("Resource_xar17")])
 level6_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_iqbtl"), SubResource("Resource_81obp"), SubResource("Resource_gw5x3"), SubResource("Resource_wwcqt")])
 level7_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_8lto5"), SubResource("Resource_ofiht"), SubResource("Resource_05mli")])
-level8_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_de6fw"), SubResource("Resource_kb5w5"), SubResource("Resource_rqrn2"), SubResource("Resource_7ho10")])
+level8_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_de6fw"), SubResource("Resource_kb5w5"), SubResource("Resource_rqrn2")])
 blood_particles = ExtResource("21_21p51")
 
 [node name="HUD" parent="." instance=ExtResource("17_w1ifk")]
