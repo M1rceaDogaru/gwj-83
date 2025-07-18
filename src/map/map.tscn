@@ -157,7 +157,7 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Resource" id="Resource_ofiht"]
 script = ExtResource("2_5jdw0")
-weight = 0.6
+weight = 0.5
 creature = ExtResource("12_58xwf")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 

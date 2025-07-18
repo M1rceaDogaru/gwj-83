@@ -33,7 +33,7 @@ extends Node2D
 @export var level7_camera_scale = 10.0
 @export var level8_camera_scale = 15.0
 
-@export var level2_spawn_offset = 200
+@export var level2_spawn_offset = 400
 @export var level5_spawn_offset = 1400
 @export var level6_spawn_offset = 1400
 @export var level7_spawn_offset = 3600
