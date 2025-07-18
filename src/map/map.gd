@@ -206,3 +206,21 @@ func _update_spawn(level_scale, level_offset):
 		$MobSpawnPathLeft.curve.set_point_position(1, level1_mob_spawn_path_left_point_positions[1] * level_scale - Vector2(level_offset, 0))
 		$MobSpawnPathRight.curve.set_point_position(0, level1_mob_spawn_path_right_point_positions[0] * level_scale + Vector2(level_offset, 0))
 		$MobSpawnPathRight.curve.set_point_position(1, level1_mob_spawn_path_right_point_positions[1] * level_scale + Vector2(level_offset, 0))
+
+func _on_player_player_hurt(cur_health: int) -> void:
+	if cur_health == 0:
+		$HUD/HeartContainer/Heart1.visible = false
+		$HUD/HeartContainer/Heart2.visible = false
+		$HUD/HeartContainer/Heart3.visible = false
+	elif cur_health == 1:
+		$HUD/HeartContainer/Heart1.visible = true
+		$HUD/HeartContainer/Heart2.visible = false
+		$HUD/HeartContainer/Heart3.visible = false
+	elif cur_health == 2:
+		$HUD/HeartContainer/Heart1.visible = true
+		$HUD/HeartContainer/Heart2.visible = true
+		$HUD/HeartContainer/Heart3.visible = false
+	elif cur_health == 3:
+		$HUD/HeartContainer/Heart1.visible = true
+		$HUD/HeartContainer/Heart2.visible = true
+		$HUD/HeartContainer/Heart3.visible = true

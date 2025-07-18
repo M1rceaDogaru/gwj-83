@@ -47,7 +47,11 @@ var level1_trail_spawn_interval = 0.025
 var mouse_lead = level1_mouse_lead
 var speed = level1_speed
 
+var max_health = 3
+var cur_health = 3
+
 signal player_eat(score_after_eating: int)
+signal player_hurt(cur_health: int)
 
 func try_grow() -> void:
 	var player_score = get_meta("Score")
@@ -95,8 +99,10 @@ func eat(score:int) -> void:
 	player_eat.emit(player_score)
 
 func take_damage() -> void:
-	# TODO: handle taking damage
 	print("OUCH!")
+	cur_health -= 1
+	player_hurt.emit(cur_health)
+	
 
 # Helper function to create trail sprites
 func _create_trail_sprite(pos: Vector2, rot: float) -> Sprite2D:

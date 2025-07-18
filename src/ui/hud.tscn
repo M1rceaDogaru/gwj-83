@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdcwdybnqvdxt"]
+
+[ext_resource type="Texture2D" uid="uid://bggd8xtpimm2n" path="res://sprites/UI/heart.png" id="1_rbyyf"]
+[ext_resource type="Texture2D" uid="uid://dl71bxwc226rw" path="res://sprites/UI/heart_empty.png" id="2_276te"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HeartBGContainer" type="HBoxContainer" parent="."]
+offset_right = 1544.0
+offset_bottom = 512.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Heart1" type="TextureRect" parent="HeartBGContainer"]
+layout_mode = 2
+texture = ExtResource("2_276te")
+
+[node name="Heart2" type="TextureRect" parent="HeartBGContainer"]
+layout_mode = 2
+texture = ExtResource("2_276te")
+
+[node name="Heart3" type="TextureRect" parent="HeartBGContainer"]
+layout_mode = 2
+texture = ExtResource("2_276te")
+
+[node name="HeartContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Heart1" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_rbyyf")
+
+[node name="Heart2" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_rbyyf")
+
+[node name="Heart3" type="TextureRect" parent="HeartContainer"]
+layout_mode = 2
+texture = ExtResource("1_rbyyf")
