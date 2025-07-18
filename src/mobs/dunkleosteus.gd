@@ -4,9 +4,9 @@ extends Area2D
 @export var npc_required_score_to_eat = 500
 @export var speed_min = 17.0
 @export var speed_max = 20.0
-@export var chase_time = 2.0
-@export var chase_speed = 35.0
-@export var cooldown_time = 5.0
+@export var chase_time = 1.0
+@export var chase_speed = 30.0
+@export var cooldown_time = 99.0
 
 var score
 var velocity
@@ -42,7 +42,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_area_entered(area: Area2D) -> void:
 	var other_score = area.get_meta("Score")
-	var other_is_carnivorous = area.get_meta("Score")
+	var other_is_carnivorous = area.get_meta("IsCarnivorous")
 	if other_is_carnivorous and other_score >= npc_required_score_to_eat:
 		queue_free()
 
