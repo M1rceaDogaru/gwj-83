@@ -59,7 +59,7 @@ var level8_zoom_delta
 
 var first_spawn_in_level = true
 
-func _ready():
+func start_game():
 	$MobTimer.start()
 	
 	level2_camera_zoom = level1_camera_zoom / level2_camera_scale
@@ -236,3 +236,10 @@ func _on_hud_restart() -> void:
 
 func _on_hud_quit() -> void:
 	get_tree().quit()
+
+func _on_hud_start() -> void:
+	$HUD/GameStartBG.visible = false
+	$HUD/GameTitle.visible = false
+	$HUD/GameStart.visible = false
+	$HUD/GameQuit.visible = false
+	start_game()

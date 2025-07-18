@@ -247,6 +247,7 @@ position = Vector2(0, 834)
 
 [connection signal="quit" from="HUD" to="." method="_on_hud_quit"]
 [connection signal="restart" from="HUD" to="." method="_on_hud_restart"]
+[connection signal="start" from="HUD" to="." method="_on_hud_start"]
 [connection signal="player_eat" from="Player" to="." method="_on_player_player_eat"]
 [connection signal="player_health_change" from="Player" to="." method="_on_player_player_health_change"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
