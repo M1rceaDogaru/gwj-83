@@ -28,10 +28,9 @@ class_name Player
 @export var score_to_level10 = 17000
 @export var level10_player_scale = 35.0
 
-@export var bite_sound1 : Resource
-@export var bite_sound2 : Resource
-@export var bite_sound3 : Resource
-@export var bite_sound4 : Resource
+@export var bite_sounds : Array[Resource]
+
+@export var hurt_sounds : Array[Resource]
 
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
@@ -56,6 +55,8 @@ var max_health = 3
 var cur_health = 3
 var invincible_time = 1.0
 var is_invincible = false
+
+var rng = RandomNumberGenerator.new()
 
 signal player_eat(score_after_eating: int)
 signal player_health_change(cur_health: int)
@@ -104,14 +105,14 @@ func grow_to_scale(level_scale) -> void:
 
 func eat(score:int) -> void:
 	if score >= 500:
-		$AudioStreamPlayer.stream = bite_sound4
+		$EatAudioStreamPlayer.stream = bite_sounds[3]
 	elif score >= 120:
-		$AudioStreamPlayer.stream = bite_sound3
+		$EatAudioStreamPlayer.stream = bite_sounds[2]
 	elif score >= 10:
-		$AudioStreamPlayer.stream = bite_sound2
+		$EatAudioStreamPlayer.stream = bite_sounds[1]
 	else:
-		$AudioStreamPlayer.stream = bite_sound1
-	$AudioStreamPlayer.play()
+		$EatAudioStreamPlayer.stream = bite_sounds[0]
+	$EatAudioStreamPlayer.play()
 	var player_score = get_meta("Score")
 	set_meta("Score", player_score+score)
 	try_grow()
@@ -119,6 +120,9 @@ func eat(score:int) -> void:
 
 func take_damage() -> void:
 	if not is_invincible:
+		print
+		var hurt_sound = hurt_sounds[rng.randi_range(0,2)]
+		$HurtAudioStreamPlayer.stream = hurt_sound
 		$HurtAudioStreamPlayer.play()
 		cur_health -= 1
 		is_invincible = true
@@ -141,6 +145,8 @@ func _create_trail_sprite(pos: Vector2, rot: float) -> Sprite2D:
 	return new_sprite
 
 func _ready():
+	rng.randomize()
+	
 	# Initialize timer
 	timer = Timer.new()
 	add_child(timer)
