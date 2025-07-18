@@ -1,27 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgrs148km24uc"]
+[gd_scene load_steps=4 format=3 uid="uid://b3rx4xd54ocg8"]
 
-[ext_resource type="Script" uid="uid://hrnn53gw83c" path="res://mobs/ammonite_larger.gd" id="1_aid8j"]
-[ext_resource type="Texture2D" uid="uid://bweia6xghxn1v" path="res://sprites/mobs/ammonite.png" id="2_fvhut"]
+[ext_resource type="Script" uid="uid://dohtc0pnd2lqc" path="res://mobs/opabinia.gd" id="1_2fp7f"]
+[ext_resource type="Texture2D" uid="uid://c56vlqj7g288t" path="res://sprites/mobs/opabinia.png" id="2_6uomq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fvhut"]
-radius = 480.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uomq"]
+size = Vector2(160, 50)
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_aid8j")
+script = ExtResource("1_2fp7f")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true
-metadata/Score = 120
+metadata/Score = 1
 metadata/IsCarnivorous = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.3, 3.3)
-texture = ExtResource("2_fvhut")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_6uomq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-600, -600, 1200, 1200)
+rect = Rect2(-120, -40, 240, 80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_fvhut")
+shape = SubResource("RectangleShape2D_6uomq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
