@@ -43,8 +43,8 @@ extends Node2D
 
 var level = 1
 
-var level1_mob_spawn_path_left_point_positions
-var level1_mob_spawn_path_right_point_positions
+var level1_mob_spawn_path_left_point_positions = [Vector2(-1152.0, 448.0), Vector2(-1152.0, -548.0)]
+var level1_mob_spawn_path_right_point_positions = [Vector2(1152.0, -548.0), Vector2(1152.0, 448.0)]
 
 var level2_camera_zoom
 var level2_zoom_delta
@@ -59,9 +59,7 @@ var level8_zoom_delta
 
 var first_spawn_in_level = true
 
-func start_game():
-	$MobTimer.start()
-	
+func _ready() -> void:
 	level2_camera_zoom = level1_camera_zoom / level2_camera_scale
 	level2_zoom_delta = (level1_camera_zoom - level2_camera_zoom) / camera_zoom_time
 	level5_camera_zoom = level1_camera_zoom / level5_camera_scale
@@ -72,15 +70,13 @@ func start_game():
 	level7_zoom_delta = (level6_camera_zoom - level7_camera_zoom) / camera_zoom_time
 	level8_camera_zoom = level1_camera_zoom / level8_camera_scale
 	level8_zoom_delta = (level7_camera_zoom - level8_camera_zoom) / camera_zoom_time
-	
-	level1_mob_spawn_path_left_point_positions = [
-		$MobSpawnPathLeft.curve.get_point_position(0),
-		$MobSpawnPathLeft.curve.get_point_position(1)
-	]
-	level1_mob_spawn_path_right_point_positions = [
-		$MobSpawnPathRight.curve.get_point_position(0),
-		$MobSpawnPathRight.curve.get_point_position(1)
-	]
+
+func start_game():
+	$MobTimer.start()
+	$MobSpawnPathLeft.curve.set_point_position(0, level1_mob_spawn_path_left_point_positions[0])
+	$MobSpawnPathLeft.curve.set_point_position(1, level1_mob_spawn_path_left_point_positions[1])
+	$MobSpawnPathRight.curve.set_point_position(0, level1_mob_spawn_path_right_point_positions[0])
+	$MobSpawnPathRight.curve.set_point_position(1, level1_mob_spawn_path_right_point_positions[1])
 	
 func _physics_process(delta):
 	if level == 2:
