@@ -212,7 +212,12 @@ func _on_player_player_health_change(cur_health: int) -> void:
 		$HUD/HeartContainer/Heart1.visible = false
 		$HUD/HeartContainer/Heart2.visible = false
 		$HUD/HeartContainer/Heart3.visible = false
-		get_tree().reload_current_scene()
+		
+		$Player.queue_free()
+		$HUD/GameOverBG.visible = true
+		$HUD/GameOverText.visible = true
+		$HUD/GameOverRestart.visible = true
+		$HUD/GameOverQuit.visible = true
 	elif cur_health == 1:
 		$HUD/HeartContainer/Heart1.visible = true
 		$HUD/HeartContainer/Heart2.visible = false
@@ -225,3 +230,9 @@ func _on_player_player_health_change(cur_health: int) -> void:
 		$HUD/HeartContainer/Heart1.visible = true
 		$HUD/HeartContainer/Heart2.visible = true
 		$HUD/HeartContainer/Heart3.visible = true
+
+func _on_hud_restart() -> void:
+	get_tree().reload_current_scene()
+
+func _on_hud_quit() -> void:
+	get_tree().quit()

@@ -245,6 +245,8 @@ rotation = 1.5708
 [node name="OceanFloor" type="Node2D" parent="." groups=["OceanFloor"]]
 position = Vector2(0, 834)
 
+[connection signal="quit" from="HUD" to="." method="_on_hud_quit"]
+[connection signal="restart" from="HUD" to="." method="_on_hud_restart"]
 [connection signal="player_eat" from="Player" to="." method="_on_player_player_eat"]
 [connection signal="player_health_change" from="Player" to="." method="_on_player_player_health_change"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
