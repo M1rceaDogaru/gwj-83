@@ -53,7 +53,7 @@ var invincible_time = 1.0
 var is_invincible = false
 
 signal player_eat(score_after_eating: int)
-signal player_hurt(cur_health: int)
+signal player_health_change(cur_health: int)
 
 func try_grow() -> void:
 	var player_score = get_meta("Score")
@@ -66,6 +66,7 @@ func try_grow() -> void:
 	elif level <= 3 and player_score >= score_to_level4:
 		level = 4
 		grow_to_scale(level4_player_scale)
+		gain_health()
 	elif level <= 4 and player_score >= score_to_level5:
 		level = 5
 		grow_to_scale(level5_player_scale)
@@ -75,6 +76,7 @@ func try_grow() -> void:
 	elif level <= 6 and player_score >= score_to_level7:
 		level = 7
 		grow_to_scale(level7_player_scale)
+		gain_health()
 	elif level <= 7 and player_score >= score_to_level8:
 		level = 8
 		grow_to_scale(level8_player_scale)
@@ -106,7 +108,11 @@ func take_damage() -> void:
 		cur_health -= 1
 		is_invincible = true
 		$InvincibilityTimer.start(invincible_time)
-		player_hurt.emit(cur_health)
+		player_health_change.emit(cur_health)
+
+func gain_health() -> void:
+	cur_health = min(max_health, cur_health+1)
+	player_health_change.emit(cur_health)
 
 # Helper function to create trail sprites
 func _create_trail_sprite(pos: Vector2, rot: float) -> Sprite2D:
