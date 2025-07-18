@@ -1,6 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dytyjss83ii4e"]
+[gd_scene load_steps=5 format=3 uid="uid://dytyjss83ii4e"]
 
 [ext_resource type="Script" uid="uid://cstfwseypf6kv" path="res://particles/blood_particles.gd" id="1_1n87j"]
+
+[sub_resource type="Gradient" id="Gradient_1n87j"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x335m"]
+gradient = SubResource("Gradient_1n87j")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tirit"]
 particle_flag_disable_z = true
@@ -15,9 +21,13 @@ gravity = Vector3(0, 50, 0)
 scale_min = 30.0
 scale_max = 30.0
 color = Color(1, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_x335m")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
-amount = 12
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_tirit")
 script = ExtResource("1_1n87j")
 
