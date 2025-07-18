@@ -210,6 +210,7 @@ func _on_player_player_health_change(cur_health: int) -> void:
 		$HUD/HeartContainer/Heart2.visible = false
 		$HUD/HeartContainer/Heart3.visible = false
 		
+		$GameOverAudioStreamPlayer.play()
 		$Player.queue_free()
 		$HUD/GameOverBG.visible = true
 		$HUD/GameOverText.visible = true
