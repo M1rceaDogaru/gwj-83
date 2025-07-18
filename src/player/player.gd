@@ -93,6 +93,7 @@ func try_grow() -> void:
 		grow_to_scale(level10_player_scale)
 
 func grow_to_scale(level_scale) -> void:
+	$GrowAudioStreamPlayer.play()
 	mouse_lead = level_scale * level1_mouse_lead
 	speed = level_scale * level1_speed
 	$Sprite2D.scale = Vector2.ONE * level_scale * level1_head_scale

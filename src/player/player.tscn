@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://10in5msak4tb"]
+[gd_scene load_steps=10 format=3 uid="uid://10in5msak4tb"]
 
 [ext_resource type="Script" uid="uid://cjysx0ksm8bf3" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cmgb3mh3v3nyw" path="res://sprites/Leviathan/BodySegment.png" id="2_g1dw6"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dyemqbrnnkrly" path="res://sfx/bite1.wav" id="4_yw30f"]
 [ext_resource type="AudioStream" uid="uid://d06njaum38xma" path="res://sfx/bite3.wav" id="5_rgyib"]
 [ext_resource type="AudioStream" uid="uid://gfpo2my76d8r" path="res://sfx/bite4.wav" id="6_hg6s5"]
+[ext_resource type="AudioStream" uid="uid://c3swn6r8l0p6c" path="res://sfx/playerGrow.wav" id="7_rgyib"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
 radius = 40.0
@@ -32,5 +33,8 @@ shape = SubResource("CapsuleShape2D_g1dw6")
 [node name="InvincibilityTimer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="GrowAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rgyib")
 
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
