@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Canon_(2004)_-_Strolling_Strings_-_United_Sta
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0.0
 bpm=0.0
 beat_count=0
