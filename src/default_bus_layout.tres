@@ -1,7 +1,6 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dr2jksin52q6v"]
+[gd_resource type="AudioBusLayout" format=3 uid="uid://c25nk86g3u26j"]
 
 [resource]
-bus/0/send = &"BGM"
 bus/1/name = &"BGM"
 bus/1/solo = false
 bus/1/mute = false

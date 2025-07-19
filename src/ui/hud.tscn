@@ -535,6 +535,7 @@ script = ExtResource("8_srpbi")
 audio_bus_name = "SFX"
 
 [node name="SettingsCloseButton" type="Button" parent="VolumeControl"]
+layout_mode = 0
 offset_left = 683.0
 offset_top = 100.0
 offset_right = 2497.0
