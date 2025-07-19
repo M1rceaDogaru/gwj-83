@@ -1,9 +1,9 @@
 extends Area2D
 
-@export var required_score_to_eat = 9000
-@export var npc_required_score_to_eat = 100000
-@export var speed_min = 100.0
-@export var speed_max = 100.0
+@export var required_score_to_eat = 4500
+@export var npc_required_score_to_eat = 600
+@export var speed_min = 60.0
+@export var speed_max = 80.0
 
 var score
 var velocity

@@ -1,9 +1,9 @@
 extends Area2D
 
-@export var required_score_to_eat = 4500
-@export var npc_required_score_to_eat = 500
-@export var speed_min = 20.0
-@export var speed_max = 30.0
+@export var required_score_to_eat = 9000
+@export var npc_required_score_to_eat = 100000
+@export var speed_min = 120.0
+@export var speed_max = 120.0
 
 var score
 var velocity
@@ -43,3 +43,5 @@ func _on_body_entered(body: Node2D) -> void:
 			player.eat(score)
 			creature_die.emit(position)
 			queue_free()
+		else:
+			player.take_damage()

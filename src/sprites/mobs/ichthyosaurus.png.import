@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8by15w0sb7hw"
-path="res://.godot/imported/coelacanth.png-48f3729afb24a6be9f1e89c5f23cfdc9.ctex"
+uid="uid://cu1vy7kjpsspv"
+path="res://.godot/imported/ichthyosaurus.png-c1723256c2578a494252182e425724a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mobs/coelacanth.png"
-dest_files=["res://.godot/imported/coelacanth.png-48f3729afb24a6be9f1e89c5f23cfdc9.ctex"]
+source_file="res://sprites/mobs/ichthyosaurus.png"
+dest_files=["res://.godot/imported/ichthyosaurus.png-c1723256c2578a494252182e425724a3.ctex"]
 
 [params]
 

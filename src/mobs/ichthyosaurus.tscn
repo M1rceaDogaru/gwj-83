@@ -1,28 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://b44yikllq3oky"]
+[gd_scene load_steps=4 format=3 uid="uid://djwaju6opujsl"]
 
-[ext_resource type="Script" uid="uid://r0f32ne1xr0d" path="res://mobs/helicoprion.gd" id="1_7ldn3"]
-[ext_resource type="Texture2D" uid="uid://b8b0l36xaaewl" path="res://sprites/mobs/helicoprion.png" id="2_wipdp"]
+[ext_resource type="Script" uid="uid://cj2iciqddrd58" path="res://mobs/ichthyosaurus.gd" id="1_wipdp"]
+[ext_resource type="Texture2D" uid="uid://cu1vy7kjpsspv" path="res://sprites/mobs/ichthyosaurus.png" id="2_6q2el"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qb6vh"]
-size = Vector2(2000, 1200)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap6be"]
+size = Vector2(5000, 2000)
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_7ldn3")
+script = ExtResource("1_wipdp")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true
-metadata/Score = 240
+metadata/Score = 600
 metadata/IsCarnivorous = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(10, 10)
-texture = ExtResource("2_wipdp")
+scale = Vector2(25, 25)
+texture = ExtResource("2_6q2el")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-2500, -1000, 5000, 2000)
+rect = Rect2(-7500, -2500, 15000, 5000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1200, 0)
-shape = SubResource("RectangleShape2D_qb6vh")
+position = Vector2(2700, 80)
+shape = SubResource("RectangleShape2D_ap6be")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

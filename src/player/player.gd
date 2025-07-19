@@ -22,11 +22,11 @@ class_name Player
 @export var score_to_level7 = 2000
 @export var level7_player_scale = 10.0
 @export var score_to_level8 = 4500
-@export var level8_player_scale = 15.0
+@export var level8_player_scale = 25.0
 @export var score_to_level9 = 9000
-@export var level9_player_scale = 25.0
-@export var score_to_level10 = 17000
-@export var level10_player_scale = 35.0
+@export var level9_player_scale = 40.0
+@export var score_to_level10 = 16000
+@export var level10_player_scale = 55.0
 
 @export var bite_sounds : Array[Resource]
 

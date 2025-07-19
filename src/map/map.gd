@@ -23,7 +23,7 @@ extends Node2D
 @export var level5_spawn_wait_time = 0.50
 @export var level6_spawn_wait_time = 0.60
 @export var level7_spawn_wait_time = 0.60
-@export var level8_spawn_wait_time = 0.55
+@export var level8_spawn_wait_time = 0.40
 
 @export var level1_camera_zoom = 0.5
 
@@ -31,7 +31,7 @@ extends Node2D
 @export var level5_camera_scale = 3.5
 @export var level6_camera_scale = 5.0
 @export var level7_camera_scale = 10.0
-@export var level8_camera_scale = 15.0
+@export var level8_camera_scale = 25.0
 
 @export var level2_spawn_offset = 400
 @export var level5_spawn_offset = 1400
