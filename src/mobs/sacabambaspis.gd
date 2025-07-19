@@ -43,3 +43,5 @@ func _on_body_entered(body: Node2D) -> void:
 			player.eat(score)
 			creature_die.emit(position)
 			queue_free()
+		else:
+			player.take_damage()

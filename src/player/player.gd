@@ -58,6 +58,7 @@ var rng = RandomNumberGenerator.new()
 
 signal player_eat(score_after_eating: int)
 signal player_health_change(cur_health: int)
+signal player_level_up(level: int)
 
 func try_grow() -> void:
 	var player_score = get_meta("Score")
@@ -90,6 +91,8 @@ func try_grow() -> void:
 
 func grow_to_scale(level_scale) -> void:
 	$GrowAudioStreamPlayer.play()
+	player_level_up.emit(level)
+	
 	mouse_lead = level_scale * level1_mouse_lead
 	speed = level_scale * level1_speed
 	$Sprite2D.scale = Vector2.ONE * level_scale * level1_head_scale

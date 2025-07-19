@@ -214,6 +214,11 @@ func _on_player_player_eat(score_after_eating: int) -> void:
 		_update_spawn(level7_camera_scale, level7_spawn_offset)
 		$MobTimer.wait_time = level7_spawn_wait_time
 		first_spawn_in_level = true
+		
+		$HUD/Progress/CreatureName/Label.text = "Ammonite"
+		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/dunkleosteus_icon.png")
+		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/ammonite_icon.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/helicoprion_icon.png")
 	if level <= 7 and score_after_eating >= score_to_level8:
 		level = 8
 		_update_spawn(level8_camera_scale, level8_spawn_offset)
@@ -290,3 +295,47 @@ func finish_game(position) -> void:
 	$HUD/GameWinText.visible = true
 	$HUD/GameWinNewGame.visible = true
 	$HUD/GameWinQuit.visible = true
+
+
+func _on_player_player_level_up(level: int) -> void:
+	if level == 2:
+		$HUD/Progress/CreatureName/Label.text = "Trilobite"
+		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/opabinia_icon.png")
+		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/trilobite_icon.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/anomalocaris_icon.png")
+	if level == 3:
+		$HUD/Progress/CreatureName/Label.text = "Anomalocaris"
+		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/trilobite_icon.png")
+		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/anomalocaris_icon.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/hallucigenia_icon.png")
+	if level == 4:
+		$HUD/Progress/CreatureName/Label.text = "Hallucigenia"
+		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/anomalocaris_icon.png")
+		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/hallucigenia_icon.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/sacabambaspis_icon.png")
+	if level == 5:
+		$HUD/Progress/CreatureName/Label.text = "Sacabambaspis"
+		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/hallucigenia_icon.png")
+		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/sacabambaspis_icon.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/cameroceras_icon.png")
+	if level == 6:
+		$HUD/Progress/CreatureName/Label.text = "Cameroceras"
+		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/sacabambaspis_icon.png")
+		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/cameroceras_icon.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/dunkleosteus_icon.png")
+	if level == 7:
+		$HUD/Progress/CreatureName/Label.text = "Dunkleosteus"
+		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/cameroceras_icon.png")
+		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/dunkleosteus_icon.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/ammonite_icon.png")
+# Current creature will be shown as Ammonite when we progress level
+	if level == 8:
+		$HUD/Progress/CreatureName/Label.text = "Helicoprion"
+		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/ammonite_icon.png")
+		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/helicoprion_icon.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/ichthyosaurus_icon.png")
+	if level == 9:
+		$HUD/Progress/CreatureName/Label.text = "Ichthyosaurus"
+		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/helicoprion_icon.png")
+		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/ichthyosaurus_icon.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/empty.png")
