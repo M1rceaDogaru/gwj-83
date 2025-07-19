@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdcwdybnqvdxt"]
+[gd_scene load_steps=20 format=3 uid="uid://bdcwdybnqvdxt"]
 
 [ext_resource type="Script" uid="uid://c8nwj8b1pyovl" path="res://ui/hud.gd" id="1_en2x2"]
 [ext_resource type="Texture2D" uid="uid://bggd8xtpimm2n" path="res://sprites/UI/heart.png" id="1_rbyyf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://4rnk7khd5ie6" path="res://sprites/UI/Old_Large_Paper_PNG_Clipart.png" id="3_546lt"]
 [ext_resource type="FontFile" uid="uid://cj62u73tscu04" path="res://sprites/UI/SIXTY.TTF" id="4_7ihmi"]
 [ext_resource type="Texture2D" uid="uid://dlfqsd375mgmy" path="res://sprites/UI/Duria_Antiquior.jpg" id="6_1v5rv"]
+[ext_resource type="Texture2D" uid="uid://bdn1u0gsxgfjv" path="res://sprites/UI/cog.png" id="7_q43x7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ihmi"]
 
@@ -28,6 +29,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_so1yu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65xic"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mp5xd"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_en2x2")
@@ -78,7 +81,7 @@ offset_bottom = 2176.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(2103, 2500)
+pivot_offset = Vector2(2053, 2500)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -98,7 +101,7 @@ offset_bottom = 2076.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(2103, 2500)
+pivot_offset = Vector2(2053, 2500)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -121,7 +124,7 @@ offset_bottom = -1624.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(2103, 2500)
+pivot_offset = Vector2(2053, 2500)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -167,7 +170,7 @@ offset_bottom = -1524.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(2103, 2500)
+pivot_offset = Vector2(2053, 2500)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -219,7 +222,7 @@ offset_bottom = 1976.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(2103, 2500)
+pivot_offset = Vector2(2053, 2500)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -241,7 +244,7 @@ offset_bottom = -1624.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(2103, 2500)
+pivot_offset = Vector2(2053, 2500)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -286,7 +289,7 @@ offset_bottom = -1524.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(2103, 2500)
+pivot_offset = Vector2(2053, 2500)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -319,6 +322,31 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_b00kl")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_so1yu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_65xic")
 text = "Quit"
+
+[node name="SettingsButton" type="Button" parent="."]
+offset_left = 1060.0
+offset_top = 556.0
+offset_right = 1572.0
+offset_bottom = 1068.0
+scale = Vector2(0.15, 0.15)
+pivot_offset = Vector2(1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(0.333333, 0.333333, 0.333333, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_mp5xd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mp5xd")
+icon = ExtResource("7_q43x7")
 
 [connection signal="button_up" from="GameOverRestart/Button" to="." method="_on_restart_button_up"]
 [connection signal="button_up" from="GameOverQuit/Button" to="." method="_on_quit_button_up"]
