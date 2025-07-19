@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=55 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dotfeevqqc1v4" path="res://sfx/gameOver.wav" id="19_g0u07"]
 [ext_resource type="AudioStream" uid="uid://dd2bqd27i38fg" path="res://sfx/Canon_(2004)_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3" id="20_8lto5"]
 [ext_resource type="PackedScene" uid="uid://dytyjss83ii4e" path="res://particles/blood_particles.tscn" id="21_21p51"]
+[ext_resource type="AudioStream" uid="uid://bus4rq8jv6yu5" path="res://sfx/stageClear.wav" id="23_iqbtl"]
 
 [sub_resource type="Resource" id="Resource_kffv2"]
 script = ExtResource("2_5jdw0")
@@ -239,6 +240,7 @@ scale = Vector2(20, 20)
 texture = ExtResource("17_21p51")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
+metadata/Score = 3000
 
 [node name="MobTimer" type="Timer" parent="."]
 
@@ -259,6 +261,12 @@ rotation = 1.5708
 [node name="OceanFloor" type="Node2D" parent="." groups=["OceanFloor"]]
 position = Vector2(0, 834)
 
+[node name="BGMAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_8lto5")
+volume_db = -15.0
+autoplay = true
+bus = &"BGM"
+
 [node name="StartAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_sjjp3")
 volume_db = -10.0
@@ -269,11 +277,10 @@ stream = ExtResource("19_g0u07")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="BGMAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_8lto5")
-volume_db = -15.0
-autoplay = true
-bus = &"BGM"
+[node name="GameWinAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_iqbtl")
+volume_db = -10.0
+bus = &"SFX"
 
 [node name="Boss" type="Node2D" parent="."]
 

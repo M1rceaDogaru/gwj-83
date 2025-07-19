@@ -10,6 +10,16 @@
 [ext_resource type="Script" uid="uid://v4ya88sdi482" path="res://ui/volume_slider.gd" id="8_srpbi"]
 [ext_resource type="Texture2D" uid="uid://cw3yiuie4r6ck" path="res://sprites/UI/x.png" id="9_spcu4"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spcu4"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 0.737255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff8ar"]
+bg_color = Color(0.133196, 0.133196, 0.133196, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ihmi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_en2x2"]
@@ -33,16 +43,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65xic"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mp5xd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spcu4"]
-bg_color = Color(0.878431, 0.878431, 0.878431, 0.737255)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff8ar"]
-bg_color = Color(0.133196, 0.133196, 0.133196, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_en2x2")
@@ -80,6 +80,40 @@ texture = ExtResource("1_rbyyf")
 [node name="Heart3" type="TextureRect" parent="HeartContainer"]
 layout_mode = 2
 texture = ExtResource("1_rbyyf")
+
+[node name="BossHud" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="BossHud"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BossHud/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_7ihmi")
+theme_override_font_sizes/font_size = 32
+text = "Plesiosaurus"
+vertical_alignment = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="BossHud"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="BossHud/CenterContainer2"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_spcu4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ff8ar")
+max_value = 5.0
+step = 1.0
+value = 3.0
+rounded = true
+show_percentage = false
 
 [node name="GameOverBG" type="CenterContainer" parent="."]
 visible = false
@@ -570,39 +604,140 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_mp5xd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mp5xd")
 icon = ExtResource("9_spcu4")
 
-[node name="BossHud" type="VBoxContainer" parent="."]
+[node name="GameWinBG" type="CenterContainer" parent="."]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1477.0
+offset_top = -2176.0
+offset_right = 1477.0
+offset_bottom = 2176.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(2053, 2500)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="BossHud"]
-custom_minimum_size = Vector2(0, 40)
+[node name="TextureRect" type="TextureRect" parent="GameWinBG"]
 layout_mode = 2
+texture = ExtResource("3_546lt")
 
-[node name="Label" type="Label" parent="BossHud/CenterContainer"]
+[node name="GameWinText" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1477.0
+offset_top = -2276.0
+offset_right = 1477.0
+offset_bottom = 2076.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(2053, 2500)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GameWinText"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_7ihmi")
-theme_override_font_sizes/font_size = 32
-text = "Plesiosaurus"
-vertical_alignment = 2
+theme_override_font_sizes/font_size = 600
+text = "Victory!"
 
-[node name="CenterContainer2" type="CenterContainer" parent="BossHud"]
-layout_mode = 2
+[node name="GameWinNewGame" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1477.0
+offset_top = -1976.0
+offset_right = 1477.0
+offset_bottom = -1624.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(2053, 2500)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="ProgressBar" type="ProgressBar" parent="BossHud/CenterContainer2"]
-custom_minimum_size = Vector2(500, 20)
+[node name="Button" type="Button" parent="GameWinNewGame"]
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_spcu4")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ff8ar")
-max_value = 5.0
-step = 1.0
-value = 3.0
-rounded = true
-show_percentage = false
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.333333, 0.333333, 0.333333, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_7ihmi")
+theme_override_font_sizes/font_size = 500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ihmi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_en2x2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1v5rv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q43x7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_srpbi")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_spcu4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ff8ar")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_m0eg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b00kl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_so1yu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_65xic")
+text = "New Game"
+
+[node name="GameWinQuit" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1477.0
+offset_top = -1876.0
+offset_right = 1477.0
+offset_bottom = -1524.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(2053, 2500)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="GameWinQuit"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.333333, 0.333333, 0.333333, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_7ihmi")
+theme_override_font_sizes/font_size = 500
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ihmi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_en2x2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1v5rv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_q43x7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_srpbi")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_spcu4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ff8ar")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_m0eg6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b00kl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_so1yu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_65xic")
+text = "Quit"
 
 [connection signal="button_up" from="GameOverRestart/Button" to="." method="_on_restart_button_up"]
 [connection signal="button_up" from="GameOverQuit/Button" to="." method="_on_quit_button_up"]
@@ -613,3 +748,5 @@ show_percentage = false
 [connection signal="value_changed" from="VolumeControl/BGMVolumeSlider/HSlider" to="VolumeControl/BGMVolumeSlider/HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="VolumeControl/SFXVolumeSlider/HSlider" to="VolumeControl/SFXVolumeSlider/HSlider" method="_on_value_changed"]
 [connection signal="button_up" from="VolumeControl/SettingsCloseButton" to="." method="_on_settings_close_button_button_up"]
+[connection signal="button_up" from="GameWinNewGame/Button" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="GameWinQuit/Button" to="." method="_on_quit_button_up"]
