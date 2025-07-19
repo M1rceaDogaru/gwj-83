@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=56 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -13,9 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://do04foheh3c1q" path="res://mobs/dunkleosteus.tscn" id="10_lct0g"]
 [ext_resource type="PackedScene" uid="uid://bgrs148km24uc" path="res://mobs/ammonite.tscn" id="11_wnugf"]
 [ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
-[ext_resource type="PackedScene" uid="uid://eiktbpxhbwup" path="res://mobs/ichthyosaurus.tscn" id="13_xar17"]
+[ext_resource type="PackedScene" path="res://mobs/ichthyosaurus.tscn" id="13_xar17"]
 [ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="15_xar17"]
 [ext_resource type="Texture2D" uid="uid://d25cwbsajgbbq" path="res://sprites/Background/BG_Polish_closeUp.png" id="17_21p51"]
+[ext_resource type="Script" uid="uid://db7p0yr536t33" path="res://map/camera.gd" id="17_81obp"]
 [ext_resource type="PackedScene" uid="uid://bdcwdybnqvdxt" path="res://ui/hud.tscn" id="17_w1ifk"]
 [ext_resource type="AudioStream" uid="uid://bl4g76317iygt" path="res://sfx/stageIntro.wav" id="18_sjjp3"]
 [ext_resource type="AudioStream" uid="uid://dotfeevqqc1v4" path="res://sfx/gameOver.wav" id="19_g0u07"]
@@ -219,6 +220,7 @@ environment = SubResource("Environment_beun2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
+script = ExtResource("17_81obp")
 
 [node name="Background2" type="Sprite2D" parent="."]
 z_index = -100
