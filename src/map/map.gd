@@ -272,8 +272,9 @@ func spawn_boss() -> void:
 	health_progress.value = boss.health
 	$HUD/BossHud.visible = true
 
-func update_health_hud(value) -> void:
+func update_health_hud(value, pos) -> void:
 	$HUD/BossHud/CenterContainer2/ProgressBar.value = value
+	_on_creature_die(pos)
 
 func game_over() -> void:
 	$GameOverAudioStreamPlayer.play()
