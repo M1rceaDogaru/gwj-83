@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrs148km24uc" path="res://mobs/ammonite_large.tscn" id="11_wnugf"]
 [ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/coelacanth.tscn" id="12_58xwf"]
 [ext_resource type="PackedScene" uid="uid://djwaju6opujsl" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
-[ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="14_58xwf"]
+[ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="15_xar17"]
 [ext_resource type="Texture2D" uid="uid://fmjl01u44702" path="res://sprites/Background/background_1.png" id="16_21p51"]
 [ext_resource type="PackedScene" uid="uid://bdcwdybnqvdxt" path="res://ui/hud.tscn" id="17_w1ifk"]
 [ext_resource type="AudioStream" uid="uid://bl4g76317iygt" path="res://sfx/stageIntro.wav" id="18_sjjp3"]
@@ -216,7 +216,7 @@ level6_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_iqbtl"), SubR
 level7_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_8lto5"), SubResource("Resource_ofiht"), SubResource("Resource_05mli")])
 level8_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_de6fw"), SubResource("Resource_kb5w5"), SubResource("Resource_rqrn2")])
 blood_particles = ExtResource("21_21p51")
-boss_creature = ExtResource("14_58xwf")
+boss_creature = ExtResource("15_xar17")
 
 [node name="HUD" parent="." instance=ExtResource("17_w1ifk")]
 
@@ -259,13 +259,15 @@ position = Vector2(0, 834)
 
 [node name="StartAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_sjjp3")
+volume_db = -5.0
 
 [node name="GameOverAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_g0u07")
+volume_db = -5.0
 
 [node name="BGMAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_8lto5")
-volume_db = -5.0
+volume_db = -10.0
 autoplay = true
 
 [node name="Boss" type="Node2D" parent="."]
