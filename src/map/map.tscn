@@ -236,7 +236,6 @@ scale = Vector2(45, 45)
 texture = ExtResource("16_21p51")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
-metadata/Score = 5500
 
 [node name="MobTimer" type="Timer" parent="."]
 
