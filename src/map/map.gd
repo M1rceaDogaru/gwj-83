@@ -45,6 +45,8 @@ extends Node2D
 @export var level1_blood_particles_size = 30.0
 @export var level1_blood_particles_speed = 100.0
 
+@export var base_camera_shake = 10
+
 var level = 1
 
 var level1_mob_spawn_path_left_point_positions = [Vector2(-1252.0, 448.0), Vector2(-1252.0, -548.0)]
@@ -144,6 +146,7 @@ func _on_creature_die(position):
 	blood.process_material.initial_velocity_max = level1_blood_particles_speed * current_zoom
 
 	add_child(blood)
+	$Camera2D.trigger_shake(base_camera_shake * current_zoom)
 
 func get_mobs() -> Array[MobSpawnConfig]:
 	var mobs
