@@ -14,14 +14,14 @@ metadata/Score = 120
 metadata/IsCarnivorous = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(7, 7)
+scale = Vector2(4, 4)
 texture = ExtResource("2_co4km")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-1500, -150, 3000, 400)
+rect = Rect2(-2000, -150, 4000, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(700, 50)
+position = Vector2(1000, 50)
 shape = SubResource("RectangleShape2D_qnqqa")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
