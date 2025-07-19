@@ -91,18 +91,23 @@ func _physics_process(delta):
 	if level == 2:
 		zoom_camera(level2_zoom_delta, level2_camera_zoom)
 		current_zoom = level2_camera_scale
+		$Camera2D.offset_scale = current_zoom
 	elif level == 5:
 		zoom_camera(level5_zoom_delta, level5_camera_zoom)
 		current_zoom = level5_camera_scale
+		$Camera2D.offset_scale = current_zoom
 	elif level == 6:
 		zoom_camera(level6_zoom_delta, level6_camera_zoom)
 		current_zoom = level6_camera_scale
+		$Camera2D.offset_scale = current_zoom
 	elif level == 7:
 		zoom_camera(level7_zoom_delta, level7_camera_zoom)
 		current_zoom = level7_camera_scale
+		$Camera2D.offset_scale = current_zoom
 	elif level == 8:
 		zoom_camera(level8_zoom_delta, level8_camera_zoom)
 		current_zoom = level8_camera_scale
+		$Camera2D.offset_scale = current_zoom
 
 func zoom_camera(delta, final):
 	var zoom_result = max($Camera2D.zoom.x - delta, final)

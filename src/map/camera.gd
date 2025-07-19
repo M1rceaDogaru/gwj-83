@@ -3,6 +3,10 @@ extends Camera2D
 var shake_amount: float = 0.0
 var shake_decay: float = 3.5
 
+var max_camera_offset = 5.0
+
+var offset_scale = 1.0
+
 func _process(delta):
 	if shake_amount > 0:
 		var offset_x = randf_range(-shake_amount, shake_amount)
@@ -14,7 +18,7 @@ func _process(delta):
 		offset = Vector2.ZERO
 		
 	var mouse_world = get_global_mouse_position()
-	var aim_offset = mouse_world.normalized() * min(50, mouse_world.length() * 0.2)
+	var aim_offset = mouse_world.normalized() * min(max_camera_offset * offset_scale, mouse_world.length() * 0.2)
 	global_position = global_position.lerp(aim_offset, 10 * delta)
 
 func trigger_shake(amount: float):
