@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://10in5msak4tb"]
+[gd_scene load_steps=14 format=3 uid="uid://10in5msak4tb"]
 
 [ext_resource type="Script" uid="uid://cjysx0ksm8bf3" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cmgb3mh3v3nyw" path="res://sprites/Leviathan/BodySegment.png" id="2_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://dgjlqpd5r0ep4" path="res://sprites/Leviathan/leviathanHead.png" id="2_rkbax"]
+[ext_resource type="Texture2D" uid="uid://dba7w6mpis6lu" path="res://sprites/Leviathan/LeviTail.png" id="3_ebec5"]
 [ext_resource type="AudioStream" uid="uid://ixpbptafm24r" path="res://sfx/bite2.wav" id="4_boad6"]
 [ext_resource type="AudioStream" uid="uid://dyemqbrnnkrly" path="res://sfx/bite1.wav" id="4_yw30f"]
 [ext_resource type="AudioStream" uid="uid://d06njaum38xma" path="res://sfx/bite3.wav" id="5_rgyib"]
@@ -19,6 +20,7 @@ height = 180.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
 trail_texture = ExtResource("2_g1dw6")
+tail_texture = ExtResource("3_ebec5")
 bite_sounds = Array[Resource]([ExtResource("4_yw30f"), ExtResource("4_boad6"), ExtResource("5_rgyib"), ExtResource("6_hg6s5")])
 hurt_sounds = Array[Resource]([ExtResource("7_2ieo8"), ExtResource("8_ebec5"), ExtResource("9_hg6s5")])
 metadata/Score = 0

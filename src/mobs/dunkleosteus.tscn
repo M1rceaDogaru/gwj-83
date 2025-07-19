@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cwvf5sg2txspo" path="res://sprites/mobs/dunkleosteus.png" id="2_pve3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap6be"]
-size = Vector2(1300, 900)
+size = Vector2(2500, 1000)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pve3i"]
 radius = 1300.0
-height = 3900.0
+height = 4800.0
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_pve3i")
@@ -18,20 +18,20 @@ metadata/Score = 180
 metadata/IsCarnivorous = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(12, 12)
+scale = Vector2(12.5, 12.5)
 texture = ExtResource("2_pve3i")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-3000, -1500, 6000, 3000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2000, 100)
+position = Vector2(1500, 150)
 shape = SubResource("RectangleShape2D_ap6be")
 
 [node name="DetectionZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
-position = Vector2(1900, 0)
+position = Vector2(2400, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pve3i")
 

@@ -22,7 +22,7 @@ class_name Player
 @export var score_to_level7 = 2000
 @export var level7_player_scale = 18.0
 @export var score_to_level8 = 4500
-@export var level8_player_scale = 30.0
+@export var level8_player_scale = 32.0
 @export var score_to_level9 = 9000
 @export var level9_player_scale = 45.0
 @export var score_to_level10 = 17000

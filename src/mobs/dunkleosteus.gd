@@ -30,9 +30,14 @@ func _ready() -> void:
 func set_facing(is_facing_right):
 	$Sprite2D.flip_h = !is_facing_right
 	if !is_facing_right:
-		$VisibleOnScreenNotifier2D.position.x = -$VisibleOnScreenNotifier2D.position.x
-		$CollisionShape2D.position.x = -$CollisionShape2D.position.x
-		$DetectionZone/CollisionShape2D.position.x = -$CollisionShape2D.position.x
+		$VisibleOnScreenNotifier2D.position.x = abs($VisibleOnScreenNotifier2D.position.x) * -1
+		$CollisionShape2D.position.x = abs($CollisionShape2D.position.x) * -1
+		$DetectionZone/CollisionShape2D.position.x = abs($DetectionZone/CollisionShape2D.position.x) * -1
+	else:
+		
+		$VisibleOnScreenNotifier2D.position.x = abs($VisibleOnScreenNotifier2D.position.x)
+		$CollisionShape2D.position.x = abs($CollisionShape2D.position.x)
+		$DetectionZone/CollisionShape2D.position.x = abs($DetectionZone/CollisionShape2D.position.x)	
 
 # Use physics process for movement as it's frame-independent
 func _physics_process(delta: float) -> void:
