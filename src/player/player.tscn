@@ -21,7 +21,7 @@ script = ExtResource("1_rkbax")
 trail_texture = ExtResource("2_g1dw6")
 bite_sounds = Array[Resource]([ExtResource("4_yw30f"), ExtResource("4_boad6"), ExtResource("5_rgyib"), ExtResource("6_hg6s5")])
 hurt_sounds = Array[Resource]([ExtResource("7_2ieo8"), ExtResource("8_ebec5"), ExtResource("9_hg6s5")])
-metadata/Score = 0
+metadata/Score = 3000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
