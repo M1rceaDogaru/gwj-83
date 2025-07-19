@@ -34,16 +34,16 @@ shape = SubResource("CapsuleShape2D_g1dw6")
 [node name="InvincibilityTimer" type="Timer" parent="."]
 
 [node name="EatAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -5.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="GrowAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_rgyib")
-volume_db = -5.0
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="HurtAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -5.0
+volume_db = -10.0
 bus = &"SFX"
 
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
