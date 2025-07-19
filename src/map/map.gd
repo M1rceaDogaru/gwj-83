@@ -271,11 +271,20 @@ func spawn_boss() -> void:
 	var boss = boss_creature.instantiate()
 	#TODO show a win screen
 	boss.connect("creature_die", finish_game)
+	boss.connect("health_changed", update_health_hud)
 	$Boss/BossPath/Follower.call_deferred("add_child", boss)
+	var health_progress = $HUD/BossHud/CenterContainer2/ProgressBar
+	health_progress.max_value = boss.health
+	health_progress.value = boss.health
+	$HUD/BossHud.visible = true
+
+func update_health_hud(value) -> void:
+	$HUD/BossHud/CenterContainer2/ProgressBar.value = value
 	
 func finish_game(position) -> void:
 	$GameOverAudioStreamPlayer.play()
 	$Player.queue_free()
+	$HUD/BossHud.visible = false
 	$HUD/GameOverBG.visible = true
 	$HUD/GameOverText.visible = true
 	$HUD/GameOverRestart.visible = true

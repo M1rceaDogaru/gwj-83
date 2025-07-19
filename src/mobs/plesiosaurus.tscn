@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj687ngeao6r0"]
+[gd_scene load_steps=5 format=3 uid="uid://cj687ngeao6r0"]
 
 [ext_resource type="Script" uid="uid://cwp1of8kvsahu" path="res://mobs/plesiosaurus.gd" id="1_xxyed"]
 [ext_resource type="Texture2D" uid="uid://bbmep862htchr" path="res://sprites/mobs/plesiosaurus.png" id="2_a2dy5"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xxyed"]
 radius = 1000.0
 height = 10000.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxyed"]
+size = Vector2(11604, 2145.75)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_xxyed")
@@ -23,5 +26,15 @@ position = Vector2(6500, -900)
 rotation = -1.67552
 shape = SubResource("CapsuleShape2D_xxyed")
 
+[node name="Damageable" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable"]
+position = Vector2(-4897, 731.125)
+shape = SubResource("RectangleShape2D_xxyed")
+
+[node name="BoostTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Damageable" to="." method="_on_damageable_body_entered"]
+[connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]

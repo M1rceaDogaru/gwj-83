@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=53 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -13,8 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bggnh3ybbrdpv" path="res://mobs/sacabambaspis.tscn" id="9_i5grx"]
 [ext_resource type="PackedScene" uid="uid://do04foheh3c1q" path="res://mobs/dunkleosteus.tscn" id="10_lct0g"]
 [ext_resource type="PackedScene" uid="uid://bgrs148km24uc" path="res://mobs/ammonite_large.tscn" id="11_wnugf"]
-[ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/helicoprion.tscn" id="12_58xwf"]
-[ext_resource type="PackedScene" uid="uid://djwaju6opujsl" path="res://mobs/ichthyosaurus.tscn" id="13_w1ifk"]
+[ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
 [ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="15_xar17"]
 [ext_resource type="Texture2D" uid="uid://fmjl01u44702" path="res://sprites/Background/background_1.png" id="16_21p51"]
 [ext_resource type="PackedScene" uid="uid://bdcwdybnqvdxt" path="res://ui/hud.tscn" id="17_w1ifk"]
@@ -158,7 +157,7 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 [sub_resource type="Resource" id="Resource_ofiht"]
 script = ExtResource("2_5jdw0")
 weight = 0.28
-creature = ExtResource("12_58xwf")
+creature = ExtResource("13_w1ifk")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Resource" id="Resource_05mli"]
@@ -176,7 +175,7 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 [sub_resource type="Resource" id="Resource_kb5w5"]
 script = ExtResource("2_5jdw0")
 weight = 0.6
-creature = ExtResource("12_58xwf")
+creature = ExtResource("13_w1ifk")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Resource" id="Resource_rqrn2"]
@@ -237,6 +236,7 @@ scale = Vector2(45, 45)
 texture = ExtResource("16_21p51")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
+metadata/Score = 5500
 
 [node name="MobTimer" type="Timer" parent="."]
 

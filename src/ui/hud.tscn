@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bdcwdybnqvdxt"]
+[gd_scene load_steps=24 format=3 uid="uid://bdcwdybnqvdxt"]
 
 [ext_resource type="Script" uid="uid://c8nwj8b1pyovl" path="res://ui/hud.gd" id="1_en2x2"]
 [ext_resource type="Texture2D" uid="uid://bggd8xtpimm2n" path="res://sprites/UI/heart.png" id="1_rbyyf"]
@@ -33,6 +33,16 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65xic"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mp5xd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spcu4"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 0.737255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff8ar"]
+bg_color = Color(0.133196, 0.133196, 0.133196, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_en2x2")
@@ -559,6 +569,40 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_mp5xd")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_mp5xd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mp5xd")
 icon = ExtResource("9_spcu4")
+
+[node name="BossHud" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="BossHud"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BossHud/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_7ihmi")
+theme_override_font_sizes/font_size = 32
+text = "Plesiosaurus"
+vertical_alignment = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="BossHud"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="BossHud/CenterContainer2"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_spcu4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ff8ar")
+max_value = 5.0
+step = 1.0
+value = 3.0
+rounded = true
+show_percentage = false
 
 [connection signal="button_up" from="GameOverRestart/Button" to="." method="_on_restart_button_up"]
 [connection signal="button_up" from="GameOverQuit/Button" to="." method="_on_quit_button_up"]

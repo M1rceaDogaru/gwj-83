@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://djwaju6opujsl"]
+[gd_scene load_steps=4 format=3 uid="uid://eiktbpxhbwup"]
 
 [ext_resource type="Script" uid="uid://cj2iciqddrd58" path="res://mobs/ichthyosaurus.gd" id="1_wipdp"]
 [ext_resource type="Texture2D" uid="uid://cu1vy7kjpsspv" path="res://sprites/mobs/ichthyosaurus.png" id="2_6q2el"]
