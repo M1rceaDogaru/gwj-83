@@ -27,17 +27,17 @@ extends Node2D
 
 @export var level1_camera_zoom = 0.5
 
-@export var level2_camera_scale = 1.5
-@export var level5_camera_scale = 3.5
-@export var level6_camera_scale = 5.0
-@export var level7_camera_scale = 10.0
-@export var level8_camera_scale = 25.0
+@export var level2_camera_scale = 1.7
+@export var level5_camera_scale = 3.8
+@export var level6_camera_scale = 6.9
+@export var level7_camera_scale = 18.0
+@export var level8_camera_scale = 24.0
 
-@export var level2_spawn_offset = 400
-@export var level5_spawn_offset = 1400
-@export var level6_spawn_offset = 1400
-@export var level7_spawn_offset = 3600
-@export var level8_spawn_offset = 3600
+@export var level2_spawn_offset = 0
+@export var level5_spawn_offset = 1800
+@export var level6_spawn_offset = 1800
+@export var level7_spawn_offset = 3000
+@export var level8_spawn_offset = 3000
 
 @export var camera_zoom_time = 20.0 # Larger value means slower zoom
 
@@ -47,8 +47,8 @@ extends Node2D
 
 var level = 1
 
-var level1_mob_spawn_path_left_point_positions = [Vector2(-1152.0, 448.0), Vector2(-1152.0, -548.0)]
-var level1_mob_spawn_path_right_point_positions = [Vector2(1152.0, -548.0), Vector2(1152.0, 448.0)]
+var level1_mob_spawn_path_left_point_positions = [Vector2(-1252.0, 448.0), Vector2(-1252.0, -548.0)]
+var level1_mob_spawn_path_right_point_positions = [Vector2(1252.0, -548.0), Vector2(1252.0, 448.0)]
 
 var level2_camera_zoom
 var level2_zoom_delta

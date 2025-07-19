@@ -3,10 +3,10 @@ extends Area2D
 @export var required_score_to_eat: int = 800
 @export var npc_required_score_to_eat = 600
 
-@export var move_speed: float = 2400.0
-@export var move_distance: float = 1200.0
+@export var move_speed: float = 2800.0
+@export var move_distance: float = 1400.0
 @export var pause_time: float = 2.0
-@export var slow_speed: float = 100.0
+@export var slow_speed: float = 140.0
 
 var score
 var is_moving: bool = false
@@ -23,6 +23,7 @@ func _ready() -> void:
 	move_direction = 1 if is_facing_right else -1
 	$Sprite2D.flip_h = !is_facing_right
 	if !is_facing_right:
+		$Sprite2D.position.x = -$Sprite2D.position.x
 		$VisibleOnScreenNotifier2D.position.x = -$VisibleOnScreenNotifier2D.position.x
 		$CollisionShape2D.position.x = -$CollisionShape2D.position.x
 

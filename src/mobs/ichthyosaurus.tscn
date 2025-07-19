@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap6be"]
 size = Vector2(5000, 2000)
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D2" type="Area2D"]
 script = ExtResource("1_wipdp")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true

@@ -14,7 +14,7 @@ metadata/Score = 1
 metadata/IsCarnivorous = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_6uomq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

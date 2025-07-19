@@ -10,19 +10,19 @@ class_name Player
 @export var middle_texture: Texture2D    # Texture for 10th segment
 
 @export var score_to_level2 = 5
-@export var level2_player_scale = 1.5
+@export var level2_player_scale = 1.6
 @export var score_to_level3 = 70
-@export var level3_player_scale = 2.5
+@export var level3_player_scale = 2.7
 @export var score_to_level4 = 120
-@export var level4_player_scale = 3.5
+@export var level4_player_scale = 3.8
 @export var score_to_level5 = 250
-@export var level5_player_scale = 5.0
+@export var level5_player_scale = 6.9
 @export var score_to_level6 = 800
-@export var level6_player_scale = 7.5
+@export var level6_player_scale = 12.5
 @export var score_to_level7 = 2000
-@export var level7_player_scale = 10.0
+@export var level7_player_scale = 18.0
 @export var score_to_level8 = 4500
-@export var level8_player_scale = 25.0
+@export var level8_player_scale = 30.0
 @export var score_to_level9 = 9000
 @export var level9_player_scale = 45.0
 @export var score_to_level10 = 17000

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrs148km24uc" path="res://mobs/ammonite_large.tscn" id="11_wnugf"]
 [ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
 [ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="15_xar17"]
-[ext_resource type="Texture2D" uid="uid://fmjl01u44702" path="res://sprites/Background/background_1.png" id="16_21p51"]
+[ext_resource type="Texture2D" uid="uid://fmjl01u44702" path="res://sprites/Background/background_1.png" id="17_21p51"]
 [ext_resource type="PackedScene" uid="uid://bdcwdybnqvdxt" path="res://ui/hud.tscn" id="17_w1ifk"]
 [ext_resource type="AudioStream" uid="uid://bl4g76317iygt" path="res://sfx/stageIntro.wav" id="18_sjjp3"]
 [ext_resource type="AudioStream" uid="uid://dotfeevqqc1v4" path="res://sfx/gameOver.wav" id="19_g0u07"]
@@ -108,19 +108,19 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Resource" id="Resource_g0u07"]
 script = ExtResource("2_5jdw0")
-weight = 0.8
+weight = 1.0
 creature = ExtResource("5_5jdw0")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Resource" id="Resource_21p51"]
 script = ExtResource("2_5jdw0")
-weight = 1.2
+weight = 1.0
 creature = ExtResource("7_e8e5r")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Resource" id="Resource_xar17"]
 script = ExtResource("2_5jdw0")
-weight = 0.2
+weight = 0.13
 creature = ExtResource("8_112ik")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
@@ -138,13 +138,13 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Resource" id="Resource_gw5x3"]
 script = ExtResource("2_5jdw0")
-weight = 0.23
+weight = 0.13
 creature = ExtResource("8_112ik")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Resource" id="Resource_wwcqt"]
 script = ExtResource("2_5jdw0")
-weight = 0.27
+weight = 0.19
 creature = ExtResource("10_lct0g")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
@@ -188,21 +188,21 @@ metadata/_custom_type_script = "uid://64mv2walulaj"
 
 [sub_resource type="Curve2D" id="Curve2D_lgq1i"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1152, 448, 0, 0, 0, 0, -1152, -548)
+"points": PackedVector2Array(0, 0, 0, 0, -1252, 448, 0, 0, 0, 0, -1252, -548)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_4hjbm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1152, -548, 0, 0, 0, 0, 1152, 448)
+"points": PackedVector2Array(0, 0, 0, 0, 1252, -548, 0, 0, 0, 0, 1252, 448)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_21p51"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 29370, 8389, 0, 0, 0, 0, 16314, 9029, 0, 0, 0, 0, 1722, 8261, 0, 0, 0, 0, -3654, 6853, 0, 0, 0, 0, -6726, 3781, 0, 0, 0, 0, -8646, 69, 0, 0, 0, 0, -8774, -5307, 0, 0, 0, 0, -5958, -7867, 0, 0, 0, 0, -1606, -9275, 0, 0, 0, 0, 3514, -7995, 0, 0, 0, 0, 6074, -4411, 0, 0, 0, 0, 4922, -59, 0, 0, 0, 0, 954, 3653, 0, 0, 0, 0, -7494, 5445, 0, 0, 0, 0, -15430, 5701, 0, 0, 0, 0, -27206, 5189, 0, 0, 0, 0, -33606, -3131, 0, 0, 0, 0, -25798, -15547, 0, 0, 0, 0, -13126, -10171, 0, 0, 0, 0, -6342, -3643, 0, 0, 0, 0, -838, 325, 0, 0, 0, 0, 4538, 5573, 0, 0, 0, 0, 11194, 4933, 0, 0, 0, 0, 14010, -2107, 0, 0, 0, 0, 9786, -7483, 0, 0, 0, 0, 570, -8379, 0, 0, 0, 0, -6854, -5691, 0, 0, 0, 0, -10694, -315, 0, 0, 0, 0, -7110, 7493, 0, 0, 0, 0, 1978, 7109, 0, 0, 0, 0, 8890, 3141, 0, 0, 0, 0, 20282, 2501, 0, 0, 0, 0, 27834, -2491, 0, 0, 0, 0, 29370, 8389)
+"points": PackedVector2Array(0, 0, 0, 0, 29370, 8389, 0, 0, 0, 0, 16314, 9029, 0, 0, 0, 0, 1722, 8261, 0, 0, 0, 0, -3654, 6853, 0, 0, 0, 0, -6726, 3781, 0, 0, 0, 0, -8646, 69, 0, 0, 0, 0, -8774, -5307, 0, 0, 0, 0, -5958, -7867, 0, 0, 0, 0, -1606, -9275, 0, 0, 0, 0, 3514, -7995, 0, 0, 0, 0, 6074, -4411, 0, 0, 0, 0, 4922, -59, 0, 0, 0, 0, 954, 3653, 0, 0, 0, 0, -7494, 5445, 0, 0, 0, 0, -15430, 5701, 0, 0, 0, 0, -27206, 5189, 0, 0, 0, 0, -33606, -3131, 0, 0, 0, 0, -25798, -15547, 0, 0, 0, 0, -13126, -10171, 0, 0, 0, 0, -6342, -3643, 0, 0, 0, 0, -3133.22, -1059.3, 0, 0, 0, 0, -838, 325, 0, 0, 0, 0, 4538, 5573, 0, 0, 0, 0, 11194, 4933, 0, 0, 0, 0, 14010, -2107, 0, 0, 0, 0, 9786, -7483, 0, 0, 0, 0, 570, -8379, 0, 0, 0, 0, -6854, -5691, 0, 0, 0, 0, -10694, -315, 0, 0, 0, 0, -7110, 7493, 0, 0, 0, 0, 1978, 7109, 0, 0, 0, 0, 8890, 3141, 0, 0, 0, 0, 20282, 2501, 0, 0, 0, 0, 27834, -2491, 0, 0, 0, 0, 29370, 8389)
 }
-point_count = 34
+point_count = 35
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_a0dt8")
@@ -227,13 +227,13 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="Background2" type="Sprite2D" parent="."]
 z_index = -100
-scale = Vector2(45, 45)
+scale = Vector2(80, 80)
 texture = ExtResource("4_lgq1i")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
-scale = Vector2(45, 45)
-texture = ExtResource("16_21p51")
+scale = Vector2(80, 80)
+texture = ExtResource("17_21p51")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
 
@@ -243,14 +243,14 @@ texture = ExtResource("16_21p51")
 curve = SubResource("Curve2D_lgq1i")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPathLeft"]
-position = Vector2(-1152, 448)
+position = Vector2(-1252, 448)
 rotation = -1.5708
 
 [node name="MobSpawnPathRight" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4hjbm")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPathRight"]
-position = Vector2(1152, -548)
+position = Vector2(1252, -548)
 rotation = 1.5708
 
 [node name="OceanFloor" type="Node2D" parent="." groups=["OceanFloor"]]
