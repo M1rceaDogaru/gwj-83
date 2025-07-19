@@ -105,6 +105,7 @@ scale = Vector2(0.03, 0.03)
 texture = ExtResource("4_65xic")
 
 [node name="Circle2" type="TextureRect" parent="Progress"]
+layout_mode = 0
 offset_left = -35.0
 offset_top = 10.0
 offset_right = 2537.0
@@ -113,6 +114,7 @@ scale = Vector2(0.03, 0.03)
 texture = ExtResource("4_65xic")
 
 [node name="Circle3" type="TextureRect" parent="Progress"]
+layout_mode = 0
 offset_left = 100.0
 offset_top = 10.0
 offset_right = 2672.0
@@ -130,6 +132,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_mp5xd")
 
 [node name="Icon2" type="TextureRect" parent="Progress"]
+layout_mode = 0
 offset_left = -20.0
 offset_top = 24.0
 offset_right = 236.0
@@ -138,6 +141,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_u6vop")
 
 [node name="Icon3" type="TextureRect" parent="Progress"]
+layout_mode = 0
 offset_left = 116.0
 offset_top = 24.0
 offset_right = 372.0
@@ -155,6 +159,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("9_mp5xd")
 
 [node name="Line2" type="TextureRect" parent="Progress"]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 8.0
 offset_right = 232.0
@@ -164,6 +169,7 @@ texture = ExtResource("9_mp5xd")
 
 [node name="CreatureName" type="CenterContainer" parent="Progress"]
 custom_minimum_size = Vector2(0, 40)
+layout_mode = 0
 offset_left = -73.0
 offset_top = -24.0
 offset_right = 72.0

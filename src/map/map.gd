@@ -146,7 +146,6 @@ func _on_creature_die(position):
 	blood.process_material.initial_velocity_max = level1_blood_particles_speed * current_zoom
 
 	add_child(blood)
-	$Camera2D.trigger_shake(base_camera_shake * current_zoom)
 
 func get_mobs() -> Array[MobSpawnConfig]:
 	var mobs
@@ -217,17 +216,20 @@ func _on_player_player_eat(score_after_eating: int) -> void:
 		_update_spawn(level7_camera_scale, level7_spawn_offset)
 		$MobTimer.wait_time = level7_spawn_wait_time
 		first_spawn_in_level = true
-		
 		$HUD/Progress/CreatureName/Label.text = "Ammonite"
 		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/dunkleosteus_icon.png")
 		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/ammonite_icon.png")
 		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/helicoprion_icon.png")
+
+		spawn_boss()
 	if level <= 7 and score_after_eating >= score_to_level8:
 		level = 8
 		_update_spawn(level8_camera_scale, level8_spawn_offset)
 		$MobTimer.wait_time = level8_spawn_wait_time
 		first_spawn_in_level = true
-		spawn_boss()
+		
+	if boss and score_after_eating >= boss.required_score_to_eat and not $HUD/BossHud.visible:
+		$HUD/BossHud.visible = true
 
 func _update_spawn(level_scale, level_offset):
 		$MobSpawnPathLeft.curve.set_point_position(0, level1_mob_spawn_path_left_point_positions[0] * level_scale - Vector2(level_offset, 0))
@@ -270,19 +272,20 @@ func _on_hud_start() -> void:
 	start_game()
 
 @export var boss_creature: PackedScene
+var boss
 func spawn_boss() -> void:
-	var boss = boss_creature.instantiate()
+	boss = boss_creature.instantiate() as Plesiosaurus
 	boss.connect("creature_die", finish_game)
 	boss.connect("health_changed", update_health_hud)
 	$Boss/BossPath/Follower.call_deferred("add_child", boss)
 	var health_progress = $HUD/BossHud/CenterContainer2/ProgressBar
 	health_progress.max_value = boss.health
 	health_progress.value = boss.health
-	$HUD/BossHud.visible = true
 
 func update_health_hud(value, pos) -> void:
 	$HUD/BossHud/CenterContainer2/ProgressBar.value = value
 	_on_creature_die(pos)
+	$Camera2D.trigger_shake(base_camera_shake * current_zoom)
 
 func game_over() -> void:
 	$GameOverAudioStreamPlayer.play()
