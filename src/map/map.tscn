@@ -260,15 +260,18 @@ position = Vector2(0, 834)
 [node name="StartAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_sjjp3")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="GameOverAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_g0u07")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="BGMAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_8lto5")
 volume_db = -10.0
 autoplay = true
+bus = &"BGM"
 
 [node name="Boss" type="Node2D" parent="."]
 

@@ -14,3 +14,9 @@ func _on_quit_button_up() -> void:
 
 func _on_start_button_up() -> void:
 	start.emit()
+
+func _on_settings_open_button_button_up() -> void:
+	$VolumeControl.visible = true
+
+func _on_settings_close_button_button_up() -> void:
+	$VolumeControl.visible = false

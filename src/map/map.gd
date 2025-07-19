@@ -263,6 +263,7 @@ func _on_hud_start() -> void:
 	$HUD/GameTitle.visible = false
 	$HUD/GameStart.visible = false
 	$HUD/GameQuit.visible = false
+	$HUD/SettingsOpenButton.visible = false
 	start_game()
 
 @export var boss_creature: PackedScene
