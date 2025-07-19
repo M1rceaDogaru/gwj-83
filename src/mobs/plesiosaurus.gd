@@ -1,7 +1,5 @@
 extends Area2D
 
-@export var required_score_to_eat = 17000
-@export var npc_required_score_to_eat = 100000
 @export var speed = 130
 
 # controls the run away speed when the player nibbles on the boss
@@ -31,13 +29,6 @@ func _physics_process(delta: float) -> void:
 	follower.progress += current_speed
 	rotation = lerp_angle(rotation, (last_position - global_position).normalized().angle(), delta * rotation_speed)
 	last_position = global_position
-
-func _on_area_entered(area: Area2D) -> void:
-	var other_score = area.get_meta("Score")
-	var other_is_carnivorous = area.get_meta("IsCarnivorous")
-	if other_is_carnivorous and other_score >= npc_required_score_to_eat:
-		creature_die.emit(position)
-		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

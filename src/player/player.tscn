@@ -14,8 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://dtdgbnbirsfe7" path="res://sfx/isaac-hurt-#3-made-with-Voicemod.mp3" id="9_hg6s5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
-radius = 40.0
-height = 180.0
+radius = 30.0
+height = 120.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")

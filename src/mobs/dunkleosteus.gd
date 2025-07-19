@@ -2,10 +2,10 @@ extends Area2D
 
 @export var required_score_to_eat = 2000
 @export var npc_required_score_to_eat = 600
-@export var speed_min = 20.0
-@export var speed_max = 24.0
+@export var speed_min = 22.0
+@export var speed_max = 26.0
 @export var chase_time = 1.2
-@export var chase_speed = 35.0
+@export var chase_speed = 45.0
 @export var cooldown_time = 99.0
 
 var score

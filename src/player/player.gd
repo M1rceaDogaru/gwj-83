@@ -24,9 +24,7 @@ class_name Player
 @export var score_to_level8 = 4500
 @export var level8_player_scale = 32.0
 @export var score_to_level9 = 9000
-@export var level9_player_scale = 45.0
-@export var score_to_level10 = 17000
-@export var level10_player_scale = 60.0
+@export var level9_player_scale = 55.0
 
 @export var bite_sounds : Array[Resource]
 
@@ -89,9 +87,6 @@ func try_grow() -> void:
 	elif level <= 8 and player_score >= score_to_level9:
 		level = 9
 		grow_to_scale(level9_player_scale)
-	elif level <= 9 and player_score >= score_to_level10:
-		level = 10
-		grow_to_scale(level10_player_scale)
 
 func grow_to_scale(level_scale) -> void:
 	$GrowAudioStreamPlayer.play()
