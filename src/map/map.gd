@@ -219,6 +219,7 @@ func _on_player_player_eat(score_after_eating: int) -> void:
 		_update_spawn(level8_camera_scale, level8_spawn_offset)
 		$MobTimer.wait_time = level8_spawn_wait_time
 		first_spawn_in_level = true
+		spawn_boss()
 
 func _update_spawn(level_scale, level_offset):
 		$MobSpawnPathLeft.curve.set_point_position(0, level1_mob_spawn_path_left_point_positions[0] * level_scale - Vector2(level_offset, 0))
@@ -263,3 +264,18 @@ func _on_hud_start() -> void:
 	$HUD/GameStart.visible = false
 	$HUD/GameQuit.visible = false
 	start_game()
+
+@export var boss_creature: PackedScene
+func spawn_boss() -> void:
+	var boss = boss_creature.instantiate()
+	#TODO show a win screen
+	boss.connect("creature_die", finish_game)
+	$Boss/BossPath/Follower.call_deferred("add_child", boss)
+	
+func finish_game(position) -> void:
+	$GameOverAudioStreamPlayer.play()
+	$Player.queue_free()
+	$HUD/GameOverBG.visible = true
+	$HUD/GameOverText.visible = true
+	$HUD/GameOverRestart.visible = true
+	$HUD/GameOverQuit.visible = true

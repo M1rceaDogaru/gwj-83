@@ -185,12 +185,6 @@ weight = 0.18
 creature = ExtResource("13_w1ifk")
 metadata/_custom_type_script = "uid://64mv2walulaj"
 
-[sub_resource type="Resource" id="Resource_7ho10"]
-script = ExtResource("2_5jdw0")
-weight = 0.18
-creature = ExtResource("14_58xwf")
-metadata/_custom_type_script = "uid://64mv2walulaj"
-
 [sub_resource type="Environment" id="Environment_beun2"]
 
 [sub_resource type="Curve2D" id="Curve2D_lgq1i"]
@@ -205,6 +199,12 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve2D" id="Curve2D_21p51"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 29370, 8389, 0, 0, 0, 0, 16314, 9029, 0, 0, 0, 0, 1722, 8261, 0, 0, 0, 0, -3654, 6853, 0, 0, 0, 0, -6726, 3781, 0, 0, 0, 0, -8646, 69, 0, 0, 0, 0, -8774, -5307, 0, 0, 0, 0, -5958, -7867, 0, 0, 0, 0, -1606, -9275, 0, 0, 0, 0, 3514, -7995, 0, 0, 0, 0, 6074, -4411, 0, 0, 0, 0, 4922, -59, 0, 0, 0, 0, 954, 3653, 0, 0, 0, 0, -7494, 5445, 0, 0, 0, 0, -15430, 5701, 0, 0, 0, 0, -27206, 5189, 0, 0, 0, 0, -33606, -3131, 0, 0, 0, 0, -25798, -15547, 0, 0, 0, 0, -13126, -10171, 0, 0, 0, 0, -6342, -3643, 0, 0, 0, 0, -838, 325, 0, 0, 0, 0, 4538, 5573, 0, 0, 0, 0, 11194, 4933, 0, 0, 0, 0, 14010, -2107, 0, 0, 0, 0, 9786, -7483, 0, 0, 0, 0, 570, -8379, 0, 0, 0, 0, -6854, -5691, 0, 0, 0, 0, -10694, -315, 0, 0, 0, 0, -7110, 7493, 0, 0, 0, 0, 1978, 7109, 0, 0, 0, 0, 8890, 3141, 0, 0, 0, 0, 20282, 2501, 0, 0, 0, 0, 27834, -2491, 0, 0, 0, 0, 29370, 8389)
+}
+point_count = 34
+
 [node name="Map" type="Node2D"]
 script = ExtResource("1_a0dt8")
 level1_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_kffv2"), SubResource("Resource_7lyie")])
@@ -214,8 +214,9 @@ level4_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_ap8vc"), SubR
 level5_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_sjjp3"), SubResource("Resource_g0u07"), SubResource("Resource_21p51"), SubResource("Resource_xar17")])
 level6_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_iqbtl"), SubResource("Resource_81obp"), SubResource("Resource_gw5x3"), SubResource("Resource_wwcqt")])
 level7_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_8lto5"), SubResource("Resource_ofiht"), SubResource("Resource_05mli")])
-level8_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_de6fw"), SubResource("Resource_kb5w5"), SubResource("Resource_rqrn2"), SubResource("Resource_7ho10")])
+level8_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_de6fw"), SubResource("Resource_kb5w5"), SubResource("Resource_rqrn2")])
 blood_particles = ExtResource("21_21p51")
+boss_creature = ExtResource("14_58xwf")
 
 [node name="HUD" parent="." instance=ExtResource("17_w1ifk")]
 
@@ -266,6 +267,16 @@ stream = ExtResource("19_g0u07")
 stream = ExtResource("20_8lto5")
 volume_db = -5.0
 autoplay = true
+
+[node name="Boss" type="Node2D" parent="."]
+
+[node name="BossPath" type="Path2D" parent="Boss"]
+curve = SubResource("Curve2D_21p51")
+
+[node name="Follower" type="PathFollow2D" parent="Boss/BossPath" groups=["BossPath"]]
+position = Vector2(29370, 8389)
+rotation = 3.09261
+rotates = false
 
 [connection signal="quit" from="HUD" to="." method="_on_hud_quit"]
 [connection signal="restart" from="HUD" to="." method="_on_hud_restart"]

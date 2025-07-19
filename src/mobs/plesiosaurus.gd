@@ -3,30 +3,28 @@ extends Area2D
 @export var required_score_to_eat = 17000
 @export var npc_required_score_to_eat = 100000
 @export var speed_min = 70.0
-@export var speed_max = 80.0
+@export var speed_max = 130
+
+@export var rotation_speed = 2.0
 
 var score
-var velocity
+var follower: PathFollow2D
+
+var last_position: Vector2 = Vector2.ZERO
 
 signal creature_die(position: Vector2)
 
 func _ready() -> void:
 	score = get_meta("Score")
-	velocity = Vector2(randf_range(speed_min, speed_max), 0.0)
-	
-	var is_facing_right = get_meta("IsFacingRight")
-	velocity = velocity if is_facing_right else velocity * -1
-	$Sprite2D.flip_h = !is_facing_right
-	if !is_facing_right:
-		$VisibleOnScreenNotifier2D.position.x = -$VisibleOnScreenNotifier2D.position.x
-		$CollisionShape2D.position.x = -$CollisionShape2D.position.x
+	follower = get_tree().get_first_node_in_group("BossPath")
 
 # Use physics process for movement as it's frame-independent
 func _physics_process(delta: float) -> void:
-	transform.origin += velocity
-
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+	follower.progress += speed_max
+	#look_at(last_position)
+	#rotate(deg_to_rad(180))
+	rotation = lerp_angle(rotation, (last_position - global_position).normalized().angle(), delta * rotation_speed)
+	last_position = global_position
 
 func _on_area_entered(area: Area2D) -> void:
 	var other_score = area.get_meta("Score")

@@ -120,7 +120,6 @@ func eat(score:int) -> void:
 
 func take_damage() -> void:
 	if not is_invincible:
-		print
 		var hurt_sound = hurt_sounds[rng.randi_range(0,2)]
 		$HurtAudioStreamPlayer.stream = hurt_sound
 		$HurtAudioStreamPlayer.play()
