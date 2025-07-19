@@ -229,6 +229,10 @@ func reset_old_special_textures():
 
 # Update ONLY tail and 10th segment textures
 func update_only_special_segments():
+	if trail_sprites.size() > 0:
+		for i in range(0, trail_sprites.size()):
+			trail_sprites[i].scale = Vector2.ONE * trail_scale * (0.98 ** (trail_length-i))
+	
 	# Only update tail segment (index 0) if we have tail texture
 	if trail_sprites.size() > 0 and tail_texture != null:
 		trail_sprites[0].texture = tail_texture
