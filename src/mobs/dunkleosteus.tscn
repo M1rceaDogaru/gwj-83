@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cwvf5sg2txspo" path="res://sprites/mobs/dunkleosteus.png" id="2_pve3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap6be"]
-size = Vector2(2500, 1000)
+size = Vector2(2000, 1200)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pve3i"]
 radius = 1300.0
