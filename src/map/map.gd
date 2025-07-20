@@ -347,7 +347,7 @@ func _on_player_player_level_up(level: int) -> void:
 		$HUD/Progress/CreatureName/Label.text = "Ichthyosaurus"
 		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/helicoprion_icon.png")
 		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/ichthyosaurus_icon.png")
-		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/empty.png")
+		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/plesiosaurus_icon.png")
 	if level == 10:
 		if boss and not $HUD/BossHud.visible:
 			$HUD/Progress.visible = false
