@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var lifetime := 5.0
+@export var lifetime := 2.0
 @export var slowdown_duration := 2.0
 @export var sink_rate := 100.0
 @onready var sprite = $Sprite2D
