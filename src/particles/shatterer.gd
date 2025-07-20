@@ -2,7 +2,22 @@ extends Node
 
 @export var has_blood := true
 
+@onready var blood_particles = preload("res://particles/blood_particles.tscn")
 @onready var shatter_chunk_scene = preload("res://particles/shatter_chunk.tscn")
+@onready var icon = preload("res://sprites/icon.svg")
+
+func _ready() -> void:
+	# Poor man's shader compilation. Fixes stutter on first bite on web builds
+	var scene = get_tree().current_scene
+	var blood = blood_particles.instantiate() as GPUParticles2D
+	blood.position = Vector2(10000, 10000)
+	scene.add_child(blood)
+	
+	var sprite = Sprite2D.new()
+	sprite.texture = icon
+	sprite.position = Vector2(10000, 10000)
+	scene.add_child(sprite)
+
 func shatter(sprite: Sprite2D):
 	var tex = sprite.texture
 	if not tex: return
