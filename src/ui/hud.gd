@@ -5,9 +5,6 @@ signal quit()
 signal start()
 signal difficulty()
 
-func _enter_tree() -> void:
-	$Fade.fade_in()
-
 func _on_restart_button_up() -> void:
 	restart.emit()
 

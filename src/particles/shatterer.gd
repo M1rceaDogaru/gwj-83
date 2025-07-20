@@ -5,6 +5,7 @@ extends Node
 @onready var blood_particles = preload("res://particles/blood_particles.tscn")
 @onready var shatter_chunk_scene = preload("res://particles/shatter_chunk.tscn")
 @onready var icon = preload("res://sprites/icon.svg")
+@onready var bubble_particles = preload("res://particles/bubble_particles.tscn")
 
 func _ready() -> void:
 	# Poor man's shader compilation. Fixes stutter on first bite on web builds
@@ -17,6 +18,11 @@ func _ready() -> void:
 	sprite.texture = icon
 	sprite.position = Vector2(10000, 10000)
 	scene.add_child(sprite)
+	
+	var bubble = bubble_particles.instantiate() as GPUParticles2D
+	bubble.position = Vector2(10000, 10000)
+	scene.add_child(bubble)
+	bubble.amount = randi_range(3,5)
 
 func shatter(sprite: Sprite2D):
 	var tex = sprite.texture
