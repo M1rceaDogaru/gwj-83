@@ -34,7 +34,6 @@ class_name Player
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
 var last_position = Vector2.ZERO         # Track previous position
-var timer: Timer
 var can_spawn = true                     # Control if spawning is allowed
 
 var level = 1
@@ -154,12 +153,8 @@ func _create_trail_sprite(pos: Vector2, rot: float) -> Sprite2D:
 func _ready():
 	rng.randomize()
 	
-	# Initialize timer
-	timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = trail_spawn_interval
-	timer.timeout.connect(_on_timer_timeout)
-	timer.start()
+	$TrailTimer.wait_time = trail_spawn_interval
+	$TrailTimer.start()
 	
 	# Record initial position
 	last_position = position

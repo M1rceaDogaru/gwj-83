@@ -33,6 +33,8 @@ texture = ExtResource("2_rkbax")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_g1dw6")
 
+[node name="TrailTimer" type="Timer" parent="."]
+
 [node name="InvincibilityTimer" type="Timer" parent="."]
 
 [node name="EatAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -48,4 +50,5 @@ bus = &"SFX"
 volume_db = -10.0
 bus = &"SFX"
 
+[connection signal="timeout" from="TrailTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
