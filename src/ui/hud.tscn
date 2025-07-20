@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bdcwdybnqvdxt"]
+[gd_scene load_steps=33 format=3 uid="uid://bdcwdybnqvdxt"]
 
 [ext_resource type="Script" uid="uid://c8nwj8b1pyovl" path="res://ui/hud.gd" id="1_en2x2"]
 [ext_resource type="Texture2D" uid="uid://bggd8xtpimm2n" path="res://sprites/UI/heart.png" id="1_rbyyf"]
@@ -15,16 +15,22 @@
 [ext_resource type="Texture2D" uid="uid://nb3a74fuiuqe" path="res://sprites/mobs/trilobite_icon.png" id="8_xtm2r"]
 [ext_resource type="Texture2D" uid="uid://bc25j7uy5tqwx" path="res://sprites/UI/line.png" id="9_mp5xd"]
 [ext_resource type="Texture2D" uid="uid://cw3yiuie4r6ck" path="res://sprites/UI/x.png" id="9_spcu4"]
+[ext_resource type="Script" uid="uid://c2pye26j4elaw" path="res://ui/vanishing_health_bar.gd" id="11_u6vop"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spcu4"]
-bg_color = Color(0.878431, 0.878431, 0.878431, 0.737255)
+bg_color = Color(0.392157, 0.392157, 0.392157, 0.784314)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff8ar"]
-bg_color = Color(0.133196, 0.133196, 0.133196, 1)
+bg_color = Color(1, 0.862745, 0, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6vop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6vop"]
+bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ihmi"]
 
@@ -206,7 +212,7 @@ vertical_alignment = 2
 [node name="CenterContainer2" type="CenterContainer" parent="BossHud"]
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="BossHud/CenterContainer2"]
+[node name="VanishingHealthBar" type="ProgressBar" parent="BossHud/CenterContainer2"]
 custom_minimum_size = Vector2(500, 20)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_spcu4")
@@ -214,7 +220,19 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ff8ar")
 max_value = 5.0
 step = 1.0
 value = 3.0
-rounded = true
+show_percentage = false
+script = ExtResource("11_u6vop")
+
+[node name="Timer" type="Timer" parent="BossHud/CenterContainer2/VanishingHealthBar"]
+
+[node name="ProgressBar" type="ProgressBar" parent="BossHud/CenterContainer2"]
+custom_minimum_size = Vector2(500, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_u6vop")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u6vop")
+max_value = 5.0
+step = 1.0
+value = 3.0
 show_percentage = false
 
 [node name="GameStartBG" type="TextureRect" parent="."]
@@ -841,6 +859,8 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_so1yu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_65xic")
 text = "Quit"
 
+[connection signal="timeout" from="BossHud/CenterContainer2/VanishingHealthBar/Timer" to="BossHud/CenterContainer2/VanishingHealthBar" method="_on_timer_timeout"]
+[connection signal="value_changed" from="BossHud/CenterContainer2/ProgressBar" to="BossHud/CenterContainer2/VanishingHealthBar" method="_on_progress_bar_value_changed"]
 [connection signal="button_up" from="GameStart/Button" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="GameQuit/Button" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="SettingsOpenButton" to="." method="_on_settings_open_button_button_up"]

@@ -6,11 +6,11 @@ extends Area2D
 
 # controls the run away speed when the player nibbles on the boss
 # the boss is invincible when running away
-@export var boost_speed = 250
-@export var boost_time = 2
+@export var boost_speed = 600
+@export var boost_time = 1.5
 
 @export var rotation_speed = 3.0
-@export var health = 10
+@export var health = 1000
 
 var score
 var follower: PathFollow2D
@@ -59,7 +59,7 @@ func _on_damageable_body_entered(body: Node2D) -> void:
 			player.take_damage()
 		else:
 			player.eat(score)
-			health -= 1
+			health -= 100
 			health_changed.emit(health, player.position)
 			if health <= 0:
 				creature_die.emit(position)

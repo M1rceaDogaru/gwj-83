@@ -283,6 +283,9 @@ func spawn_boss() -> void:
 	var health_progress = $HUD/BossHud/CenterContainer2/ProgressBar
 	health_progress.max_value = boss.health
 	health_progress.value = boss.health
+	var vanishing_health = $HUD/BossHud/CenterContainer2/VanishingHealthBar
+	vanishing_health.max_value = boss.health
+	vanishing_health.value = boss.health
 
 func update_health_hud(value, pos) -> void:
 	$HUD/BossHud/CenterContainer2/ProgressBar.value = value

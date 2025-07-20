@@ -91,6 +91,8 @@ func try_grow() -> void:
 		grow_to_scale(level9_player_scale)
 	elif level <= 9 and player_score >= score_to_level10:
 		level = 10
+		gain_health()
+		gain_health()
 		player_level_up.emit(level)
 
 func grow_to_scale(level_scale) -> void:
