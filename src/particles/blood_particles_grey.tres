@@ -1,7 +1,7 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://8wm4va23k2r"]
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://xkdg8nxklr40"]
 
 [sub_resource type="Gradient" id="Gradient_1n87j"]
-colors = PackedColorArray(0.200385, 0.35082, 0.0715881, 1, 0.2, 0.34902, 0.0705882, 0)
+colors = PackedColorArray(0.411765, 0.411765, 0.411765, 1, 0.411765, 0.411765, 0.411765, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_x335m"]
 gradient = SubResource("Gradient_1n87j")
@@ -18,5 +18,5 @@ initial_velocity_max = 100.0
 gravity = Vector3(0, 50, 0)
 scale_min = 30.0
 scale_max = 30.0
-color = Color(0.161244, 0.357947, 0.0733671, 1)
+color = Color(0.411765, 0.411765, 0.411765, 1)
 color_ramp = SubResource("GradientTexture1D_x335m")

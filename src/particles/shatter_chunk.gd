@@ -14,7 +14,7 @@ func _ready():
 	trail = $Line2DBlood.duplicate() if Shatterer.has_blood else $Line2DNoBlood.duplicate()
 	get_tree().current_scene.add_child(trail)
 	
-	sprite.modulate = Color.RED if Shatterer.has_blood else Color.DARK_GREEN
+	sprite.modulate = Color.RED if Shatterer.has_blood else Color.DIM_GRAY
 	sprite.modulate.a = 1.0
 	trail.clear_points()
 

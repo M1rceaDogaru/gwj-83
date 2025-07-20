@@ -18,6 +18,7 @@ var follower: PathFollow2D
 var last_position: Vector2 = Vector2.ZERO
 var current_speed: float
 var is_invincible := false
+var max_health: float
 
 signal creature_die(position: Vector2)
 signal health_changed(value, pos)
@@ -25,6 +26,7 @@ signal health_changed(value, pos)
 func _ready() -> void:
 	last_position = global_position
 	current_speed = speed
+	max_health = health
 	score = get_meta("Score")
 	follower = get_tree().get_first_node_in_group("BossPath")
 
@@ -35,15 +37,20 @@ func _physics_process(delta: float) -> void:
 	
 	var position_delta = global_position-last_position
 	# Flip sprite based on move direction so that we always face up
-	$Sprite2D.flip_v = position_delta.x < 0
+	$AnimatedSprite2D.flip_v = position_delta.x < 0
 	
 	last_position = global_position
 	
 	# Flicker when damaged
 	if is_invincible:
-		$Sprite2D.set_visible(randi_range(0,1))
+		$AnimatedSprite2D.set_visible(randi_range(0,1))
 	else:
-		$Sprite2D.set_visible(true)
+		$AnimatedSprite2D.set_visible(true)
+	
+	if health > max_health / 2:
+		$AnimatedSprite2D.animation = "default"
+	else:
+		$AnimatedSprite2D.animation = "injured"
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -55,9 +62,7 @@ func _on_damageable_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not is_invincible:
 		var player := body as Player
 		var player_score = player.get_meta("Score")
-		if player_score < required_score_to_eat:
-			player.take_damage()
-		else:
+		if player_score >= required_score_to_eat:
 			player.eat(score)
 			health -= 100
 			health_changed.emit(health, player.position)

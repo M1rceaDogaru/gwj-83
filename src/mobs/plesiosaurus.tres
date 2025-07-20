@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://udef3e72ndnv"]
+
+[ext_resource type="Texture2D" uid="uid://bv5qb20pp3bpv" path="res://sprites/mobs/plesiosaurus_1.png" id="1_er8jf"]
+[ext_resource type="Texture2D" uid="uid://8dvw6kpp421r" path="res://sprites/mobs/plesiosaurus_2.png" id="2_d2pj8"]
+[ext_resource type="Texture2D" uid="uid://cvjeebtgd1v46" path="res://sprites/mobs/plesiosaurus_3.png" id="3_amrmh"]
+[ext_resource type="Texture2D" uid="uid://2u8xd1x6wgxm" path="res://sprites/mobs/plesiosaurus_injured_1.png" id="4_0k2hb"]
+[ext_resource type="Texture2D" uid="uid://biqa7w2axm345" path="res://sprites/mobs/plesiosaurus_injured_2.png" id="5_mx2ts"]
+[ext_resource type="Texture2D" uid="uid://ccwdfa3715djh" path="res://sprites/mobs/plesiosaurus_injured_3.png" id="6_45u5a"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_er8jf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d2pj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_amrmh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0k2hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mx2ts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_45u5a")
+}],
+"loop": true,
+"name": &"injured",
+"speed": 2.0
+}]

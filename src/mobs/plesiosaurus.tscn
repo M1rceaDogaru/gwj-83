@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj687ngeao6r0"]
+[gd_scene load_steps=6 format=3 uid="uid://cj687ngeao6r0"]
 
 [ext_resource type="Script" uid="uid://cwp1of8kvsahu" path="res://mobs/plesiosaurus.gd" id="1_xxyed"]
 [ext_resource type="Texture2D" uid="uid://bbmep862htchr" path="res://sprites/mobs/plesiosaurus.png" id="2_a2dy5"]
+[ext_resource type="SpriteFrames" uid="uid://udef3e72ndnv" path="res://mobs/plesiosaurus.tres" id="2_w66tu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xxyed"]
 radius = 1000.0
@@ -17,13 +18,20 @@ metadata/IsFacingRight = true
 metadata/Score = 500
 metadata/IsCarnivorous = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(30, 30)
+sprite_frames = ExtResource("2_w66tu")
+autoplay = "default"
+frame_progress = 0.896675
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(60, 60)
 texture = ExtResource("2_a2dy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8000, -900)
-rotation = -1.67552
+position = Vector2(7968, -1336)
+rotation = -1.74533
 shape = SubResource("CapsuleShape2D_xxyed")
 
 [node name="Damageable" type="Area2D" parent="."]

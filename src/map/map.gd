@@ -145,12 +145,13 @@ func _on_mob_timer_timeout():
 func _on_creature_die(position):
 	var blood = blood_particles.instantiate() as GPUParticles2D
 	blood.position = position
+
+	add_child(blood)
+	
 	blood.process_material.scale_min = level1_blood_particles_size * current_zoom
 	blood.process_material.scale_max = level1_blood_particles_size * current_zoom
 	blood.process_material.initial_velocity_min = level1_blood_particles_speed * current_zoom
 	blood.process_material.initial_velocity_max = level1_blood_particles_speed * current_zoom
-
-	add_child(blood)
 
 func get_mobs() -> Array[MobSpawnConfig]:
 	var mobs
