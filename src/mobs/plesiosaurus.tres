@@ -14,10 +14,10 @@ animations = [{
 "texture": ExtResource("1_er8jf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_d2pj8")
+"texture": ExtResource("3_amrmh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_amrmh")
+"texture": ExtResource("2_d2pj8")
 }],
 "loop": true,
 "name": &"default",
@@ -28,10 +28,10 @@ animations = [{
 "texture": ExtResource("4_0k2hb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_mx2ts")
+"texture": ExtResource("6_45u5a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_45u5a")
+"texture": ExtResource("5_mx2ts")
 }],
 "loop": true,
 "name": &"injured",
