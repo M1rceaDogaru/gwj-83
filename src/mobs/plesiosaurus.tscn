@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj687ngeao6r0"]
+[gd_scene load_steps=7 format=3 uid="uid://cj687ngeao6r0"]
 
 [ext_resource type="Script" uid="uid://cwp1of8kvsahu" path="res://mobs/plesiosaurus.gd" id="1_xxyed"]
-[ext_resource type="Texture2D" uid="uid://bbmep862htchr" path="res://sprites/mobs/plesiosaurus.png" id="2_a2dy5"]
 [ext_resource type="SpriteFrames" uid="uid://udef3e72ndnv" path="res://mobs/plesiosaurus.tres" id="2_w66tu"]
+[ext_resource type="PackedScene" uid="uid://bip45oktngl8y" path="res://particles/blood_particles_plesiosaurus.tscn" id="4_0flpd"]
+[ext_resource type="Material" uid="uid://5upgmafh2yfd" path="res://particles/blood_particles_red_plesiosaurus.tres" id="5_oqe5i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xxyed"]
 radius = 1000.0
-height = 13000.0
+height = 18000.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxyed"]
 size = Vector2(10000, 2145.75)
@@ -21,16 +22,11 @@ metadata/IsCarnivorous = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(30, 30)
 sprite_frames = ExtResource("2_w66tu")
+animation = &"injured"
 autoplay = "default"
-frame_progress = 0.896675
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(60, 60)
-texture = ExtResource("2_a2dy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7968, -1336)
+position = Vector2(5912, -888)
 rotation = -1.74533
 shape = SubResource("CapsuleShape2D_xxyed")
 
@@ -41,6 +37,16 @@ position = Vector2(-9000, 1500)
 shape = SubResource("RectangleShape2D_xxyed")
 
 [node name="BoostTimer" type="Timer" parent="."]
+
+[node name="Blood1" parent="." instance=ExtResource("4_0flpd")]
+position = Vector2(-4488, 632)
+one_shot = false
+process_material = ExtResource("5_oqe5i")
+
+[node name="Blood2" parent="." instance=ExtResource("4_0flpd")]
+position = Vector2(-7848, 64)
+one_shot = false
+process_material = ExtResource("5_oqe5i")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bip45oktngl8y"]
+
+[ext_resource type="Script" uid="uid://dhr8gis8uvu5e" path="res://particles/blood_particles_plesiosaurus.gd" id="1_sslrw"]
+[ext_resource type="Material" uid="uid://5upgmafh2yfd" path="res://particles/blood_particles_red_plesiosaurus.tres" id="2_3mqs4"]
+[ext_resource type="Material" uid="uid://cqfdfi0lvju0f" path="res://particles/blood_particles_grey_plesioaurus.tres" id="3_usgqw"]
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+script = ExtResource("1_sslrw")
+red_particles = ExtResource("2_3mqs4")
+grey_particles = ExtResource("3_usgqw")

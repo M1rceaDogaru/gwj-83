@@ -17,8 +17,9 @@ var follower: PathFollow2D
 
 var last_position: Vector2 = Vector2.ZERO
 var current_speed: float
-var is_invincible := false
 var max_health: float
+var is_invincible := false
+var is_bleeding := false
 
 signal creature_die(position: Vector2)
 signal health_changed(value, pos)
@@ -38,6 +39,16 @@ func _physics_process(delta: float) -> void:
 	var position_delta = global_position-last_position
 	# Flip sprite based on move direction so that we always face up
 	$AnimatedSprite2D.flip_v = position_delta.x < 0
+	if $AnimatedSprite2D.flip_v:
+		$CollisionShape2D.position = Vector2(5912.0, 888.0)
+		$CollisionShape2D.rotation_degrees = -80.0
+		$Damageable/CollisionShape2D.position = Vector2(-9000.0, -1500.0)
+		$Blood1.position = Vector2(-4488.0, -632.0)
+	else:
+		$CollisionShape2D.position = Vector2(5912.0, -888.0)
+		$CollisionShape2D.rotation_degrees = -100.0
+		$Damageable/CollisionShape2D.position = Vector2(-9000.0, 1500.0)
+		$Blood1.position = Vector2(-4488.0, 632.0)
 	
 	last_position = global_position
 	
@@ -51,6 +62,10 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.animation = "default"
 	else:
 		$AnimatedSprite2D.animation = "injured"
+		if !is_bleeding:
+			$Blood1.emitting = true
+			$Blood2.emitting = true
+			is_bleeding = true
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
