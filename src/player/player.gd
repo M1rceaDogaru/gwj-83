@@ -9,6 +9,8 @@ class_name Player
 @export var tail_texture: Texture2D      # Texture for tail segment
 @export var middle_texture: Texture2D    # Texture for 10th segment
 
+@export var head_scale_mult = 0.4
+
 @export var score_to_level2 = 5
 @export var level2_player_scale = 1.6
 @export var score_to_level3 = 70
@@ -104,7 +106,7 @@ func grow_to_scale(level_scale) -> void:
 	
 	mouse_lead = level_scale * level1_mouse_lead
 	speed = level_scale * level1_speed
-	$Sprite2D.scale = Vector2.ONE * level_scale * level1_head_scale
+	$Sprite2D.scale = Vector2.ONE * level_scale * level1_head_scale * head_scale_mult
 	$CollisionShape2D.shape.radius = level_scale * level1_collider_radius
 	$CollisionShape2D.shape.height = level_scale * level1_collider_height
 	trail_scale = level_scale * level1_trail_scale
@@ -226,7 +228,7 @@ func update_segment_sprites():
 	if trail_sprites.size() > 0:
 		for i in range(0, trail_sprites.size()):
 			trail_sprites[i].texture = trail_texture
-			trail_sprites[i].scale = Vector2.ONE * trail_scale * (0.98 ** (trail_length-i))
+			trail_sprites[i].scale = Vector2.ONE * trail_scale * (0.99 ** (trail_length-i))
 	
 	# Only update tail segment (index 0) if we have tail texture
 	if trail_sprites.size() > 0 and tail_texture != null:

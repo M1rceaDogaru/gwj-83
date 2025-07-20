@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cjysx0ksm8bf3" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cmgb3mh3v3nyw" path="res://sprites/Leviathan/BodySegment.png" id="2_g1dw6"]
-[ext_resource type="Texture2D" uid="uid://dgjlqpd5r0ep4" path="res://sprites/Leviathan/leviathanHead.png" id="2_rkbax"]
 [ext_resource type="Texture2D" uid="uid://dba7w6mpis6lu" path="res://sprites/Leviathan/LeviTail.png" id="3_ebec5"]
 [ext_resource type="AudioStream" uid="uid://ixpbptafm24r" path="res://sfx/bite2.wav" id="4_boad6"]
 [ext_resource type="AudioStream" uid="uid://dyemqbrnnkrly" path="res://sfx/bite1.wav" id="4_yw30f"]
@@ -10,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://gfpo2my76d8r" path="res://sfx/bite4.wav" id="6_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://c3swn6r8l0p6c" path="res://sfx/playerGrow.wav" id="7_rgyib"]
 [ext_resource type="AudioStream" uid="uid://cqk66djnnpryx" path="res://sfx/slap-hurt-pain-sound-effect.mp3" id="8_8t03j"]
+[ext_resource type="Texture2D" uid="uid://d22jrb51db3eo" path="res://sprites/Leviathan/LeviHead_new.png" id="9_8t03j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
 radius = 30.0
@@ -17,6 +17,7 @@ height = 120.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rkbax")
+trail_length = 25
 trail_texture = ExtResource("2_g1dw6")
 tail_texture = ExtResource("3_ebec5")
 bite_sounds = Array[Resource]([ExtResource("4_yw30f"), ExtResource("4_boad6"), ExtResource("5_rgyib"), ExtResource("6_hg6s5")])
@@ -24,8 +25,8 @@ hurt_sounds = Array[Resource]([ExtResource("8_8t03j")])
 metadata/Score = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_rkbax")
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("9_8t03j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
