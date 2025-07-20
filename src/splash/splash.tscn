@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqwn6t8cp6gid"]
+[gd_scene load_steps=9 format=3 uid="uid://bqwn6t8cp6gid"]
 
 [ext_resource type="Script" uid="uid://cgq7m2jnrp3gr" path="res://splash/splash.gd" id="1_qfg8g"]
 [ext_resource type="Texture2D" uid="uid://di58x1a73lr2j" path="res://sprites/GWJ-Full-Logo-tag-Orange2.svg" id="1_ww06j"]
 [ext_resource type="Texture2D" uid="uid://du8vwh4h4ts4i" path="res://sprites/83-Consume.png" id="2_xgbyh"]
 [ext_resource type="FontFile" uid="uid://cj62u73tscu04" path="res://sprites/UI/SIXTY.TTF" id="3_m2kin"]
 [ext_resource type="Texture2D" uid="uid://dbfc7b8n4jxdt" path="res://sprites/stardust.png" id="3_qfg8g"]
-[ext_resource type="Texture2D" uid="uid://piobg6lxlx2j" path="res://sprites/trust-me-bro.png" id="4_m2kin"]
 [ext_resource type="Texture2D" uid="uid://bquna4j5px8ep" path="res://sprites/pen2paper.png" id="5_1lxnv"]
 [ext_resource type="Script" uid="uid://b7020m77t0aww" path="res://splash/fade.gd" id="6_xgbyh"]
 
@@ -53,12 +52,12 @@ environment = SubResource("Environment_uqphl")
 anchor_mode = 0
 
 [node name="gwj" type="Sprite2D" parent="."]
-position = Vector2(1056, 511)
-scale = Vector2(0.19, 0.19)
+position = Vector2(939, 491)
+scale = Vector2(0.221, 0.221)
 texture = ExtResource("1_ww06j")
 
 [node name="consume" type="Sprite2D" parent="."]
-position = Vector2(716, 520)
+position = Vector2(580, 520)
 scale = Vector2(0.130857, 0.130857)
 texture = ExtResource("2_xgbyh")
 
@@ -67,12 +66,7 @@ position = Vector2(87, 488)
 scale = Vector2(0.137, 0.137)
 texture = ExtResource("3_qfg8g")
 
-[node name="trust" type="Sprite2D" parent="."]
-position = Vector2(238, 488)
-scale = Vector2(0.137, 0.137)
-texture = ExtResource("4_m2kin")
-
 [node name="penpaper" type="Sprite2D" parent="."]
-position = Vector2(386, 488)
+position = Vector2(238, 488)
 scale = Vector2(0.137, 0.137)
 texture = ExtResource("5_1lxnv")
