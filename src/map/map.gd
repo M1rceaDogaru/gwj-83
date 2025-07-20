@@ -225,16 +225,13 @@ func _on_player_player_eat(score_after_eating: int) -> void:
 		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/dunkleosteus_icon.png")
 		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/ammonite_icon.png")
 		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/helicoprion_icon.png")
-
-		spawn_boss()
 	if level <= 7 and score_after_eating >= score_to_level8:
 		level = 8
 		_update_spawn(level8_camera_scale, level8_spawn_offset)
 		$MobTimer.wait_time = level8_spawn_wait_time
 		first_spawn_in_level = true
 		
-	if boss and score_after_eating >= boss.required_score_to_eat and not $HUD/BossHud.visible:
-		$HUD/BossHud.visible = true
+		spawn_boss()
 
 func _update_spawn(level_scale, level_offset):
 		$MobSpawnPathLeft.curve.set_point_position(0, level1_mob_spawn_path_left_point_positions[0] * level_scale - Vector2(level_offset, 0))
@@ -351,3 +348,7 @@ func _on_player_player_level_up(level: int) -> void:
 		$HUD/Progress/Icon1.texture = preload("res://sprites/mobs/helicoprion_icon.png")
 		$HUD/Progress/Icon2.texture = preload("res://sprites/mobs/ichthyosaurus_icon.png")
 		$HUD/Progress/Icon3.texture = preload("res://sprites/mobs/empty.png")
+	if level == 10:
+		if boss and not $HUD/BossHud.visible:
+			$HUD/Progress.visible = false
+			$HUD/BossHud.visible = true

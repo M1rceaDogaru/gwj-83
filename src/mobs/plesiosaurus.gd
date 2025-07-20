@@ -2,12 +2,12 @@ class_name Plesiosaurus
 extends Area2D
 
 @export var speed = 130
-@export var required_score_to_eat = 9000
+@export var required_score_to_eat = 13000
 
 # controls the run away speed when the player nibbles on the boss
 # the boss is invincible when running away
 @export var boost_speed = 250
-@export var boost_time = 4
+@export var boost_time = 2
 
 @export var rotation_speed = 3.0
 @export var health = 10
@@ -23,6 +23,7 @@ signal creature_die(position: Vector2)
 signal health_changed(value, pos)
 
 func _ready() -> void:
+	last_position = global_position
 	current_speed = speed
 	score = get_meta("Score")
 	follower = get_tree().get_first_node_in_group("BossPath")
@@ -31,6 +32,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	follower.progress += current_speed
 	rotation = lerp_angle(rotation, (last_position - global_position).normalized().angle(), delta * rotation_speed)
+	
+	var position_delta = global_position-last_position
+	# Flip sprite based on move direction so that we always face up
+	$Sprite2D.flip_v = position_delta.x < 0
+	
 	last_position = global_position
 	
 	# Flicker when damaged

@@ -3,7 +3,7 @@ extends Camera2D
 var shake_amount: float = 0.0
 var shake_decay: float = 3.5
 
-var max_camera_offset = 5.0
+var max_camera_offset = 4.0
 
 var offset_scale = 1.0
 

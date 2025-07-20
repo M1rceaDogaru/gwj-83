@@ -25,6 +25,7 @@ class_name Player
 @export var level8_player_scale = 32.0
 @export var score_to_level9 = 9000
 @export var level9_player_scale = 55.0
+@export var score_to_level10 = 13000
 
 @export var bite_sounds : Array[Resource]
 
@@ -88,6 +89,9 @@ func try_grow() -> void:
 	elif level <= 8 and player_score >= score_to_level9:
 		level = 9
 		grow_to_scale(level9_player_scale)
+	elif level <= 9 and player_score >= score_to_level10:
+		level = 10
+		player_level_up.emit(level)
 
 func grow_to_scale(level_scale) -> void:
 	$GrowAudioStreamPlayer.play()
@@ -167,7 +171,7 @@ func get_input():
 	look_at(get_global_mouse_position())
 	var delta = get_global_mouse_position() - global_position
 	
-	# Flip sprite based on mouse direction
+	# Flip sprite based on move direction so that we always face up
 	$Sprite2D.flip_v = delta.x < 0
 	
 	# Move only if mouse is sufficiently far
