@@ -10,7 +10,7 @@ height = 13000.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxyed"]
 size = Vector2(10000, 2145.75)
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D2" type="Area2D"]
 script = ExtResource("1_xxyed")
 metadata/_edit_group_ = true
 metadata/IsFacingRight = true

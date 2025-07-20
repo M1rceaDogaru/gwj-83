@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drxeig60l4n6p"]
+
+[ext_resource type="Script" uid="uid://q38w3rbwfs1j" path="res://particles/shatter_chunk.gd" id="1_lyoxi"]
+
+[sub_resource type="Gradient" id="Gradient_puv5b"]
+colors = PackedColorArray(0.560784, 0.00392157, 0.00392157, 1, 0.560784, 0.00392157, 0.00392157, 0.364706)
+
+[node name="ShatterChunk" type="Node2D"]
+script = ExtResource("1_lyoxi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 15.0
+default_color = Color(0.560784, 0.00392157, 0.00392157, 1)
+gradient = SubResource("Gradient_puv5b")

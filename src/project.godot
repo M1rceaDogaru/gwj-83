@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.0784314, 0.133333, 0.25098, 1)
 config/icon="res://sprites/icon.svg"
 
+[autoload]
+
+Shatterer="*res://particles/shatterer.gd"
+
 [display]
 
 window/stretch/mode="viewport"

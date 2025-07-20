@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://do04foheh3c1q" path="res://mobs/dunkleosteus.tscn" id="10_lct0g"]
 [ext_resource type="PackedScene" uid="uid://bgrs148km24uc" path="res://mobs/ammonite.tscn" id="11_wnugf"]
 [ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
-[ext_resource type="PackedScene" uid="uid://eiktbpxhbwup" path="res://mobs/ichthyosaurus.tscn" id="13_xar17"]
+[ext_resource type="PackedScene" uid="uid://c707p4gvf0aw8" path="res://mobs/ichthyosaurus.tscn" id="13_xar17"]
 [ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="15_xar17"]
 [ext_resource type="Texture2D" uid="uid://d25cwbsajgbbq" path="res://sprites/Background/BG_Polish_closeUp.png" id="17_21p51"]
 [ext_resource type="Script" uid="uid://db7p0yr536t33" path="res://map/camera.gd" id="17_81obp"]

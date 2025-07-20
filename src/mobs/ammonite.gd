@@ -32,6 +32,7 @@ func _on_area_entered(area: Area2D) -> void:
 	var other_score = area.get_meta("Score")
 	var other_is_carnivorous = area.get_meta("IsCarnivorous")
 	if other_is_carnivorous and other_score >= npc_required_score_to_eat:
+		Shatterer.shatter($Sprite2D)
 		creature_die.emit(position)
 		queue_free()
 
@@ -40,6 +41,7 @@ func _on_body_entered(body: Node2D) -> void:
 		var player := body as Player
 		var player_score = player.get_meta("Score")
 		if player_score >= required_score_to_eat:
+			Shatterer.shatter($Sprite2D)
 			player.eat(score)
 			creature_die.emit(position)
 			queue_free()
