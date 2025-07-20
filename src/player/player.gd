@@ -165,7 +165,7 @@ func _ready():
 		trail_sprites.append(new_sprite)
 	
 	# Update only tail and 10th segment after initialization
-	update_only_special_segments()
+	update_segment_sprites()
 
 func get_input():
 	# Face toward mouse position
@@ -215,30 +215,17 @@ func _on_timer_timeout():
 	
 	# Remove oldest sprite if we have enough segments
 	if trail_sprites.size() >= trail_length:
-		# Before removing, reset any special texture to default
-		reset_old_special_textures()
 		if is_instance_valid(trail_sprites[0]):
 			trail_sprites[0].queue_free()
 		trail_sprites.pop_front()
 	
-	# Add new sprite to the end
 	trail_sprites.append(new_sprite)
-	
-	# Update ONLY the tail and 10th segments
-	update_only_special_segments()
+	update_segment_sprites()
 
-# Reset textures that are no longer special positions
-func reset_old_special_textures():
-	# Reset all textures to default except head
-	for i in range(0, trail_sprites.size()):
-		# Skip head sprite (last in array) and special segments
-		if i != 0 && i != 9: # 0 is tail, 9 is 10th segment
-			trail_sprites[i].texture = trail_texture
-
-# Update ONLY tail and 10th segment textures
-func update_only_special_segments():
+func update_segment_sprites():
 	if trail_sprites.size() > 0:
 		for i in range(0, trail_sprites.size()):
+			trail_sprites[i].texture = trail_texture
 			trail_sprites[i].scale = Vector2.ONE * trail_scale * (0.98 ** (trail_length-i))
 	
 	# Only update tail segment (index 0) if we have tail texture
@@ -248,12 +235,6 @@ func update_only_special_segments():
 	# Only update 10th segment (index 9) if we have middle texture
 	if trail_sprites.size() > 9 and middle_texture != null:
 		trail_sprites[9].texture = middle_texture
-
-# Public function to change textures at runtime
-func set_segment_textures(new_tail_texture: Texture2D, new_middle_texture: Texture2D):
-	tail_texture = new_tail_texture
-	middle_texture = new_middle_texture
-	update_only_special_segments()
 
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
