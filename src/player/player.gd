@@ -30,8 +30,9 @@ class_name Player
 @export var score_to_level10 = 13000
 
 @export var bite_sounds : Array[Resource]
-
 @export var hurt_sounds : Array[Resource]
+
+@export var middle_index = 19
 
 var trail_sprites = []                   # Stores generated trail sprites
 var last_rotation = 0                    # Stores last rotation angle
@@ -176,6 +177,8 @@ func get_input():
 	
 	# Flip sprite based on move direction so that we always face up
 	$Sprite2D.flip_v = delta.x < 0
+	for i in range(0, trail_sprites.size()):
+		trail_sprites[i].flip_v = delta.x < 0
 	
 	# Move only if mouse is sufficiently far
 	if delta.length() > mouse_lead:
@@ -230,13 +233,13 @@ func update_segment_sprites():
 			trail_sprites[i].texture = trail_texture
 			trail_sprites[i].scale = Vector2.ONE * trail_scale * (0.99 ** (trail_length-i))
 	
-	# Only update tail segment (index 0) if we have tail texture
+	trail_sprites[0].scale *= 1.19
+	
 	if trail_sprites.size() > 0 and tail_texture != null:
 		trail_sprites[0].texture = tail_texture
 	
-	# Only update 10th segment (index 9) if we have middle texture
-	if trail_sprites.size() > 9 and middle_texture != null:
-		trail_sprites[9].texture = middle_texture
+	if trail_sprites.size() > middle_index and middle_texture != null:
+		trail_sprites[middle_index].texture = middle_texture
 
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
