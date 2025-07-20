@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqwn6t8cp6gid"]
+[gd_scene load_steps=9 format=3 uid="uid://bqwn6t8cp6gid"]
 
+[ext_resource type="Script" uid="uid://cgq7m2jnrp3gr" path="res://splash/splash.gd" id="1_qfg8g"]
 [ext_resource type="Texture2D" uid="uid://di58x1a73lr2j" path="res://sprites/GWJ-Full-Logo-tag-Orange2.svg" id="1_ww06j"]
 [ext_resource type="Texture2D" uid="uid://du8vwh4h4ts4i" path="res://sprites/83-Consume.png" id="2_xgbyh"]
+[ext_resource type="FontFile" uid="uid://cj62u73tscu04" path="res://sprites/UI/SIXTY.TTF" id="3_m2kin"]
 [ext_resource type="Texture2D" uid="uid://dbfc7b8n4jxdt" path="res://sprites/stardust.png" id="3_qfg8g"]
-[ext_resource type="Texture2D" uid="uid://piobg6lxlx2j" path="res://sprites/trust-me-bro.png" id="4_m2kin"]
 [ext_resource type="Texture2D" uid="uid://bquna4j5px8ep" path="res://sprites/pen2paper.png" id="5_1lxnv"]
+[ext_resource type="Script" uid="uid://b7020m77t0aww" path="res://splash/fade.gd" id="6_xgbyh"]
 
 [sub_resource type="Environment" id="Environment_uqphl"]
 background_mode = 1
@@ -13,6 +15,35 @@ ambient_light_source = 2
 ambient_light_color = Color(0.0784314, 0.133333, 0.25098, 1)
 
 [node name="Splash" type="Node2D"]
+script = ExtResource("1_qfg8g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 104.0
+offset_right = 1151.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("3_m2kin")
+theme_override_font_sizes/font_size = 82
+text = "Paleozoic"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = -2.0
+offset_top = 219.0
+offset_right = 1152.0
+offset_bottom = 271.0
+theme_override_fonts/font = ExtResource("3_m2kin")
+theme_override_font_sizes/font_size = 36
+text = "A game by Kenny, John and Slingshot"
+horizontal_alignment = 1
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+script = ExtResource("6_xgbyh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uqphl")
@@ -21,26 +52,21 @@ environment = SubResource("Environment_uqphl")
 anchor_mode = 0
 
 [node name="gwj" type="Sprite2D" parent="."]
-position = Vector2(951, 208)
-scale = Vector2(0.376, 0.376)
+position = Vector2(939, 491)
+scale = Vector2(0.221, 0.221)
 texture = ExtResource("1_ww06j")
 
 [node name="consume" type="Sprite2D" parent="."]
-position = Vector2(363, 271)
+position = Vector2(580, 520)
 scale = Vector2(0.130857, 0.130857)
 texture = ExtResource("2_xgbyh")
 
 [node name="stardust" type="Sprite2D" parent="."]
-position = Vector2(171, 484)
-scale = Vector2(0.204963, 0.204963)
+position = Vector2(87, 488)
+scale = Vector2(0.137, 0.137)
 texture = ExtResource("3_qfg8g")
 
-[node name="trust" type="Sprite2D" parent="."]
-position = Vector2(408.366, 487.312)
-scale = Vector2(0.194498, 0.194498)
-texture = ExtResource("4_m2kin")
-
 [node name="penpaper" type="Sprite2D" parent="."]
-position = Vector2(647.366, 488.712)
-scale = Vector2(0.196824, 0.196824)
+position = Vector2(238, 488)
+scale = Vector2(0.137, 0.137)
 texture = ExtResource("5_1lxnv")
