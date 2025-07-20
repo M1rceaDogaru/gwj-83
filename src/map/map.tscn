@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=55 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -15,11 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
 [ext_resource type="PackedScene" uid="uid://c707p4gvf0aw8" path="res://mobs/ichthyosaurus.tscn" id="13_xar17"]
 [ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="15_xar17"]
-[ext_resource type="Texture2D" uid="uid://d25cwbsajgbbq" path="res://sprites/Background/BG_Polish_closeUp.png" id="17_21p51"]
 [ext_resource type="Script" uid="uid://db7p0yr536t33" path="res://map/camera.gd" id="17_81obp"]
 [ext_resource type="PackedScene" uid="uid://bdcwdybnqvdxt" path="res://ui/hud.tscn" id="17_w1ifk"]
+[ext_resource type="Texture2D" uid="uid://bx02pwfwpfb36" path="res://sprites/Background/BG_Open.png" id="18_81obp"]
 [ext_resource type="AudioStream" uid="uid://bl4g76317iygt" path="res://sfx/stageIntro.wav" id="18_sjjp3"]
 [ext_resource type="AudioStream" uid="uid://dotfeevqqc1v4" path="res://sfx/gameOver.wav" id="19_g0u07"]
+[ext_resource type="Texture2D" uid="uid://dalhk85oyn100" path="res://sprites/Background/BGEX_CEntre.png" id="19_gw5x3"]
 [ext_resource type="AudioStream" uid="uid://dd2bqd27i38fg" path="res://sfx/Canon_(2004)_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3" id="20_8lto5"]
 [ext_resource type="PackedScene" uid="uid://dytyjss83ii4e" path="res://particles/blood_particles.tscn" id="21_21p51"]
 [ext_resource type="AudioStream" uid="uid://bus4rq8jv6yu5" path="res://sfx/stageClear.wav" id="23_iqbtl"]
@@ -222,20 +223,26 @@ environment = SubResource("Environment_beun2")
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("17_81obp")
 
-[node name="Background2" type="Sprite2D" parent="."]
+[node name="Note" type="Sprite2D" parent="."]
 z_index = -100
 position = Vector2(-700, -500)
 scale = Vector2(100, 100)
 texture = ExtResource("4_lgq1i")
 
 [node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.752941)
 z_index = -100
-position = Vector2(-700, -500)
+position = Vector2(-865, -514)
 scale = Vector2(20, 20)
-texture = ExtResource("17_21p51")
+texture = ExtResource("18_81obp")
+
+[node name="Background_Centre" type="Sprite2D" parent="Background"]
+position = Vector2(-1.05, 0.200005)
+rotation = 6.46858e-05
+scale = Vector2(0.429601, 0.428229)
+texture = ExtResource("19_gw5x3")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
-metadata/Score = 3000
 
 [node name="MobTimer" type="Timer" parent="."]
 
