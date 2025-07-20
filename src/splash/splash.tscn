@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://bqwn6t8cp6gid"]
 
-[ext_resource type="Script" uid="uid://cgq7m2jnrp3gr" path="res://splash/splash.gd" id="1_qfg8g"]
+[ext_resource type="Script" path="res://splash/splash.gd" id="1_qfg8g"]
 [ext_resource type="Texture2D" uid="uid://di58x1a73lr2j" path="res://sprites/GWJ-Full-Logo-tag-Orange2.svg" id="1_ww06j"]
 [ext_resource type="Texture2D" uid="uid://du8vwh4h4ts4i" path="res://sprites/83-Consume.png" id="2_xgbyh"]
 [ext_resource type="FontFile" uid="uid://cj62u73tscu04" path="res://sprites/UI/SIXTY.TTF" id="3_m2kin"]
 [ext_resource type="Texture2D" uid="uid://dbfc7b8n4jxdt" path="res://sprites/stardust.png" id="3_qfg8g"]
 [ext_resource type="Texture2D" uid="uid://bquna4j5px8ep" path="res://sprites/pen2paper.png" id="5_1lxnv"]
-[ext_resource type="Script" uid="uid://b7020m77t0aww" path="res://splash/fade.gd" id="6_xgbyh"]
+[ext_resource type="Script" path="res://splash/fade.gd" id="6_xgbyh"]
 
 [sub_resource type="Environment" id="Environment_uqphl"]
 background_mode = 1
@@ -19,24 +19,14 @@ script = ExtResource("1_qfg8g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = -1.0
-offset_top = 104.0
-offset_right = 1151.0
-offset_bottom = 191.0
-theme_override_fonts/font = ExtResource("3_m2kin")
-theme_override_font_sizes/font_size = 82
-text = "Paleozoic"
-horizontal_alignment = 1
-
 [node name="Label2" type="Label" parent="CanvasLayer"]
 offset_left = -2.0
 offset_top = 219.0
 offset_right = 1152.0
 offset_bottom = 271.0
 theme_override_fonts/font = ExtResource("3_m2kin")
-theme_override_font_sizes/font_size = 36
-text = "A game by Kenny, John and Slingshot"
+theme_override_font_sizes/font_size = 60
+text = "A game by Kenny, Xiang and Slingshot"
 horizontal_alignment = 1
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
