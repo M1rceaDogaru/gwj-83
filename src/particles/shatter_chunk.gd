@@ -11,10 +11,10 @@ var angular_velocity := 0.0
 var trail_timer := 0.0
 
 func _ready():
-	trail = $Line2D.duplicate()
+	trail = $Line2DBlood.duplicate() if Shatterer.has_blood else $Line2DNoBlood.duplicate()
 	get_tree().current_scene.add_child(trail)
 	
-	sprite.modulate = Color.RED
+	sprite.modulate = Color.RED if Shatterer.has_blood else Color.DARK_GREEN
 	sprite.modulate.a = 1.0
 	trail.clear_points()
 

@@ -410,9 +410,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 492.3
-offset_top = 156.0
+offset_top = 136.0
 offset_right = 2167.3
-offset_bottom = 786.0
+offset_bottom = 766.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
@@ -432,9 +432,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1436.7
-offset_top = -2006.0
+offset_top = -2026.0
 offset_right = 419.3
-offset_bottom = -1638.0
+offset_bottom = -1658.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
@@ -457,9 +457,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 472.3
-offset_top = 294.0
+offset_top = 274.0
 offset_right = 672.3
-offset_bottom = 310.0
+offset_bottom = 290.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
@@ -479,9 +479,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1436.7
-offset_top = -1916.0
+offset_top = -1936.0
 offset_right = 251.3
-offset_bottom = -1548.0
+offset_bottom = -1568.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
@@ -502,9 +502,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 472.3
-offset_top = 384.0
+offset_top = 364.0
 offset_right = 672.3
-offset_bottom = 400.0
+offset_bottom = 380.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
@@ -524,9 +524,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1436.7
-offset_top = -1826.0
+offset_top = -1846.0
 offset_right = 50.3
-offset_bottom = -1458.0
+offset_bottom = -1478.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
@@ -547,9 +547,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 472.3
-offset_top = 474.0
+offset_top = 454.0
 offset_right = 672.3
-offset_bottom = 490.0
+offset_bottom = 470.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
@@ -562,6 +562,32 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 script = ExtResource("8_srpbi")
 audio_bus_name = "SFX"
+
+[node name="Blood" type="MarginContainer" parent="VolumeControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 408.0
+offset_top = 499.0
+offset_right = 570.0
+offset_bottom = 541.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2053, 2500)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CheckButton" type="CheckButton" parent="VolumeControl/Blood"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("4_7ihmi")
+theme_override_font_sizes/font_size = 32
+text = "BLOOD"
 
 [node name="SettingsCloseButton" type="Button" parent="VolumeControl"]
 layout_mode = 0
@@ -867,6 +893,7 @@ text = "Quit"
 [connection signal="value_changed" from="VolumeControl/MasterVolumeSlider/HSlider" to="VolumeControl/MasterVolumeSlider/HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="VolumeControl/BGMVolumeSlider/HSlider" to="VolumeControl/BGMVolumeSlider/HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="VolumeControl/SFXVolumeSlider/HSlider" to="VolumeControl/SFXVolumeSlider/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="VolumeControl/Blood/CheckButton" to="." method="_on_blood_button_toggled"]
 [connection signal="button_up" from="VolumeControl/SettingsCloseButton" to="." method="_on_settings_close_button_button_up"]
 [connection signal="button_up" from="GameOverRestart/Button" to="." method="_on_restart_button_up"]
 [connection signal="button_up" from="GameOverQuit/Button" to="." method="_on_quit_button_up"]

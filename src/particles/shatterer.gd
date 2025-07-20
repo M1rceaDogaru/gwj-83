@@ -1,5 +1,7 @@
 extends Node
 
+@export var has_blood := true
+
 @onready var shatter_chunk_scene = preload("res://particles/shatter_chunk.tscn")
 func shatter(sprite: Sprite2D):
 	var tex = sprite.texture

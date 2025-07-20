@@ -15,6 +15,10 @@ func _on_start_button_up() -> void:
 
 func _on_settings_open_button_button_up() -> void:
 	$VolumeControl.visible = true
+	$VolumeControl/Blood/CheckButton.button_pressed = Shatterer.has_blood
 
 func _on_settings_close_button_button_up() -> void:
 	$VolumeControl.visible = false
+
+func _on_blood_button_toggled(toggled_on: bool) -> void:
+	Shatterer.has_blood = toggled_on
