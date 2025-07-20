@@ -45,6 +45,11 @@ extends Node2D
 @export var level1_blood_particles_size = 30.0
 @export var level1_blood_particles_speed = 100.0
 
+@export var bubble_particles: PackedScene
+@export var level1_bubble_particles_size = 0.5
+@export var level1_bubble_particles_speed = 550.0
+@export var level1_bubble_particles_gravity = 50.0
+
 @export var base_camera_shake = 10
 
 var level = 1
@@ -82,6 +87,7 @@ func _ready() -> void:
 func start_game():
 	$StartAudioStreamPlayer.play()
 	$MobTimer.start()
+	$BubbleTimer.start()
 	$MobSpawnPathLeft.curve.set_point_position(0, level1_mob_spawn_path_left_point_positions[0])
 	$MobSpawnPathLeft.curve.set_point_position(1, level1_mob_spawn_path_left_point_positions[1])
 	$MobSpawnPathRight.curve.set_point_position(0, level1_mob_spawn_path_right_point_positions[0])
@@ -113,6 +119,36 @@ func zoom_camera(delta, final):
 	var zoom_result = max($Camera2D.zoom.x - delta, final)
 	$Camera2D.zoom = Vector2.ONE * zoom_result
 
+func _on_bubble_timer_timeout() -> void:
+	var bubble_spawn_position = Vector2(-1052 + randf() * 2104, 648)
+	spawn_bubble(bubble_spawn_position * current_zoom)
+	$BubbleTimer.wait_time = randi_range(15,20)
+
+func spawn_bubble(position):
+	var bubble = bubble_particles.instantiate() as GPUParticles2D
+	bubble.position = position
+
+	add_child(bubble)
+	
+	bubble.amount = randi_range(3,5)
+	var rand_size = level1_bubble_particles_size * current_zoom * randf_range(0.6, 1.2)
+	bubble.process_material.scale_min = rand_size
+	bubble.process_material.scale_max = rand_size
+	bubble.process_material.initial_velocity_min = level1_bubble_particles_speed * current_zoom
+	bubble.process_material.initial_velocity_max = level1_bubble_particles_speed * current_zoom
+	bubble.process_material.gravity = level1_bubble_particles_gravity * current_zoom * Vector3(0, -1, 0)
+
+func _on_creature_die(position):
+	var blood = blood_particles.instantiate() as GPUParticles2D
+	blood.position = position
+
+	add_child(blood)
+	
+	blood.process_material.scale_min = level1_blood_particles_size * current_zoom * 0.9
+	blood.process_material.scale_max = level1_blood_particles_size * current_zoom * 1.1
+	blood.process_material.initial_velocity_min = level1_blood_particles_speed * current_zoom * 0.9
+	blood.process_material.initial_velocity_max = level1_blood_particles_speed * current_zoom * 1.1
+
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob_to_spawn
@@ -141,17 +177,6 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
-
-func _on_creature_die(position):
-	var blood = blood_particles.instantiate() as GPUParticles2D
-	blood.position = position
-
-	add_child(blood)
-	
-	blood.process_material.scale_min = level1_blood_particles_size * current_zoom
-	blood.process_material.scale_max = level1_blood_particles_size * current_zoom
-	blood.process_material.initial_velocity_min = level1_blood_particles_speed * current_zoom
-	blood.process_material.initial_velocity_max = level1_blood_particles_speed * current_zoom
 
 func get_mobs() -> Array[MobSpawnConfig]:
 	var mobs

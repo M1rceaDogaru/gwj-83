@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://jywhfdqllonh"]
+
+[ext_resource type="Texture2D" uid="uid://86kwgc8utv1c" path="res://sprites/Particles/bubble.png" id="1_et6oc"]
+[ext_resource type="Script" uid="uid://o071r6lsyssp" path="res://particles/bubble_particles.gd" id="2_rb52s"]
+
+[sub_resource type="Curve" id="Curve_gyagv"]
+_data = [Vector2(0.0137741, 0.180496), 0.0, 0.0, 0, 0, Vector2(1, 0.628771), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_et6oc"]
+curve = SubResource("Curve_gyagv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rb52s"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, -1, 0)
+spread = 7.0
+initial_velocity_min = 550.0
+initial_velocity_max = 550.0
+gravity = Vector3(0, 50, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_et6oc")
+color = Color(1, 1, 1, 0.588235)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+emitting = false
+amount = 4
+texture = ExtResource("1_et6oc")
+lifetime = 4.0
+one_shot = true
+explosiveness = 0.88
+process_material = SubResource("ParticleProcessMaterial_rb52s")
+script = ExtResource("2_rb52s")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

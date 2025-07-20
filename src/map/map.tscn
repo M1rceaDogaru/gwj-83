@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c0680mc4c6jv2"]
+[gd_scene load_steps=56 format=3 uid="uid://c0680mc4c6jv2"]
 
 [ext_resource type="Script" uid="uid://critvh0h1jdov" path="res://map/map.gd" id="1_a0dt8"]
 [ext_resource type="PackedScene" uid="uid://10in5msak4tb" path="res://player/player.tscn" id="1_hgrid"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrs148km24uc" path="res://mobs/ammonite.tscn" id="11_wnugf"]
 [ext_resource type="PackedScene" uid="uid://b44yikllq3oky" path="res://mobs/helicoprion.tscn" id="13_w1ifk"]
 [ext_resource type="PackedScene" uid="uid://c707p4gvf0aw8" path="res://mobs/ichthyosaurus.tscn" id="13_xar17"]
+[ext_resource type="PackedScene" uid="uid://jywhfdqllonh" path="res://particles/bubble_particles.tscn" id="14_gw5x3"]
 [ext_resource type="PackedScene" uid="uid://cj687ngeao6r0" path="res://mobs/plesiosaurus.tscn" id="15_xar17"]
 [ext_resource type="Script" uid="uid://db7p0yr536t33" path="res://map/camera.gd" id="17_81obp"]
 [ext_resource type="PackedScene" uid="uid://bdcwdybnqvdxt" path="res://ui/hud.tscn" id="17_w1ifk"]
@@ -191,7 +192,7 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_4hjbm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1252, -548, 0, 0, 0, 0, 1252, 448)
+"points": PackedVector2Array(0, 0, 0, 0, 1052, 548, 0, 0, 0, 0, -1052, 548)
 }
 point_count = 2
 
@@ -212,6 +213,7 @@ level6_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_81obp"), SubR
 level7_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_8lto5"), SubResource("Resource_ofiht"), SubResource("Resource_05mli")])
 level8_mobs = Array[ExtResource("2_5jdw0")]([SubResource("Resource_de6fw"), SubResource("Resource_kb5w5"), SubResource("Resource_rqrn2")])
 blood_particles = ExtResource("21_21p51")
+bubble_particles = ExtResource("14_gw5x3")
 boss_creature = ExtResource("15_xar17")
 
 [node name="HUD" parent="." instance=ExtResource("17_w1ifk")]
@@ -243,9 +245,11 @@ scale = Vector2(0.429601, 0.428229)
 texture = ExtResource("19_gw5x3")
 
 [node name="Player" parent="." instance=ExtResource("1_hgrid")]
-metadata/Score = 3000
 
 [node name="MobTimer" type="Timer" parent="."]
+
+[node name="BubbleTimer" type="Timer" parent="."]
+wait_time = 15.0
 
 [node name="MobSpawnPathLeft" type="Path2D" parent="."]
 curve = SubResource("Curve2D_lgq1i")
@@ -258,8 +262,8 @@ rotation = -1.5708
 curve = SubResource("Curve2D_4hjbm")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPathRight"]
-position = Vector2(1252, -548)
-rotation = 1.5708
+position = Vector2(1052, 548)
+rotation = 3.14159
 
 [node name="OceanFloor" type="Node2D" parent="." groups=["OceanFloor"]]
 position = Vector2(0, 834)
@@ -303,3 +307,4 @@ rotates = false
 [connection signal="player_health_change" from="Player" to="." method="_on_player_player_health_change"]
 [connection signal="player_level_up" from="Player" to="." method="_on_player_player_level_up"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="BubbleTimer" to="." method="_on_bubble_timer_timeout"]
