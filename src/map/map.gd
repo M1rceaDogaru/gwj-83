@@ -244,20 +244,40 @@ func _on_player_player_health_change(cur_health: int) -> void:
 		$HUD/HeartContainer/Heart1.visible = false
 		$HUD/HeartContainer/Heart2.visible = false
 		$HUD/HeartContainer/Heart3.visible = false
+		$HUD/HeartContainer/Heart4.visible = false
+		$HUD/HeartContainer/Heart5.visible = false
 		
 		game_over()
 	elif cur_health == 1:
 		$HUD/HeartContainer/Heart1.visible = true
 		$HUD/HeartContainer/Heart2.visible = false
 		$HUD/HeartContainer/Heart3.visible = false
+		$HUD/HeartContainer/Heart4.visible = false
+		$HUD/HeartContainer/Heart5.visible = false
 	elif cur_health == 2:
 		$HUD/HeartContainer/Heart1.visible = true
 		$HUD/HeartContainer/Heart2.visible = true
 		$HUD/HeartContainer/Heart3.visible = false
+		$HUD/HeartContainer/Heart4.visible = false
+		$HUD/HeartContainer/Heart5.visible = false
 	elif cur_health == 3:
 		$HUD/HeartContainer/Heart1.visible = true
 		$HUD/HeartContainer/Heart2.visible = true
 		$HUD/HeartContainer/Heart3.visible = true
+		$HUD/HeartContainer/Heart4.visible = false
+		$HUD/HeartContainer/Heart5.visible = false
+	elif cur_health == 4:
+		$HUD/HeartContainer/Heart1.visible = true
+		$HUD/HeartContainer/Heart2.visible = true
+		$HUD/HeartContainer/Heart3.visible = true
+		$HUD/HeartContainer/Heart4.visible = true
+		$HUD/HeartContainer/Heart5.visible = false
+	elif cur_health == 5:
+		$HUD/HeartContainer/Heart1.visible = true
+		$HUD/HeartContainer/Heart2.visible = true
+		$HUD/HeartContainer/Heart3.visible = true
+		$HUD/HeartContainer/Heart4.visible = true
+		$HUD/HeartContainer/Heart5.visible = true
 
 func _on_hud_restart() -> void:
 	get_tree().reload_current_scene()
@@ -269,6 +289,7 @@ func _on_hud_start() -> void:
 	$HUD/GameStartBG.visible = false
 	$HUD/GameTitle.visible = false
 	$HUD/GameStart.visible = false
+	$HUD/GameDifficulty.visible = false
 	$HUD/GameQuit.visible = false
 	$HUD/SettingsOpenButton.visible = false
 	start_game()
@@ -355,3 +376,56 @@ func _on_player_player_level_up(level: int) -> void:
 		if boss and not $HUD/BossHud.visible:
 			$HUD/Progress.visible = false
 			$HUD/BossHud.visible = true
+
+var difficulty = 3
+
+func _on_hud_difficulty() -> void:
+	if difficulty == 5:
+		difficulty = 3
+		$HUD/GameDifficulty/Button.text = "Difficulty: Medium"
+		
+		$HUD/HeartContainer/Heart1.visible = true
+		$HUD/HeartContainer/Heart2.visible = true
+		$HUD/HeartContainer/Heart3.visible = true
+		$HUD/HeartContainer/Heart4.visible = false
+		$HUD/HeartContainer/Heart5.visible = false
+		
+		$HUD/HeartBGContainer/Heart1.visible = true
+		$HUD/HeartBGContainer/Heart2.visible = true
+		$HUD/HeartBGContainer/Heart3.visible = true
+		$HUD/HeartBGContainer/Heart4.visible = false
+		$HUD/HeartBGContainer/Heart5.visible = false
+		
+	elif difficulty == 3:
+		difficulty = 1
+		$HUD/GameDifficulty/Button.text = "Difficulty: Hard"
+		
+		$HUD/HeartContainer/Heart1.visible = true
+		$HUD/HeartContainer/Heart2.visible = false
+		$HUD/HeartContainer/Heart3.visible = false
+		$HUD/HeartContainer/Heart4.visible = false
+		$HUD/HeartContainer/Heart5.visible = false
+		
+		$HUD/HeartBGContainer/Heart1.visible = true
+		$HUD/HeartBGContainer/Heart2.visible = false
+		$HUD/HeartBGContainer/Heart3.visible = false
+		$HUD/HeartBGContainer/Heart4.visible = false
+		$HUD/HeartBGContainer/Heart5.visible = false
+		
+	elif difficulty == 1:
+		difficulty = 5
+		$HUD/GameDifficulty/Button.text = "Difficulty: Easy"
+		
+		$HUD/HeartContainer/Heart1.visible = true
+		$HUD/HeartContainer/Heart2.visible = true
+		$HUD/HeartContainer/Heart3.visible = true
+		$HUD/HeartContainer/Heart4.visible = true
+		$HUD/HeartContainer/Heart5.visible = true
+		
+		$HUD/HeartBGContainer/Heart1.visible = true
+		$HUD/HeartBGContainer/Heart2.visible = true
+		$HUD/HeartBGContainer/Heart3.visible = true
+		$HUD/HeartBGContainer/Heart4.visible = true
+		$HUD/HeartBGContainer/Heart5.visible = true
+		
+	$Player.set_max_health(difficulty)

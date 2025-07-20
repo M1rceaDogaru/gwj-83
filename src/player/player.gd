@@ -61,6 +61,10 @@ signal player_eat(score_after_eating: int)
 signal player_health_change(cur_health: int)
 signal player_level_up(level: int)
 
+func set_max_health(health: int):
+	max_health = health
+	cur_health = health
+
 func try_grow() -> void:
 	var player_score = get_meta("Score")
 	if level <= 1 and player_score >= score_to_level2:

@@ -286,6 +286,7 @@ position = Vector2(29370, 8389)
 rotation = 3.09261
 rotates = false
 
+[connection signal="difficulty" from="HUD" to="." method="_on_hud_difficulty"]
 [connection signal="quit" from="HUD" to="." method="_on_hud_quit"]
 [connection signal="restart" from="HUD" to="." method="_on_hud_restart"]
 [connection signal="start" from="HUD" to="." method="_on_hud_start"]

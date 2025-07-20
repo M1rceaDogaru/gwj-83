@@ -3,6 +3,7 @@ extends CanvasLayer
 signal restart()
 signal quit()
 signal start()
+signal difficulty()
 
 func _on_restart_button_up() -> void:
 	restart.emit()
@@ -12,6 +13,9 @@ func _on_quit_button_up() -> void:
 
 func _on_start_button_up() -> void:
 	start.emit()
+
+func _on_diffuculty_button_up() -> void:
+	difficulty.emit()
 
 func _on_settings_open_button_button_up() -> void:
 	$VolumeControl.visible = true
