@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://10in5msak4tb"]
+[gd_scene load_steps=12 format=3 uid="uid://10in5msak4tb"]
 
 [ext_resource type="Script" uid="uid://cjysx0ksm8bf3" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cmgb3mh3v3nyw" path="res://sprites/Leviathan/BodySegment.png" id="2_g1dw6"]
@@ -8,10 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://dyemqbrnnkrly" path="res://sfx/bite1.wav" id="4_yw30f"]
 [ext_resource type="AudioStream" uid="uid://d06njaum38xma" path="res://sfx/bite3.wav" id="5_rgyib"]
 [ext_resource type="AudioStream" uid="uid://gfpo2my76d8r" path="res://sfx/bite4.wav" id="6_hg6s5"]
-[ext_resource type="AudioStream" uid="uid://cmihn1771ogm5" path="res://sfx/isaac-hurt-#1-made-with-Voicemod.mp3" id="7_2ieo8"]
 [ext_resource type="AudioStream" uid="uid://c3swn6r8l0p6c" path="res://sfx/playerGrow.wav" id="7_rgyib"]
-[ext_resource type="AudioStream" uid="uid://dbq68m6pk8j88" path="res://sfx/isaac-hurt-#2-made-with-Voicemod.mp3" id="8_ebec5"]
-[ext_resource type="AudioStream" uid="uid://dtdgbnbirsfe7" path="res://sfx/isaac-hurt-#3-made-with-Voicemod.mp3" id="9_hg6s5"]
+[ext_resource type="AudioStream" uid="uid://cqk66djnnpryx" path="res://sfx/slap-hurt-pain-sound-effect.mp3" id="8_8t03j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
 radius = 30.0
@@ -22,7 +20,7 @@ script = ExtResource("1_rkbax")
 trail_texture = ExtResource("2_g1dw6")
 tail_texture = ExtResource("3_ebec5")
 bite_sounds = Array[Resource]([ExtResource("4_yw30f"), ExtResource("4_boad6"), ExtResource("5_rgyib"), ExtResource("6_hg6s5")])
-hurt_sounds = Array[Resource]([ExtResource("7_2ieo8"), ExtResource("8_ebec5"), ExtResource("9_hg6s5")])
+hurt_sounds = Array[Resource]([ExtResource("8_8t03j")])
 metadata/Score = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
