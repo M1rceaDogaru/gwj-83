@@ -11,6 +11,8 @@ func shatter(sprite: Sprite2D):
 
 	for y in range(grid_size):
 		for x in range(grid_size):
+			if randi() % 2 == 0:
+				continue
 			var chunk = shatter_chunk_scene.instantiate()
 			chunk.global_position = sprite.global_position + Vector2(x - grid_size / 2.0, y - grid_size / 2.0) * chunk_w * sprite.scale
 			get_tree().current_scene.add_child(chunk)
